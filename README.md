@@ -7,9 +7,12 @@ Projeto Integrador da Faculdade de <strong>Análise e Desenvolvimento de Sistema
 
 <p>
 <strong>Integrantes: </strong> <br>
-<ul>
-<li>Alan Silva dos Santos</li>
-
-</ul>
+    <ul>
+        <li>Alan Silva dos Santos</li>
+        <li>Arthur Solla Gregorut Favero</li>
+        <li>Jorge luiz dos Santos Oliveira</li>
+        <li>Rafael Astorga Trancozo</li>
+        <li>Vinicius Gava Pereira</li>
+    </ul>
 
 </p>
