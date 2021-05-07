@@ -4,3 +4,12 @@ Projeto Integrador da Faculdade de <strong>Análise e Desenvolvimento de Sistema
 <p>
 <strong>A Torre de Gnosis.</strong>
 </p>
+
+<p>
+<strong>Integrantes: </strong> <br>
+<ul>
+<li>Alan Silva dos Santos</li>
+
+</ul>
+
+</p>
