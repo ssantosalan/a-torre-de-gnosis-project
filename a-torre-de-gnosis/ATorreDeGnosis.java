@@ -1,29 +1,44 @@
+import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class ATorreDeGnosis {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	static int temp_dialog = 0, temp_questions = 15, temp_dialogSlow = 200, temp_dialogFast = 80, temp_dialogFaster = 30, ultra_Speed = 10,  temp_dotsSlow = 400, temp_dots = 200;
+	//Para não ter delay no jogo, coloque 0 em todas as variáveis acima.
+	//Valor das variáveis caso vc queira zerar em cima e rodar sem delay, mas posteriormente colocando o valor certo:
+	//temp_dialog = 50, temp_questions = 15, temp_dialogSlow = 200, temp_dialogFast = 80, temp_dialogFaster = 30, ultra_Speed = 10,  temp_dotsSlow = 400, temp_dots = 200;
+	
+	public static void main(String[] args) throws Exception{
+		Scanner entrada = new Scanner(System.in);
 		String opcao;
 		Boolean tacerto = false;
 
+		/*
+		 * Explicação dos próximos comandos:
+		 * 
+		 * O "do" vai iniciar o Menu do jogo. E vai continuar rodando até o cliente
+		 * escolher "1 - Jogar", "4- Capítulos" ou "5- Sair". Na opção "4 - Capítulos",
+		 * temos um "Switch" dentro que leva para o capítulo escolhido, ou o cliente
+		 * pode selecionar a opção "voltar" para retornar ao menu.
+		 */
+
 		do {
-			
-			System.out.println("1 - Instruções");
-			System.out.println("2 - Jogar");
+
+			System.out.println("1 - Jogar");
+			System.out.println("2 - Instruções");
 			System.out.println("3 - Créditos");
 			System.out.println("4 - Capítulos");
 			System.out.println("5 - Sair");
-			opcao = sc.next();
+			opcao = entrada.next();
 
 			switch (opcao) {
 			case "1":
-				System.out.println(
-						"Instruções: para realizar uma ação, escreva no console de texto. Por exemplo: andar para o sul.");
+				capitulo1();
+				tacerto = true;
 				break;
 			case "2":
-				tacerto = true;
-				System.out.println("O jogo não pode ser executado no momento.");
+				System.out.println("Instruções");
 				break;
 			case "3":
 				System.out.println("Roteiro por Alan Siva dos Santos");
@@ -31,72 +46,312 @@ public class ATorreDeGnosis {
 				System.out.println("Revisão por Alan Silva dos Santos");
 				System.out.println("Obrigado!");
 				break;
-				
-			case "4": 
-                System.out.println("1 - Capitulo 1");
-				System.out.println("2 - Capitulo 2");
-				System.out.println("3 - Capitulo 3");
-				System.out.println("4 - Capitulo 4");
-                 
-                System.out.println("Digite o capitulo desejado");
-                opcao = sc.next();
-                 
-                 switch(opcao){
-                     case "1":
-                         capitulo1();
-                         break;
-                     case "2":
-                         capitulo2();
-                         break;    
-                     case "3":
-                         capitulo3();
-                         break;
-                     case "4":
-                         capitulo4();
-                         break;    
-                 }
-				
-			case "5":
-					System.out.println("Jogo finalizado.");
-					System.exit(0);
+
+			case "4":
+				System.out.println("1 - Capítulo 1");
+				System.out.println("2 - Capítulo 2");
+				System.out.println("3 - Capítulo 3");
+				System.out.println("4 - Capítulo 4");
+				System.out.println("5 - Voltar ");
+				System.out.print("Digite o capítulo desejado: ");
+				opcao = entrada.next();
+
+				switch (opcao) {
+				case "1":
+					capitulo1();
+					tacerto = true;
 					break;
-			default: 
+				case "2":
+					capitulo2();
+					tacerto = true;
+					break;
+				case "3":
+					capitulo3();
+					tacerto = true;
+					break;
+				case "4":
+					capitulo4();
+					tacerto = true;
+					break;
+				case "5":
+					break;
+				default:
+					System.out.println("Entenda que você tem que digitar 1 ou 2 ou 3 ou 4 ou 5.");
+					break;
+				}
+				break;
+
+			case "5":
+				System.out.println("Jogo finalizado.");
+				System.exit(0);
+				break;
+			default:
 				System.out.println("Entenda que tem que digitar 1 ou 2 ou 3 ou 4 ou 5.");
+				break;
 			}
 
 		} while (!tacerto);
-		
+
 		System.out.println();
 		System.out.println();
+
 		
-		
-		sc.close();
 
 	}
+	//Capítulo 1 inicia-se aqui
+	public static void capitulo1() throws InterruptedException{
+		System.out.println();
+		System.out.println("Capítulo 1 inicia");
+		System.out.println();
+		Digita("Corra! \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Encontre ele! \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Vá depressa! \n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
+		Digita("	Você está invadindo o território de Zark, um dos países vizinhos de sua terra natal, Volstalir. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Ambos os reinos viviam um tenso período de paz. Após a morte do rei Alexander e da sucessão de seu filho Atreios. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Acordos mercadológicos começaram a ser cada vez mais desrespeitados por Zark e em resposta, às terras cedidas a Zark, foram retomadas à Volstalir. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		
+		Digita("	Após este evento, a tensão entre os dois reinos explodiu em disputas de territórios e lutas por pontos de suprimentos estratégicos. Agora você está invadindo \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("mais um desses pontos estratégicos: uma cidade de médio porte cercada por muros, que concentra boa parte das trocas comerciais entre os reinos de Zark. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		
+		Digita("	Você é Asulf, um general veterano de muitos conflitos, responsável por guiar as tropas que devem derrubar os muros do lado oeste da cidade \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("enquanto outra tropa é responsável por destruir os portões principais.  \n", TimeUnit.MILLISECONDS, temp_dialog);
+		
+		Digita("	Após horas de luta, sua tropa consegue rechaçar a resistência restante em terra e com a ajuda de aríetes, estão começando o processo de destruição do muro. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Senhor, senhor, temos um problema! \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Você vê um jovem soldado correndo em sua direção. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— O que foi jovem? \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Os portões senhor, os Zarkeanos abriram eles e soltaram a cavalaria e os cães! \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Você não espera que o soldado termine de falar e dispara em direção aos inimigos. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Quando chega no campo de batalha — um terreno plano de gramado verde — agora se sujo com o vermelho do sangue dos corpos e dos feridos. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Você percebe que além da cavalaria e dos cães, soldados que estavam na cidade também saíram para ajudar seus companheiros.  \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Um soldado vem em sua direção com a espada pronta para te acertar com um golpe. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
+		//Primeira luta começa aqui
+		Scanner entrada = new Scanner(System.in);
+		boolean vitoria = false; 		//Utilizado quando o Usuário vence do 'Computador' e sai do loop.
+		int hpUsuario = 100;          
+		int hpMonstro01 = 100;
+		String alternativa;
+		Random ataqueForca = new Random(); // Força do ataque dado por uma aleatoriedade.
+		int dano = 0; //dano causado pelo ataque.
+		int valor; //Valor gerado pela 'aleatoriedade'.
+
+		do {
+			System.out.println("====================                ====================");
+			System.out.println("Asulf   STATUS                           Soldado Zarkeano");
+			Digita(hpUsuario + " 💙", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			System.out.print("                                   ");
+			Digita(hpMonstro01 + " 🖤\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			System.out.println("       ESPECIAIS                     ");
+			System.out.println();
+			System.out.println("====================                ====================");
+
+			System.out.println("Escolha seu ataque");
+			System.out.println("1 - Ataque Cortante ⚔️ ");
+			
+			alternativa = entrada.next();
+
+			switch (alternativa) {
+			case "1":
+				valor = ataqueForca.nextInt(6);
+				if (valor == 0 || valor == 1 || valor == 2 || valor == 3) {
+					dano = ataqueForca.nextInt(20) + 100;
+					hpMonstro01 = hpMonstro01 - dano;
+					Digita("Sacando a sua espada, você acerta um corte no joelho dele, que cai sangrando e o deixando exposto para um golpe final nas costas! Dano " + dano + ".", TimeUnit.MILLISECONDS, temp_dialog);
+				} else if (valor == 4) {
+					dano = ataqueForca.nextInt(50) + 100;
+					hpMonstro01 = hpMonstro01 - dano;
+					Digita("Sacando a sua espada, você acerta um golpe fatal em seu pescoço, fazendo-o sangrar até a morte! Dano " + dano + ".", TimeUnit.MILLISECONDS, temp_dialog);
+				} else if (valor == 5) {
+					dano = ataqueForca.nextInt(60) + 100;
+					hpMonstro01 = hpMonstro01 - dano;
+					Digita("Sacando a sua espada, você dá um golpe em vertical em seu estômago, fazendo-o cair perante a ti! Dano " + dano + ".", TimeUnit.MILLISECONDS,
+							temp_dialog);
+				}
+				System.out.println();
+
+				if (hpMonstro01 <= 0) {
+					vitoria = true;
+					break;
+				} 
+				System.out.println();
+
+				break;
+			
+				
+			default:
+			}
+
+		} while (vitoria == false);
+		vitoria = false;
+		//Primeira luta termina aqui.
+		System.out.println();
+
+		Digita("Um Oficial Zarkeano vem em sua direção, montado em um cavalo em alta velocidade e tenta acertá-lo com a lança. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		       
+		int hpMonstro02 = 100; //Segundo inimigo começa aqui
+
+		do {
+			valor = ataqueForca.nextInt(2) + 1;
+			if (valor == 1) {
+				Digita("Ele tenta acertá-lo no peito com a ponta de sua lança, mas você desvia! Dano 0 ", TimeUnit.MILLISECONDS, temp_dialog);
+			} else if (valor == 2) {
+				Digita("Ele tenta acertá-lo na cabeça com a ponta de sua lança, mas você desvia! Dano 0", TimeUnit.MILLISECONDS,
+						temp_dialog);
+			}
+			System.out.println();
+			System.out.println("====================                ====================");
+			System.out.println("Asulf   STATUS                           Oficial Zarkeano");
+			Digita(hpUsuario + " 💙", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			System.out.print("                                   ");
+			Digita(hpMonstro02 + " 🖤\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			System.out.println("       ESPECIAIS                     ");
+			System.out.println();
+			System.out.println("====================                ====================");
+
+			System.out.println("Escolha seu ataque");
+			System.out.println("1 - Ataque Cortante ⚔️ ");
+			
+			alternativa = entrada.next();
+
+			switch (alternativa) {
+			case "1":
+				valor = ataqueForca.nextInt(5);
+				if (valor == 0 || valor == 1 || valor == 2 || valor == 3) {
+					dano = ataqueForca.nextInt(20) + 100;
+					hpMonstro02 = hpMonstro02 - dano;
+					Digita("Você atinge as pernas do cavalo com a espada, derrubando-os e deixando-os fora de combate! Dano " + dano + ".", TimeUnit.MILLISECONDS, temp_dialog);
+				} else if (valor == 4) {
+					dano = ataqueForca.nextInt(50) + 100;
+					hpMonstro02 = hpMonstro02 - dano;
+					Digita("Você acerta um golpe vertical embaixo o braço que segurava a lança, fazendo-o cair do morto! Dano " + dano + ".", TimeUnit.MILLISECONDS, temp_dialog);
+				} 
+				System.out.println();
+				if (hpMonstro02 <= 0) {
+					vitoria = true;
+					break;
+				} 
+				System.out.println();
+				break;	
+			default:
+			}
+
+		} while (vitoria == false);
+		vitoria = false;
+		//Segunda luta termina aqui
+		System.out.println();
+		
+		Digita("	Mais dois soldados vêm em sua direção, você os despacha de forma rápida. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Você vê um vulto — um cachorro — vem em sua direção! O animal tenta mordê-lo, mas fica apenas mordendo a sua braçadeira. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Asulf larga a espada e quebra o pescoço do animal, pegando sua arma do chão logo em seguida. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Você acerta-o com um golpe de espada em arco que pega seu focinho e arranca a mandíbula do animal. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Anton! — você berra. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Você olha ao redor e vê apenas a luta sangrenta que estourou no campo de batalha. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Os seus aliados matam e morrem para conseguir ter uma chance de invadir a cidade. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Utilizando golpes precisos você avança entre os seus inimigos em busca dele. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— “Onde diabos ele foi parar?” \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	A batalha continua por mais vinte minutos e gradualmente as forças inimigas que surpreenderam o seu exército começam a perder as forças e recuar. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita(" 	Você avista um pequeno grupo de quatro soldados cercando um garoto. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("No chão podem ser vistos cadáveres do que parece ter sido soldados que enfrentaram este menino. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	O garoto, agora surrado e sujo de sangue, usa uma armadura de couro com revestimento de uma cota de malha metálica, botas leves e um capacete \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("que cobre apenas a parte superior de seu rosto, começando pelo nariz e terminando em chifres colocados por ele mesmo. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Asulf dispara em direção à luta! \n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
+		
+		int hpMonstro03 = 100; //Terceiro inimigo começa aqui
+		do {
+			System.out.println();
+			System.out.println("====================                ====================");
+			System.out.println("Asulf   STATUS                           Grupo de Soldados Zarkeanos");
+			Digita(hpUsuario + " 💙", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			System.out.print("                                   ");
+			Digita(hpMonstro03 + " 🖤\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			System.out.print("                                   ");
+			Digita("	 100" + " 🖤\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			System.out.print("                                   ");
+			Digita("	 100" + " 🖤\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			System.out.print("                                   ");
+			Digita("	 100" + " 🖤\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			System.out.println("       ESPECIAIS                     ");
+			System.out.println();
+			System.out.println("====================                ====================");
+			System.out.println("Escolha seu ataque");
+			System.out.println("1 - Ataque Cortante ⚔️ ");
+			alternativa = entrada.next();
+			switch (alternativa) {
+			case "1":
+				hpMonstro03 = hpMonstro03 - 100;
+				Digita("Com a espada em mãos, você perfura as costas de um dos inimigos que estava virado para o menino! \n", TimeUnit.MILLISECONDS, temp_dialog);
+				Digita("Sua espada fica presa na armadura e no tronco do soldado. Você larga a arma e pula em direção do segundo soldado  \n", TimeUnit.MILLISECONDS, temp_dialog);
+				Digita("que ainda estava surpreso com o novo inimigo que despachou seu colega com tanta rapidez, e com suas próprias mãos, \n", TimeUnit.MILLISECONDS, temp_dialog);
+				Digita("você levanta o guerreiro, que assustado, berra, ao ser arremessado em cima de um dos seus colegas. \n", TimeUnit.MILLISECONDS, temp_dialog);
+				if (hpMonstro03 <= 0) {
+					vitoria = true;
+					break;
+				} 
+				break;	
+			default:
+			}
+
+		} while (vitoria == false);
+		vitoria = false;
+		//Terceiro inimigo (grupo de inimigos) acaba aqui
+		
+		Digita("	Faltando apenas um inimigo de pé após a sua chegada, o garoto aproveita a oportunidade para usar as suas adagas e \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("perfurar o último soldado em um dos pontos fracos de sua armadura \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Vendo que não tem mais chance, os dois soldados que estavam agora no chão, ajoelham-se e rendem-se. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Você não aprendeu nada, Anton? 一  Você exclama. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Quantas vezes não te falei para não se permitir ser cercado? \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Mas pai... Estava tudo sob controle! 一 Anton se defende. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Eu sabia que eles estavam atrás de mim! Já havia matado vários deles! \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Ele aponta para os cadáveres no chão e contando com os dois que acabaram de serem mortos, era possível contar seis corpos jogados no chão. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Eles estavam com medo pai! Estavam hesitando em me atacar! \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— E como você pode ter certeza disso? Ainda por cima fica utilizando estas adagas. — Asulf fala com desdém. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita(" 	— Essas lâminas são muito curtas. Você não pode ficar chegando tão perto do inimigo toda vez que for lutar com alguém.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita(" 	— Foi a mamãe que me ensinou a lutar assim! 一 Ele defende-se novamente, claramente irritado por ser criticado sobre sua forma de lutar. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Ela me ensinou a lutar desse jeito e estou indo muito bem assim! Eu estava bem! \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Pelos deuses, Anton! — Você faz uma pausa, falar de sua esposa sempre o chateia.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Usar essas armas, lutar desse jeito é muito perigoso. Você precisa seguir um estilo de luta que não vai te ameaçar sempre que for lutar. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	A discussão de vocês é interrompida quando você nota que o rosto de Anton tornou-se pálido. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita(" \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita(" \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita(" \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita(" \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita(" \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita(" \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita(" \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita(" \n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println("TO BE CONTINUED...");
+	}
+
+	public static void capitulo2() {
+		System.out.println();
+		System.out.println("Capítulo 2 inicia");
+
+	}
+
+	public static void capitulo3() {
+		System.out.println();
+		System.out.println("Capítulo 3 inicia");
+
+	}
+
+	public static void capitulo4() {
+		System.out.println();
+		System.out.println("Capítulo 4 inicia");
+
+	}
+
+
+
+
+	public static void Digita(String mensagem, TimeUnit unit, long tempo_mensagem) throws InterruptedException { //função para animar as letras.
+	    for (char caractere : mensagem.toCharArray()) {
+	    System.out.print(caractere);
+	    unit.sleep(tempo_mensagem);
+	    }
 	
-    public static void capitulo1(){
-        
-        System.out.println("Capitulo 1 inicia");
-    }
-    
-    public static void capitulo2(){
-    
-        System.out.println("Capitulo 2 inicia");
-    
-    }
-    
-    public static void capitulo3(){
-    
-        System.out.println("Capitulo 3 inicia");
-    
-    }
-    
-    public static void capitulo4(){
-    
-        System.out.println("Capitulo 4 inicia");
-    
-    }
-    
- }
-
-
+	}
+	
+}
