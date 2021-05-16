@@ -42,10 +42,11 @@ public class ATorreDeGnosis {
 				System.out.println("Instruções");
 				break;
 			case "3":
-				System.out.println("Roteiro por Alan Siva dos Santos");
-				System.out.println("Motor gráfico por Alan Silva dos Santos");
-				System.out.println("Revisão por Alan Silva dos Santos");
-				System.out.println("Obrigado!");
+				System.out.println("Alan Siva dos Santos");
+				System.out.println("Arthur Solla Gregorut Favero");
+				System.out.println("Jorge Luiz dos Santos Oliveira");
+				System.out.println("Rafael Astorga Trancozo!");
+				System.out.println("Vinicius Gava Pereira!");
 				break;
 
 			case "4":
