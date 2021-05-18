@@ -33,7 +33,7 @@ public class ATorreDeGnosis {
 			System.out.println("5 - Sair");
 			opcao = entrada.next();
 
-			switch (opcao) {
+			switch (opcao.toLowerCase()) {
 			case "1":
 				capitulo1();
 				tacerto = true;
@@ -53,12 +53,15 @@ public class ATorreDeGnosis {
 				System.out.println("1 - Capítulo 1: Pai e Filho");
 				System.out.println("2 - Capítulo 2: O Monge");
 				System.out.println("3 - Capítulo 3");
-				System.out.println("4 - Capítulo 4");
-				System.out.println("5 - Voltar ");
+				System.out.println("4 - Capítulo 4: 2º Andar - Portões de Fogo");
+				System.out.println("5 - Capítulo 5");
+				System.out.println("6 - Capítulo 6: 3º Andar - Anjos Caídos");
+				System.out.println("7 - Capítulo 7: 4º Andar - BOSS FIGHT - Would you kill your son?");
+				System.out.println("X - Voltar ");
 				System.out.print("Digite o capítulo desejado: ");
 				opcao = entrada.next();
 
-				switch (opcao) {
+				switch (opcao.toLowerCase()) {
 				case "1":
 					capitulo1();
 					tacerto = true;
@@ -76,6 +79,18 @@ public class ATorreDeGnosis {
 					tacerto = true;
 					break;
 				case "5":
+					capitulo5();
+					tacerto = true;
+					break;
+				case "6":
+					capitulo6();
+					tacerto = true;
+					break;
+				case "7":
+					capitulo7();
+					tacerto = true;
+					break;
+				case "x":
 					break;
 				default:
 					System.out.println("Entenda que você tem que digitar 1 ou 2 ou 3 ou 4 ou 5.");
@@ -418,7 +433,7 @@ public class ATorreDeGnosis {
 
 		} while (vitoria == false);
 		vitoria = false;
-		
+		//LUTA SIEGFRIED TERMINA AQUI
 		
 		Digita("	— Merda, Siegfried! Você deveria ter aceitado a maldita proposta! — Você diz segurando o seu companheiro de batalha. \n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Siegfried ri. Seu olhar parece estar longe, como se o que ele estivesse olhando para algo muito distante dali. \n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -452,7 +467,7 @@ public class ATorreDeGnosis {
 		Digita("sua localização: ele fica na colina mais alta da região.	\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Tentar chegar até os portões do lugar, só irá deixá-los expostos a troncos, flechas, óleo fervente e\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("qualquer outra coisa que os refugiados puderem arremessar em sua direção. De longe é possível avistar arqueiros preparados	\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("ara atirar em qualquer um que tentar subir.	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("para atirar em qualquer um que tentar subir.	\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	A estrutura do castelo é de pedra maciça, construída do mesmo material que os muros que defendiam a cidade.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Asulf já havia ouvido falar desta categoria de defesa, muito provavelmente o castelo está abastecido com\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("suprimentos para durar semanas, até mesmo meses.	\n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -474,7 +489,7 @@ public class ATorreDeGnosis {
 		Digita("Alguns monges seguram livros, outros seguram tochas acesas (mesmo estando de dia) e outros carregam \n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("espadas ainda dentro de suas bainhas.	\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Na frente, um homem velho e extremamente alto, provavelmente com 2,10 de altura e vestido com \n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("uma túnica monástica completamente branca.	Em suas mãos ele carrega uma gaiola com uma coruja, em \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("uma túnica monástica completamente branca. Em suas mãos ele carrega uma gaiola com uma coruja, em \n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("seu cinto é possível ver um chicote. Ele é o único dos homens que não está com o rosto coberto por um capuz.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("Seus olhos estão cobertos por ataduras, como se ele tivesse sofrido alguma espécie de ferimento nos globos oculares.	\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Você reconhece um problema, quando vê um. Principalmente este problema.	Estes monges fazem parte de uma\n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -590,7 +605,7 @@ public class ATorreDeGnosis {
 		Digita("	Mais rápido do que Asulf consegue pensar, o homem acerta um tapa com as costas da mão em Rurik.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("Arremessando ele até uma das casas mais próximas à direita. Rurik atravessa a porta da casa como se	\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("tivesse sido atirado de dentro de um canhão. A porta se arrebenta e \n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("ele cai em	cima de uma das mesas da casa — agora destruída pelo peso dele.	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("ele cai em cima de uma das mesas da casa — agora destruída pelo peso dele.	\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Os soldados ao redor congelam ao ver a cena. O homem gigante que antes sorria e festejava com os seus seguidores\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("agora havia arremessado um dos nossos companheiros como se não fosse nada.	\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Anton corre em socorro a Rurik que agora parecia não se mexer mais.\n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -738,15 +753,182 @@ public class ATorreDeGnosis {
 		
 	}
 
-	public static void capitulo3() {
+	public static void capitulo3() throws InterruptedException {
 		System.out.println();
 		System.out.println("Capítulo 3 inicia");
 
 	}
 
-	public static void capitulo4() {
+	public static void capitulo4() throws InterruptedException {
 		System.out.println();
 		System.out.println("Capítulo 4 inicia");
+
+	}
+	
+	public static void capitulo5() throws InterruptedException {
+		System.out.println();
+		System.out.println("Capítulo 5 inicia");
+
+	}
+	
+	public static void capitulo6() throws InterruptedException {
+		System.out.println();
+		System.out.println("Capítulo 6: 3º Andar - Anjos Caídos");
+		Scanner entrada = new Scanner(System.in);
+		
+		int cont = 0; //contador
+		boolean resp1v = false; //resposta certa
+		String resp1 = "2021", ex1;   //resposta do desafio
+		String alternativa; //escolha do jogador
+		boolean alternativaCerta = false; //para quando acertar a resposta
+		
+		
+		//CONEXÃO DO ANDAR ANTERIOR
+		
+		System.out.println();
+		System.out
+				.printf("        ____\r\n" + "       /    /\\____/ \\    /\\\r\n" + "      /\\   /   \\/    \\  / /\r\n"
+						+ "     / /   \\   /  / \\ \\/  \\\r\n" + "    /  \\   /   / /   \\     \\\r\n"
+						+ "    \\  /  /\\   \\/  \\  \\     \\\r\n" + "    /  \\/ \\ \\  / \\  \\/ \\    / \r\n"
+						+ "    \\     /  \\/   \\/   /   / \r\n" + "    /    /            /    \\\r\n"
+						+ "   /     /           /      \\\r\n" + "  /_____/____________\\_______\\");
+		System.out.println();
+		System.out.println();
+
+		System.out.println("1 - Entrar");
+
+		do {
+			alternativa = entrada.next();
+			switch (alternativa) {
+			case "1":
+				alternativaCerta = true;
+				break;
+			default:
+				Digita("Lembre-se... Lembre-se do seu filho...	\n", TimeUnit.MILLISECONDS, temp_dialog);
+				break;
+			}
+
+		} while (alternativaCerta != true);
+		alternativaCerta = false;
+		System.out.println();
+
+		Digita("	Após alguns metros de caminhada você olha para trás e percebe que não há mais a\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("entrada que você passou.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		
+		System.out.println();
+
+		System.out.println("1 - Seguir em frente");
+
+		do {
+			alternativa = entrada.next();
+			switch (alternativa) {
+			case "1":
+				alternativaCerta = true;
+				break;
+			default:
+				Digita("CONTINUE!! CONTINUE!!	\n", TimeUnit.MILLISECONDS, temp_dialog);
+				break;
+			}
+
+		} while (alternativaCerta != true);
+		alternativaCerta = false;
+		System.out.println();
+		
+		Digita("	Ao continuar o caminho estreito da caverna, Asulf vê uma luz roxa brilhante mais à\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("frente e pensa:	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— “Talvez seja a saída”.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Entrando onde essa luz roxa brilhava, ele se depara com o que parece ser uma sala\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("oval, formada por rochas e ametistas roxas. Ao centro dessa sala, parecia haver um painel	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("com pedras ametistas em uma coluna de um metro e meio.	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Observando o ambiente, Asulf percebe que não há mais por onde passar e\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("aproxima-se do painel.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		
+		System.out.println();
+		System.out.println("1 - Analisar pedras ametistas");
+
+		do {
+			alternativa = entrada.next();
+			switch (alternativa) {
+			case "1":
+				alternativaCerta = true;
+				break;
+			default:
+				Digita("Não erre... Pelo seu filho...	\n", TimeUnit.MILLISECONDS, temp_dialog);
+				break;
+			}
+
+		} while (alternativaCerta != true);
+		alternativaCerta = false;
+		System.out.println();
+		
+		Digita("	O painel é formado por letras e números. Neste painel há gravuras da linguagem\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Hexadecimal. Há uma história sendo contada. Tudo indica que há um ano em que os	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Deuses do Novo Mundo nascerão após passar por diversos desafios e eliminar o antigo	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("paradigma. Porém, os falsos profetas irão sucumbir em ruínas.	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Esse ano está escrito na linguagem Hexadecimal. Traduza 7E5(16) para a sua\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("língua (decimal), colocando as pedras ametistas no painel.	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		
+		System.out.println();
+		do {
+			System.out.print("Recite o ano informando-o na linguagem decimal(10): ");
+			ex1 = entrada.next();
+			if (ex1.equals(resp1)) {
+				resp1v = true;
+				cont++;
+			} else if (cont == 0) {
+				Digita("Você sente um leve tremor e nada acontece.\n", TimeUnit.MICROSECONDS, temp_dialogSlow);
+				cont++;
+			} else if (cont == 1) {
+				Digita("Você sente novamente o tremor e ele está mais forte.\n", TimeUnit.MICROSECONDS, temp_dialog);
+				cont = cont + 1;
+			} else if (cont == 2) {
+				Digita("A caverna treme muito agora e está prestes a desmoronar...\n", TimeUnit.MICROSECONDS,
+						temp_dialogFast);
+				cont = cont + 1;
+			} else if (cont == 3) {
+				Digita("	Tudo começa cair aos pedaços...\n", TimeUnit.MILLISECONDS, temp_dialog);
+				Digita("	Você já não enxerga mais, apenas sente a dor de pedras caindo em seu corpo. É uma dor agoniante... \n",
+						TimeUnit.MILLISECONDS, temp_dialog);
+				Digita("	Você morreu soterrado na caverna...!\n", TimeUnit.MILLISECONDS, temp_dialog);
+				Digita("	Seu filho nunca mais o encontrará...!\n", TimeUnit.MILLISECONDS, temp_dialog);
+				Digita("	Fim de jogo.\n", TimeUnit.MILLISECONDS, temp_dialog);
+				System.exit(0);
+
+			}
+
+		} while (!resp1v);
+		System.out.println();
+		Digita("	Após recitar e decifrar o enigma, a caverna começa a se mover. Um novo caminho se abre para você.",
+				TimeUnit.MICROSECONDS, temp_dialog);
+		
+		
+		
+		
+		
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		
+		
+	}
+	
+	
+	
+	public static void capitulo7() throws InterruptedException {
+		System.out.println();
+		System.out.println("Capítulo 7 inicia");
 
 	}
 
