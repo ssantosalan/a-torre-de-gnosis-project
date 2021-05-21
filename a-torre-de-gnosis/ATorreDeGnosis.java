@@ -6,7 +6,7 @@ public class ATorreDeGnosis {
 	//static int hpProtagonista = 100; variável global para o HP do protagonista
 	static Scanner entrada = new Scanner(System.in); //variável global
 	static int hpUsuario = 105, chamasNegras = 5, elixirDaVida = 15, sabedoriaDeOdin = 10; //vida global do protagonista e habilidades
-	static int temp_dialog = 50, temp_questions = 15, temp_dialogSlow = 200, temp_dialogFast = 80, temp_dialogFaster = 30, ultra_Speed = 10,  temp_dotsSlow = 400, temp_dots = 200;
+	static int temp_dialog = 0, temp_questions = 15, temp_dialogSlow = 200, temp_dialogFast = 80, temp_dialogFaster = 30, ultra_Speed = 10,  temp_dotsSlow = 400, temp_dots = 200;
 	//Para não ter delay no jogo, coloque 0 em todas as variáveis acima.
 	//Valor das variáveis caso vc queira zerar em cima e rodar sem delay, mas posteriormente colocando o valor certo:
 	//temp_dialog = 50, temp_questions = 15, temp_dialogSlow = 200, temp_dialogFast = 80, temp_dialogFaster = 30, ultra_Speed = 10,  temp_dotsSlow = 400, temp_dots = 200;
@@ -25,7 +25,8 @@ public class ATorreDeGnosis {
 		 */
 
 		do {
-
+			System.out.println("A Torre de Gnosis");
+			System.out.println();
 			System.out.println("1 - Jogar");
 			System.out.println("2 - Instruções");
 			System.out.println("3 - Créditos");
@@ -940,6 +941,8 @@ public class ATorreDeGnosis {
 		
 		boolean vitoria = false; 		//Utilizado quando o Usuário vence do 'Computador' e sai do loop.         
 		int hpValquiria01 = 1000;
+		int hpValquiria01Max = 1000; //Vida Máxima da Valquíria 01 (usado p/ quando ela se curar e não ficar acima da vida máxima)
+		int aumentaVida200 = 200;
 		int hpValquiria02 = 300;
 		int hpValquiria03 = 300;
 		Random ataqueForca = new Random(); // Força do ataque dado por uma aleatoriedade.
@@ -951,15 +954,15 @@ public class ATorreDeGnosis {
 			System.out.println("Asulf   STATUS                           Sigrun, a Rainha das Valquírias");
 			Digita(hpUsuario + " \uD83D\uDC99", TimeUnit.MILLISECONDS, temp_dialogSlow);
 			System.out.print("                                    ");
-			Digita(hpValquiria01 + " \uD83D\uDDA4\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			Digita("" + hpValquiria01 + "" + " \uD83D\uDDA4\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
 			System.out.println("                                         Olrun, a Veloz");
 			
 			System.out.print("                                          ");
-			Digita(hpValquiria02 + " \uD83D\uDDA4\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			Digita("" + hpValquiria02 + "" + " \uD83D\uDDA4\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
 			System.out.println("                                         Eir, a Defensora");
 			
 			System.out.print("                                          ");
-			Digita(hpValquiria03 + " \uD83D\uDDA4\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			Digita("" + hpValquiria03 + "" + " \uD83D\uDDA4\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
 			System.out.println("       ESPECIAIS                     ");
 			System.out.println("* Chamas Negras: " + chamasNegras + "/5");
 			System.out.println("* Elixir da Vida: " + elixirDaVida + "/15");
@@ -998,7 +1001,7 @@ public class ATorreDeGnosis {
 								Digita("Fraco! Dano " + dano + ".", TimeUnit.MILLISECONDS, temp_dialog);
 							}
 						} else if (valor == 1 || valor == 2 || valor == 3) {
-							dano = ataqueForca.nextInt(20) + 10;
+							dano = ataqueForca.nextInt(10) + 20;
 							hpValquiria01 = hpValquiria01 - dano;
 							Digita("O seu ataque não foi tão eficaz! Dano " + dano + ".", TimeUnit.MILLISECONDS, temp_dialog);
 						} else if (valor == 4 || valor == 5) {
@@ -1023,44 +1026,45 @@ public class ATorreDeGnosis {
 						//Ataque Valquíria
 						if (hpValquiria01 > 0) { 
 							valor = ataqueForca.nextInt(10) + 1;
-							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5) {
+							if (valor == 1 || valor == 2) {
 								Digita("Asulf desvia do ataque de Sigrun!", TimeUnit.MILLISECONDS, temp_dialog);
-							} else if (valor == 6 || valor == 7|| valor == 8 || valor == 9) {
-								dano = ataqueForca.nextInt(10) + 10;
+							} else if (valor == 3 || valor == 4 || valor == 5 || valor == 6) {
+								dano = ataqueForca.nextInt(5) + 5;
+								hpUsuario = hpUsuario - dano;	
+								Digita("|Sigrun| atira à distância suas penas! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);						
+							} else if (valor == 7|| valor == 8) {
+								dano = ataqueForca.nextInt(5) + 20;
 								hpUsuario = hpUsuario - dano;								
-								Digita("|Sigrun| \u2734\uFE0F Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
+								Digita("|Sigrun| Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
+										temp_dialog);	
+							} else if (valor == 9) {
+								dano = ataqueForca.nextInt(10) + 50;
+								hpUsuario = hpUsuario - dano;
+								Digita("|Sigrun| VALHALLA!!!!!!!!!!!! \u2734\uFE0F Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
 										temp_dialog);	
 							} else if (valor == 10) {
-								if (hpValquiria01 == 3000) {
+								if (hpValquiria01 == hpValquiria01Max) {
 									Digita("|Sigrun| errou o ataque!", TimeUnit.MILLISECONDS,
 											temp_dialog);
 								} else {
-									Digita("|Sigrun| se curou! \uD83D\uDDA4 Vida + 100", TimeUnit.MILLISECONDS,
+									Digita("|Sigrun| se curou! \uD83D\uDDA4 Vida + " + aumentaVida200, TimeUnit.MILLISECONDS,
 											temp_dialog);
-									hpValquiria01 = hpValquiria01 + 100;
-									if (hpValquiria01 > 3000) {
-										hpValquiria01 = 3000;
+									hpValquiria01 = hpValquiria01 + aumentaVida200;
+									if (hpValquiria01 > hpValquiria01Max) {
+										hpValquiria01 = hpValquiria01Max;
 									}
 								}
 							
-							} else if (valor == 10) {
-								dano = ataqueForca.nextInt(30) + 30;
-								hpUsuario = hpUsuario - dano;
-								
-								Digita("|Sigrun| usou Valhalla!!!! \u2734\uFE0F Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
-							
-							}
+							} 
 							System.out.println();
 							System.out.println();
 						}
 						if (hpValquiria02 > 0) {
 							valor = ataqueForca.nextInt(10) + 1; //Ataque Valquíria02
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5 || valor == 6) {
-								dano = ataqueForca.nextInt(10) + 1;
-								hpUsuario = hpUsuario - dano;
-								
-								Digita("|Olrun| te ataca com velocidade! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
-								
+								dano = ataqueForca.nextInt(5) + 8;
+								hpUsuario = hpUsuario - dano;	
+								Digita("|Olrun| te ataca com velocidade! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);							
 							} else {
 								Digita("Asulf desvia do ataque de Olrun!", TimeUnit.MILLISECONDS, temp_dialog);
 							}
@@ -1070,7 +1074,7 @@ public class ATorreDeGnosis {
 						if (hpValquiria03 > 0) { //ataque valquiria03
 							valor = ataqueForca.nextInt(10) + 1;
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4) {
-								dano = ataqueForca.nextInt(5) + 1;
+								dano = ataqueForca.nextInt(5) + 5;
 								hpUsuario = hpUsuario - dano;
 								
 								Digita("|Eir| te acerta com seu escudo! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
@@ -1085,7 +1089,7 @@ public class ATorreDeGnosis {
 					}
 						
 					if (hpUsuario <= 0) {
-						Digita("Insuficiente... Inútil...!", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Insuficiente... Inútil...!\n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Fim de jogo!", TimeUnit.MILLISECONDS, temp_dialog);
 						System.exit(0);
 					}
@@ -1132,13 +1136,16 @@ public class ATorreDeGnosis {
 						
 						if (hpValquiria01 > 0) { //ataque valquiria01
 							valor = ataqueForca.nextInt(10) + 1;
-							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5 || valor == 6
-									|| valor == 7 ) {
-								Digita("Asulf desvia do ataque de Sigrun!", TimeUnit.MILLISECONDS, temp_dialog);	
-							} else if (valor == 8 || valor == 9 ||valor == 10) {
-								dano = ataqueForca.nextInt(30) + 5;
+							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5) {
+								Digita("Asulf desvia do ataque de Sigrun!", TimeUnit.MILLISECONDS, temp_dialog);
+							} else if (valor == 6 || valor == 7 || valor == 8) {
+								dano = ataqueForca.nextInt(5) + 10;
+								hpUsuario = hpUsuario - dano;	
+								Digita("|Sigrun| se enfurece e vai para cima de Asulf! acertando uma sequência de socos! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);						
+							} else if (valor == 9 ||valor == 10) {
+								dano = ataqueForca.nextInt(5) + 20;
 								hpUsuario = hpUsuario - dano;
-								Digita("|Sigrun| te ataca com força! \u2734\uFE0F Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
+								Digita("|Sigrun| te ataca com força! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
 							}
 						}
 						System.out.println();
@@ -1146,7 +1153,7 @@ public class ATorreDeGnosis {
 						if (hpValquiria02 > 0) { //ataque valquiria02
 							valor = ataqueForca.nextInt(10) + 1;
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5) {
-								dano = ataqueForca.nextInt(10) + 1;
+								dano = ataqueForca.nextInt(5) + 8;
 								hpUsuario = hpUsuario - dano;
 								Digita("|Olrun| te ataca com velocidade! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
 							} else {
@@ -1158,7 +1165,7 @@ public class ATorreDeGnosis {
 						if (hpValquiria03 > 0) { //ataque valquiria03
 							valor = ataqueForca.nextInt(10) + 1;
 							if (valor == 1 || valor == 2 || valor == 3) {
-								dano = ataqueForca.nextInt(5) + 1;
+								dano = ataqueForca.nextInt(5) + 5;
 								hpUsuario = hpUsuario - dano;
 								Digita("|Eir| te acerta com seu escudo! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
 							} else {
@@ -1193,43 +1200,45 @@ public class ATorreDeGnosis {
 						vitoria = true;
 						break;
 					} else {
-						//Ataque Valquíria
 						if (hpValquiria01 > 0) { 
 							valor = ataqueForca.nextInt(10) + 1;
-							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5) {
+							if (valor == 1 || valor == 2) {
 								Digita("Asulf desvia do ataque de Sigrun!", TimeUnit.MILLISECONDS, temp_dialog);
-							} else if (valor == 6 || valor == 7|| valor == 8 || valor == 9) {
-								dano = ataqueForca.nextInt(10) + 10;
+							} else if (valor == 3 || valor == 4 || valor == 5 || valor == 6) {
+								dano = ataqueForca.nextInt(5) + 5;
+								hpUsuario = hpUsuario - dano;	
+								Digita("|Sigrun| atira à distância suas penas! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);						
+							} else if (valor == 7|| valor == 8) {
+								dano = ataqueForca.nextInt(5) + 20;
 								hpUsuario = hpUsuario - dano;								
-								Digita("|Sigrun| \u2734\uFE0F Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
+								Digita("|Sigrun| Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
+										temp_dialog);	
+							} else if (valor == 9) {
+								dano = ataqueForca.nextInt(10) + 50;
+								hpUsuario = hpUsuario - dano;
+								Digita("|Sigrun| VALHALLA!!!!!!!!!!!! \u2734\uFE0F Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
 										temp_dialog);	
 							} else if (valor == 10) {
-								if (hpValquiria01 == 3000) {
+								if (hpValquiria01 == hpValquiria01Max) {
 									Digita("|Sigrun| errou o ataque!", TimeUnit.MILLISECONDS,
 											temp_dialog);
 								} else {
-									Digita("|Sigrun| se curou! \uD83D\uDDA4 Vida + 100", TimeUnit.MILLISECONDS,
+									Digita("|Sigrun| se curou! \uD83D\uDDA4 Vida + " + aumentaVida200, TimeUnit.MILLISECONDS,
 											temp_dialog);
-									hpValquiria01 = hpValquiria01 + 100;
-									if (hpValquiria01 > 3000) {
-										hpValquiria01 = 3000;
+									hpValquiria01 = hpValquiria01 + aumentaVida200;
+									if (hpValquiria01 > hpValquiria01Max) {
+										hpValquiria01 = hpValquiria01Max;
 									}
 								}
 							
-							} else if (valor == 10) {
-								dano = ataqueForca.nextInt(30) + 30;
-								hpUsuario = hpUsuario - dano;
-								
-								Digita("|Sigrun| usou Valhalla!!!! \u2734\uFE0F Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
-							
-							}
+							} 
 							System.out.println();
 							System.out.println();
 						}
 						if (hpValquiria02 > 0) {
 							valor = ataqueForca.nextInt(10) + 1; //Ataque Valquíria02
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5 || valor == 6) {
-								dano = ataqueForca.nextInt(10) + 1;
+								dano = ataqueForca.nextInt(5) + 8;
 								hpUsuario = hpUsuario - dano;
 								
 								Digita("|Olrun| te ataca com velocidade! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
@@ -1243,7 +1252,7 @@ public class ATorreDeGnosis {
 						if (hpValquiria03 > 0) { //ataque valquiria03
 							valor = ataqueForca.nextInt(10) + 1;
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4) {
-								dano = ataqueForca.nextInt(5) + 1;
+								dano = ataqueForca.nextInt(5) + 5;
 								hpUsuario = hpUsuario - dano;
 								
 								Digita("|Eir| te acerta com seu escudo! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
@@ -1258,7 +1267,7 @@ public class ATorreDeGnosis {
 					}
 						
 					if (hpUsuario <= 0) {
-						Digita("Insuficiente... Inútil...!", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Insuficiente... Inútil...!\n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Fim de jogo!", TimeUnit.MILLISECONDS, temp_dialog);
 						System.exit(0);
 					}
@@ -1316,11 +1325,11 @@ public class ATorreDeGnosis {
 						if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5 || valor == 6) {					
 							Digita("Olrun desviou de seu ataque! Dano 0. ", TimeUnit.MILLISECONDS, temp_dialog);				
 						} else if (valor == 7 || valor == 8 || valor == 9) {
-							dano = ataqueForca.nextInt(20) + 10;
+							dano = ataqueForca.nextInt(10) + 20;
 							hpValquiria02 = hpValquiria02 - dano;
 							Digita("O seu ataque não foi tão eficaz! Dano " + dano + ".", TimeUnit.MILLISECONDS, temp_dialog);
 						} else if (valor == 10) {
-							dano = ataqueForca.nextInt(60) + 60;
+							dano = ataqueForca.nextInt(30) + 60;
 							hpValquiria02 = hpValquiria02 - dano;
 							Digita("O seu ataque foi eficaz! Dano " + dano + ".", TimeUnit.MILLISECONDS, temp_dialog);
 						} 
@@ -1340,40 +1349,43 @@ public class ATorreDeGnosis {
 						//Ataque Valquíria
 						if (hpValquiria01 > 0) { 
 							valor = ataqueForca.nextInt(10) + 1;
-							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5) {
+							if (valor == 1 || valor == 2) {
 								Digita("Asulf desvia do ataque de Sigrun!", TimeUnit.MILLISECONDS, temp_dialog);
-							} else if (valor == 6 || valor == 7|| valor == 8 || valor == 9) {
-								dano = ataqueForca.nextInt(10) + 10;
+							} else if (valor == 3 || valor == 4 || valor == 5 || valor == 6) {
+								dano = ataqueForca.nextInt(5) + 5;
+								hpUsuario = hpUsuario - dano;	
+								Digita("|Sigrun| atira à distância suas penas! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);						
+							} else if (valor == 7|| valor == 8) {
+								dano = ataqueForca.nextInt(5) + 20;
 								hpUsuario = hpUsuario - dano;								
-								Digita("|Sigrun| \u2734\uFE0F Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
+								Digita("|Sigrun| Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
+										temp_dialog);	
+							} else if (valor == 9) {
+								dano = ataqueForca.nextInt(10) + 50;
+								hpUsuario = hpUsuario - dano;
+								Digita("|Sigrun| VALHALLA!!!!!!!!!!!! \u2734\uFE0F Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
 										temp_dialog);	
 							} else if (valor == 10) {
-								if (hpValquiria01 == 3000) {
+								if (hpValquiria01 == hpValquiria01Max) {
 									Digita("|Sigrun| errou o ataque!", TimeUnit.MILLISECONDS,
 											temp_dialog);
 								} else {
-									Digita("|Sigrun| se curou! \uD83D\uDDA4 Vida + 100", TimeUnit.MILLISECONDS,
+									Digita("|Sigrun| se curou! \uD83D\uDDA4 Vida + " + aumentaVida200, TimeUnit.MILLISECONDS,
 											temp_dialog);
-									hpValquiria01 = hpValquiria01 + 100;
-									if (hpValquiria01 > 3000) {
-										hpValquiria01 = 3000;
+									hpValquiria01 = hpValquiria01 + aumentaVida200;
+									if (hpValquiria01 > hpValquiria01Max) {
+										hpValquiria01 = hpValquiria01Max;
 									}
 								}
 							
-							} else if (valor == 10) {
-								dano = ataqueForca.nextInt(30) + 30;
-								hpUsuario = hpUsuario - dano;
-								
-								Digita("|Sigrun| usou Valhalla!!!! \u2734\uFE0F Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
-							
-							}
+							} 
 							System.out.println();
 							System.out.println();
 						}
 						if (hpValquiria02 > 0) {
 							valor = ataqueForca.nextInt(10) + 1; //Ataque Valquíria02
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5 || valor == 6) {
-								dano = ataqueForca.nextInt(10) + 1;
+								dano = ataqueForca.nextInt(5) + 8;
 								hpUsuario = hpUsuario - dano;
 								
 								Digita("|Olrun| te ataca com velocidade! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
@@ -1387,7 +1399,7 @@ public class ATorreDeGnosis {
 						if (hpValquiria03 > 0) { //ataque valquiria03
 							valor = ataqueForca.nextInt(10) + 1;
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4) {
-								dano = ataqueForca.nextInt(5) + 1;
+								dano = ataqueForca.nextInt(5) + 5;
 								hpUsuario = hpUsuario - dano;
 								
 								Digita("|Eir| te acerta com seu escudo! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
@@ -1402,7 +1414,7 @@ public class ATorreDeGnosis {
 					}
 						
 					if (hpUsuario <= 0) {
-						Digita("Insuficiente... Inútil...!", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Insuficiente... Inútil...!\n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Fim de jogo!", TimeUnit.MILLISECONDS, temp_dialog);
 						System.exit(0);
 					}
@@ -1449,13 +1461,16 @@ public class ATorreDeGnosis {
 						
 						if (hpValquiria01 > 0) { //ataque valquiria01
 							valor = ataqueForca.nextInt(10) + 1;
-							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5 || valor == 6
-									|| valor == 7 ) {
-								Digita("Asulf desvia do ataque de Sigrun!", TimeUnit.MILLISECONDS, temp_dialog);	
-							} else if (valor == 8 || valor == 9 ||valor == 10) {
-								dano = ataqueForca.nextInt(30) + 5;
+							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5) {
+								Digita("Asulf desvia do ataque de Sigrun!", TimeUnit.MILLISECONDS, temp_dialog);
+							} else if (valor == 6 || valor == 7 || valor == 8) {
+								dano = ataqueForca.nextInt(5) + 10;
+								hpUsuario = hpUsuario - dano;	
+								Digita("|Sigrun| se enfurece e vai para cima de Asulf! acertando uma sequência de socos! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);						
+							} else if (valor == 9 ||valor == 10) {
+								dano = ataqueForca.nextInt(5) + 20;
 								hpUsuario = hpUsuario - dano;
-								Digita("|Sigrun| te ataca com força! \u2734\uFE0F Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
+								Digita("|Sigrun| te ataca com força! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
 							}
 						}
 						System.out.println();
@@ -1463,7 +1478,7 @@ public class ATorreDeGnosis {
 						if (hpValquiria02 > 0) { //ataque valquiria02
 							valor = ataqueForca.nextInt(10) + 1;
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5) {
-								dano = ataqueForca.nextInt(10) + 1;
+								dano = ataqueForca.nextInt(5) + 8;
 								hpUsuario = hpUsuario - dano;
 								Digita("|Olrun| te ataca com velocidade! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
 							} else {
@@ -1475,7 +1490,7 @@ public class ATorreDeGnosis {
 						if (hpValquiria03 > 0) { //ataque valquiria03
 							valor = ataqueForca.nextInt(10) + 1;
 							if (valor == 1 || valor == 2 || valor == 3) {
-								dano = ataqueForca.nextInt(5) + 1;
+								dano = ataqueForca.nextInt(5) + 5;
 								hpUsuario = hpUsuario - dano;
 								Digita("|Eir| te acerta com seu escudo! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
 							} else {
@@ -1513,40 +1528,43 @@ public class ATorreDeGnosis {
 						//Ataque Valquíria
 						if (hpValquiria01 > 0) { 
 							valor = ataqueForca.nextInt(10) + 1;
-							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5) {
+							if (valor == 1 || valor == 2) {
 								Digita("Asulf desvia do ataque de Sigrun!", TimeUnit.MILLISECONDS, temp_dialog);
-							} else if (valor == 6 || valor == 7|| valor == 8 || valor == 9) {
-								dano = ataqueForca.nextInt(10) + 10;
+							} else if (valor == 3 || valor == 4 || valor == 5 || valor == 6) {
+								dano = ataqueForca.nextInt(5) + 5;
+								hpUsuario = hpUsuario - dano;	
+								Digita("|Sigrun| atira à distância suas penas! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);						
+							} else if (valor == 7|| valor == 8) {
+								dano = ataqueForca.nextInt(5) + 20;
 								hpUsuario = hpUsuario - dano;								
-								Digita("|Sigrun| \u2734\uFE0F Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
+								Digita("|Sigrun| Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
+										temp_dialog);	
+							} else if (valor == 9) {
+								dano = ataqueForca.nextInt(10) + 50;
+								hpUsuario = hpUsuario - dano;
+								Digita("|Sigrun| VALHALLA!!!!!!!!!!!! \u2734\uFE0F Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
 										temp_dialog);	
 							} else if (valor == 10) {
-								if (hpValquiria01 == 3000) {
+								if (hpValquiria01 == hpValquiria01Max) {
 									Digita("|Sigrun| errou o ataque!", TimeUnit.MILLISECONDS,
 											temp_dialog);
 								} else {
-									Digita("|Sigrun| se curou! \uD83D\uDDA4 Vida + 100", TimeUnit.MILLISECONDS,
+									Digita("|Sigrun| se curou! \uD83D\uDDA4 Vida + " + aumentaVida200, TimeUnit.MILLISECONDS,
 											temp_dialog);
-									hpValquiria01 = hpValquiria01 + 100;
-									if (hpValquiria01 > 3000) {
-										hpValquiria01 = 3000;
+									hpValquiria01 = hpValquiria01 + aumentaVida200;
+									if (hpValquiria01 > hpValquiria01Max) {
+										hpValquiria01 = hpValquiria01Max;
 									}
 								}
 							
-							} else if (valor == 10) {
-								dano = ataqueForca.nextInt(30) + 30;
-								hpUsuario = hpUsuario - dano;
-								
-								Digita("|Sigrun| usou Valhalla!!!! \u2734\uFE0F Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
-							
-							}
+							} 
 							System.out.println();
 							System.out.println();
 						}
 						if (hpValquiria02 > 0) {
 							valor = ataqueForca.nextInt(10) + 1; //Ataque Valquíria02
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5 || valor == 6) {
-								dano = ataqueForca.nextInt(10) + 1;
+								dano = ataqueForca.nextInt(5) + 8;
 								hpUsuario = hpUsuario - dano;
 								
 								Digita("|Olrun| te ataca com velocidade! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
@@ -1560,7 +1578,7 @@ public class ATorreDeGnosis {
 						if (hpValquiria03 > 0) { //ataque valquiria03
 							valor = ataqueForca.nextInt(10) + 1;
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4) {
-								dano = ataqueForca.nextInt(5) + 1;
+								dano = ataqueForca.nextInt(5) + 5;
 								hpUsuario = hpUsuario - dano;
 								
 								Digita("|Eir| te acerta com seu escudo! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
@@ -1575,7 +1593,7 @@ public class ATorreDeGnosis {
 					}
 						
 					if (hpUsuario <= 0) {
-						Digita("Insuficiente... Inútil...!", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Insuficiente... Inútil...!\n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Fim de jogo!", TimeUnit.MILLISECONDS, temp_dialog);
 						System.exit(0);
 					}
@@ -1634,15 +1652,13 @@ public class ATorreDeGnosis {
 					
 						valor = ataqueForca.nextInt(10) + 1;//ataque do Protagonista
 						if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5 || valor == 6) {	
-							dano = ataqueForca.nextInt(10) + 10;
+							dano = ataqueForca.nextInt(5) + 5;
 							hpValquiria03 = hpValquiria03 - dano;
-							Digita("Asulf atacou Eir! Mas não parece que ela sentiu muita coisa! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);				
+							Digita("Asulf atacou Eir! Ela é bem resistente! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);				
 						} else if (valor == 7 || valor == 8 || valor == 9) {
-							dano = ataqueForca.nextInt(20) + 10;
-							hpValquiria03 = hpValquiria03 - dano;
-							Digita("O seu ataque não foi tão eficaz! Dano " + dano + ".", TimeUnit.MILLISECONDS, temp_dialog);
+							Digita("O seu ataque foi bloqueado pelo escudo de Eir! Dano 0.", TimeUnit.MILLISECONDS, temp_dialog);
 						} else if (valor == 10) {
-							dano = ataqueForca.nextInt(60) + 60;
+							dano = ataqueForca.nextInt(5) + 55;
 							hpValquiria03 = hpValquiria03 - dano;
 							Digita("O seu ataque foi eficaz! Dano " + dano + ".", TimeUnit.MILLISECONDS, temp_dialog);
 						} 
@@ -1662,40 +1678,43 @@ public class ATorreDeGnosis {
 						//Ataque Valquíria
 						if (hpValquiria01 > 0) { 
 							valor = ataqueForca.nextInt(10) + 1;
-							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5) {
+							if (valor == 1 || valor == 2) {
 								Digita("Asulf desvia do ataque de Sigrun!", TimeUnit.MILLISECONDS, temp_dialog);
-							} else if (valor == 6 || valor == 7|| valor == 8 || valor == 9) {
-								dano = ataqueForca.nextInt(10) + 10;
+							} else if (valor == 3 || valor == 4 || valor == 5 || valor == 6) {
+								dano = ataqueForca.nextInt(5) + 5;
+								hpUsuario = hpUsuario - dano;	
+								Digita("|Sigrun| atira à distância suas penas! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);						
+							} else if (valor == 7|| valor == 8) {
+								dano = ataqueForca.nextInt(5) + 20;
 								hpUsuario = hpUsuario - dano;								
-								Digita("|Sigrun| \u2734\uFE0F Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
+								Digita("|Sigrun| Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
+										temp_dialog);	
+							} else if (valor == 9) {
+								dano = ataqueForca.nextInt(10) + 50;
+								hpUsuario = hpUsuario - dano;
+								Digita("|Sigrun| VALHALLA!!!!!!!!!!!! \u2734\uFE0F Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
 										temp_dialog);	
 							} else if (valor == 10) {
-								if (hpValquiria01 == 3000) {
+								if (hpValquiria01 == hpValquiria01Max) {
 									Digita("|Sigrun| errou o ataque!", TimeUnit.MILLISECONDS,
 											temp_dialog);
 								} else {
-									Digita("|Sigrun| se curou! \uD83D\uDDA4 Vida + 100", TimeUnit.MILLISECONDS,
+									Digita("|Sigrun| se curou! \uD83D\uDDA4 Vida + " + aumentaVida200, TimeUnit.MILLISECONDS,
 											temp_dialog);
-									hpValquiria01 = hpValquiria01 + 100;
-									if (hpValquiria01 > 3000) {
-										hpValquiria01 = 3000;
+									hpValquiria01 = hpValquiria01 + aumentaVida200;
+									if (hpValquiria01 > hpValquiria01Max) {
+										hpValquiria01 = hpValquiria01Max;
 									}
 								}
 							
-							} else if (valor == 10) {
-								dano = ataqueForca.nextInt(30) + 30;
-								hpUsuario = hpUsuario - dano;
-								
-								Digita("|Sigrun| usou Valhalla!!!! \u2734\uFE0F Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
-							
-							}
+							} 
 							System.out.println();
 							System.out.println();
 						}
 						if (hpValquiria02 > 0) {
 							valor = ataqueForca.nextInt(10) + 1; //Ataque Valquíria02
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5 || valor == 6) {
-								dano = ataqueForca.nextInt(10) + 1;
+								dano = ataqueForca.nextInt(5) + 8;
 								hpUsuario = hpUsuario - dano;
 								
 								Digita("|Olrun| te ataca com velocidade! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
@@ -1709,7 +1728,7 @@ public class ATorreDeGnosis {
 						if (hpValquiria03 > 0) { //ataque valquiria03
 							valor = ataqueForca.nextInt(10) + 1;
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4) {
-								dano = ataqueForca.nextInt(5) + 1;
+								dano = ataqueForca.nextInt(5) + 5;
 								hpUsuario = hpUsuario - dano;
 								
 								Digita("|Eir| te acerta com seu escudo! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
@@ -1724,7 +1743,7 @@ public class ATorreDeGnosis {
 					}
 						
 					if (hpUsuario <= 0) {
-						Digita("Insuficiente... Inútil...!", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Insuficiente... Inútil...!\n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Fim de jogo!", TimeUnit.MILLISECONDS, temp_dialog);
 						System.exit(0);
 					}
@@ -1772,13 +1791,16 @@ public class ATorreDeGnosis {
 						
 						if (hpValquiria01 > 0) { //ataque valquiria01
 							valor = ataqueForca.nextInt(10) + 1;
-							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5 || valor == 6
-									|| valor == 7 ) {
-								Digita("Asulf desvia do ataque de Sigrun!", TimeUnit.MILLISECONDS, temp_dialog);	
-							} else if (valor == 8 || valor == 9 ||valor == 10) {
-								dano = ataqueForca.nextInt(30) + 5;
+							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5) {
+								Digita("Asulf desvia do ataque de Sigrun!", TimeUnit.MILLISECONDS, temp_dialog);
+							} else if (valor == 6 || valor == 7 || valor == 8) {
+								dano = ataqueForca.nextInt(5) + 10;
+								hpUsuario = hpUsuario - dano;	
+								Digita("|Sigrun| se enfurece e vai para cima de Asulf! acertando uma sequência de socos! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);						
+							} else if (valor == 9 ||valor == 10) {
+								dano = ataqueForca.nextInt(5) + 20;
 								hpUsuario = hpUsuario - dano;
-								Digita("|Sigrun| te ataca com força! \u2734\uFE0F Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
+								Digita("|Sigrun| te ataca com força! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
 							}
 						}
 						System.out.println();
@@ -1786,7 +1808,7 @@ public class ATorreDeGnosis {
 						if (hpValquiria02 > 0) { //ataque valquiria02
 							valor = ataqueForca.nextInt(10) + 1;
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5) {
-								dano = ataqueForca.nextInt(10) + 1;
+								dano = ataqueForca.nextInt(5) + 8;
 								hpUsuario = hpUsuario - dano;
 								Digita("|Olrun| te ataca com velocidade! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
 							} else {
@@ -1798,7 +1820,7 @@ public class ATorreDeGnosis {
 						if (hpValquiria03 > 0) { //ataque valquiria03
 							valor = ataqueForca.nextInt(10) + 1;
 							if (valor == 1 || valor == 2 || valor == 3) {
-								dano = ataqueForca.nextInt(5) + 1;
+								dano = ataqueForca.nextInt(5) + 5;
 								hpUsuario = hpUsuario - dano;
 								Digita("|Eir| te acerta com seu escudo! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
 							} else {
@@ -1836,40 +1858,44 @@ public class ATorreDeGnosis {
 						//Ataque Valquíria
 						if (hpValquiria01 > 0) { 
 							valor = ataqueForca.nextInt(10) + 1;
-							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5) {
+							if (valor == 1 || valor == 2) {
 								Digita("Asulf desvia do ataque de Sigrun!", TimeUnit.MILLISECONDS, temp_dialog);
-							} else if (valor == 6 || valor == 7|| valor == 8 || valor == 9) {
-								dano = ataqueForca.nextInt(10) + 10;
+							} else if (valor == 3 || valor == 4 || valor == 5 || valor == 6) {
+								dano = ataqueForca.nextInt(5) + 5;
+								hpUsuario = hpUsuario - dano;	
+								Digita("|Sigrun| atira à distância suas penas! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);						
+							} else if (valor == 7|| valor == 8) {
+								dano = ataqueForca.nextInt(5) + 20;
 								hpUsuario = hpUsuario - dano;								
-								Digita("|Sigrun| \u2734\uFE0F Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
+								Digita("|Sigrun| Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
+										temp_dialog);	
+							} else if (valor == 9) {
+								dano = ataqueForca.nextInt(10) + 50;
+								hpUsuario = hpUsuario - dano;
+								Digita("|Sigrun| VALHALLA!!!!!!!!!!!! \u2734\uFE0F Lança Divina Amaldiçoada! Dano " + dano, TimeUnit.MILLISECONDS,
 										temp_dialog);	
 							} else if (valor == 10) {
-								if (hpValquiria01 == 3000) {
+								if (hpValquiria01 == hpValquiria01Max) {
 									Digita("|Sigrun| errou o ataque!", TimeUnit.MILLISECONDS,
 											temp_dialog);
 								} else {
-									Digita("|Sigrun| se curou! \uD83D\uDDA4 Vida + 100", TimeUnit.MILLISECONDS,
+									Digita("|Sigrun| se curou! \uD83D\uDDA4 Vida + " + aumentaVida200, TimeUnit.MILLISECONDS,
 											temp_dialog);
-									hpValquiria01 = hpValquiria01 + 100;
-									if (hpValquiria01 > 3000) {
-										hpValquiria01 = 3000;
+									hpValquiria01 = hpValquiria01 + aumentaVida200;
+									if (hpValquiria01 > hpValquiria01Max) {
+										hpValquiria01 = hpValquiria01Max;
 									}
 								}
 							
-							} else if (valor == 10) {
-								dano = ataqueForca.nextInt(30) + 30;
-								hpUsuario = hpUsuario - dano;
-								
-								Digita("|Sigrun| usou Valhalla!!!! \u2734\uFE0F Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
+							} 
 							
-							}
 							System.out.println();
 							System.out.println();
 						}
 						if (hpValquiria02 > 0) {
 							valor = ataqueForca.nextInt(10) + 1; //Ataque Valquíria02
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5 || valor == 6) {
-								dano = ataqueForca.nextInt(10) + 1;
+								dano = ataqueForca.nextInt(5) + 8;
 								hpUsuario = hpUsuario - dano;
 								
 								Digita("|Olrun| te ataca com velocidade! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
@@ -1883,7 +1909,7 @@ public class ATorreDeGnosis {
 						if (hpValquiria03 > 0) { //ataque valquiria03
 							valor = ataqueForca.nextInt(10) + 1;
 							if (valor == 1 || valor == 2 || valor == 3 || valor == 4) {
-								dano = ataqueForca.nextInt(5) + 1;
+								dano = ataqueForca.nextInt(5) + 5;
 								hpUsuario = hpUsuario - dano;
 								
 								Digita("|Eir| te acerta com seu escudo! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
@@ -1898,7 +1924,7 @@ public class ATorreDeGnosis {
 					}
 						
 					if (hpUsuario <= 0) {
-						Digita("Insuficiente... Inútil...!", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Insuficiente... Inútil...!\n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Fim de jogo!", TimeUnit.MILLISECONDS, temp_dialog);
 						System.exit(0);
 					}
