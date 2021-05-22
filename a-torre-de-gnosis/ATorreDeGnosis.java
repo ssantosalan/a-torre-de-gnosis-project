@@ -2065,8 +2065,8 @@ public class ATorreDeGnosis {
 		System.out.println();
 		Digita("	Após recitar e decifrar o enigma, a caverna começa a se mover. Um novo caminho se abre.\n",
 				TimeUnit.MICROSECONDS, temp_dialog);
-		Digita("	Asulf nota que há um pergaminho na boca de umas das valquírias. Ele aproxima-se.\n", TimeUnit.MILLISECONDS, temp_dialog);
-		
+		Digita("Asulf nota que há um pergaminho na boca de umas das valquírias. Ele aproxima-se.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
 		do {
 			System.out.println("1 - Pegar pergaminho");
 			alternativa = entrada.next();
@@ -3147,7 +3147,95 @@ public class ATorreDeGnosis {
 		vitoria = false;
 		
 		System.out.println();
+		Digita("	Derrotando a trindade das valquírias, Asulf segue seu pelo caminho que tinha se\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("aberto. Asulf avista uma uma ponte de concreto à sua frente. A ponte é impecável, sem\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("nenhum defeito. Embaixo da ponte, um abismo que não se enxergava nada. Do outro lado\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("da ponte, um portão enorme de concreto. À frente do portão, totens de madeira.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Há gravuras nesses totens. Encontre o único totem diferente e coloque-o na posição\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("correta.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
+		int contador = 0;
+		do { //Início do desafio do totem
+			System.out.println();
+			int[][] matriz = new int[4][5];
+			 matriz[0][0] = 0;
+			 matriz[1][0] = 0;
+			 matriz[2][0] = 1;
+			 matriz[3][0] = 0;
+			 
+			 matriz[0][1] = 0;
+			 matriz[1][1] = 1;
+			 matriz[2][1] = 0;
+			 matriz[3][1] = 0;
+	
+			 matriz[0][2] = 0;
+			 matriz[1][2] = 1;
+			 matriz[2][2] = 1;
+			 matriz[3][2] = 0;
+			 
+			 matriz[0][3] = 1;
+			 matriz[1][3] = 0;
+			 matriz[2][3] = 0;
+			 matriz[3][3] = 0;
+			 
+			 matriz[0][4] = 0;
+			 matriz[1][4] = 1;
+			 matriz[2][4] = 1;
+			 matriz[3][4] = 1;
+			 
+			 for (int vetor[] : matriz) {
+					for (int item: vetor) {
+						System.out.print("[" + item +"]" + "\t");
+					}
+					System.out.println();
+				}
+			System.out.println(" A       B       C       D       E");
+			
+			System.out.println("\nQual totem é diferente e está na posição errada? ");
+			System.out.print("\nAlternativa: ");
+			alternativa = entrada.next();
+			
+			switch (alternativa.toUpperCase()) {
+			case "A":
+				Digita("	\nLembre-se dos ensinamentos de Lógos...\n", TimeUnit.MILLISECONDS, temp_dialog);
+				contador++;
+				break;
+			case "B":
+				Digita("	\nLembre-se da linguagem dos Iluminados...\n", TimeUnit.MILLISECONDS, temp_dialog);
+				contador++;
+				break;
+			case "C":
+				Digita("	\nLembre-se dos ensinamentos de Lógos e da linguagem dos iluminados...\n", TimeUnit.MILLISECONDS, temp_dialog);
+				contador++;
+				break;
+			case "D":
+				Digita("	\nLembre-se de Binários...\n", TimeUnit.MILLISECONDS, temp_dialog);
+				break;
+			case "E": //alternativa correta
+				alternativaCerta = true;
+				break;
+			default:
+				System.out.println("\nInforme ou 'A' ou 'B' ou 'C' ou 'D' ou 'E'.");
+			}
+		} while (alternativaCerta == false && contador  < 2);
 		
+		if (alternativaCerta == false) {
+			System.out.println("Asulf ativa erroneamente o dispositivo dos totens e a caverna começa a tremer...");
+			System.out.println("Asulf corre...");
+			System.out.println("Mas pouco a pouco, pedras e mais pedras começam a cair no chão.");
+			System.out.println("Não há por onde fugir...");
+			System.out.println("Esmagado.... ");
+			System.out.println("Enterrado pela caverna...");
+			System.out.println("Nunca mais verá a luz...");
+			System.out.println("Nunca mais verá o seu filho...");
+			System.out.println("Fim de jogo.");
+			System.exit(0);
+		} 
+		
+		//fim do desafio do totem
+		
+		
+		System.out.println("\nTo be continued");
 		
 		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
