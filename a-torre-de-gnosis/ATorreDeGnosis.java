@@ -25,7 +25,9 @@ public class ATorreDeGnosis {
 		 */
 
 		do {
-			System.out.println("A Torre de Gnosis");
+			System.out.println("=================");
+			System.out.println("A Torre de Gnosis ");
+			System.out.println("=================");
 			System.out.println();
 			System.out.println("1 - Jogar");
 			System.out.println("2 - Instruções");
@@ -41,6 +43,11 @@ public class ATorreDeGnosis {
 				break;
 			case "2":
 				System.out.println("Instruções");
+				System.out.println();
+				System.out.println("O jogo é baseado em escolhas.");
+				System.out.println("Você terá que informar ou '1' ou '2' ou '3' ou '4' ou '5' de acordo com as opções.");
+				System.out.println("Também haverá momentos em que você deverá informar ou 'a' ou 'b' ou 'c' ou 'd' ou 'e' de acordo com as opções.");
+				System.out.println();
 				break;
 			case "3":
 				System.out.println("Alan Siva dos Santos");
@@ -436,7 +443,7 @@ public class ATorreDeGnosis {
 		//LUTA SIEGFRIED TERMINA AQUI
 		
 		Digita("	— Merda, Siegfried! Você deveria ter aceitado a maldita proposta! — Você diz segurando o seu companheiro de batalha. \n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("	Siegfried ri. Seu olhar parece estar longe, como se o que ele estivesse olhando para algo muito distante dali. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Siegfried ri. Seu olhar parece estar longe, como se ele estivesse olhando para algo muito distante dali. \n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	— Tudo bem, Asulf... nós dois tínhamos uma missão. Pelo menos eu morri lutando e não envenenado ou esfaqueado pelas costa. — Ele diz. \n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	— Fica calmo, Siegfried... eu vou chamar um curandeiro para você, eles vão te remendar!\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	— Está tudo bem, Asulf. — Ele tenta te acalmar — Por favor, só me dá um tempo... só me dá...\n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -837,8 +844,11 @@ public class ATorreDeGnosis {
 		Digita("	Entrando onde essa luz roxa brilhava, ele se depara com o que parece ser uma sala\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("oval, formada por rochas e ametistas roxas. Ao centro dessa sala, parecia haver um painel	\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("com pedras ametistas em uma coluna de um metro e meio. A sala possuía três estátuas de\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("valquírias — deidades femininas que serviam Odin — segurando espadas longas\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("apontadas para o chão ao redor do painel.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("valquírias — deidades femininas que serviam Odin. Uma, de acordo com a  gravura na\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("estátua, chama-se Eir e segurava um escudo enorme. Outra chama-se Olrun e possuía\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("armadura leve e asas notáveis. A mais notável entre elas, era Sigrun. De acordo com as\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("gravuras, ela era a Rainha das Valquírias. Elas estavam segurando espadas longas que\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("apontavam para o chão ao redor do painel.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Observando o ambiente, Asulf percebe que não há mais por onde passar e\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("aproxima-se do painel.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println();
@@ -915,7 +925,9 @@ public class ATorreDeGnosis {
 		} while (alternativaCerta != true);
 		alternativaCerta = false;
 		System.out.println();
-		Digita("----------------- Sabedoria de Odin OBTIDA -----------------\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("=================|                          |=================\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("-----------------| Sabedoria de Odin OBTIDA |-----------------\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("=================|                          |=================\n", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println();
 		System.out.println();
 
@@ -942,7 +954,7 @@ public class ATorreDeGnosis {
 		boolean vitoria = false; 		//Utilizado quando o Usuário vence do 'Computador' e sai do loop.         
 		int hpValquiria01 = 1000;
 		int hpValquiria01Max = 1000; //Vida Máxima da Valquíria 01 (usado p/ quando ela se curar e não ficar acima da vida máxima)
-		int aumentaVida200 = 200;
+		int aumentaVida200 = 200; //variável utilizada para aumentar a vida da valquíria01 - Sigrun
 		int hpValquiria02 = 300;
 		int hpValquiria03 = 300;
 		Random ataqueForca = new Random(); // Força do ataque dado por uma aleatoriedade.
@@ -952,9 +964,9 @@ public class ATorreDeGnosis {
 		do {
 			System.out.println("====================                ====================");
 			System.out.println("Asulf   STATUS                           Sigrun, a Rainha das Valquírias");
-			Digita(hpUsuario + " \uD83D\uDC99", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			Digita(""+ hpUsuario + "" + " \uD83D\uDC99", TimeUnit.MILLISECONDS, temp_dialogSlow);
 			System.out.print("                                    ");
-			Digita("" + hpValquiria01 + "" + " \uD83D\uDDA4\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			Digita(" " + hpValquiria01 + " " + "\uD83D\uDDA4\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
 			System.out.println("                                         Olrun, a Veloz");
 			
 			System.out.print("                                          ");
