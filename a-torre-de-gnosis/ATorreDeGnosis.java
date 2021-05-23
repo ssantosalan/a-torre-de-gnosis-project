@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ATorreDeGnosis {
 	static Scanner entrada = new Scanner(System.in); //variável global de entrada
-	static int hpUsuario = 105, chamasNegras = 5, elixirDaVida = 15, sabedoriaDeOdin = 10; //vida global do protagonista e habilidades
+	static int hpUsuario = 110, chamasNegras = 5, elixirDaVida = 15, sabedoriaDeOdin = 10; //vida global do protagonista e habilidades
 	static int temp_dialog = 0, temp_questions = 15, temp_dialogSlow = 200, temp_dialogFast = 80, temp_dialogFaster = 30, ultra_Speed = 10,  temp_dotsSlow = 400, temp_dots = 200;
 	//Para não ter delay no jogo, coloque 0 em todas as variáveis acima.
 	//Valor das variáveis caso vc queira zerar em cima e rodar sem delay, mas posteriormente colocando o valor certo:
@@ -20,9 +20,9 @@ public class ATorreDeGnosis {
 		/*
 		 * Explicação dos próximos comandos:
 		 * 
-		 * O "do" vai iniciar o Menu do jogo. E vai continuar rodando até o cliente
+		 * O "do" vai iniciar o Menu do jogo. E vai continuar rodando até o Usuário
 		 * escolher "1 - Jogar", "4- Capítulos" ou "5- Sair". Na opção "4 - Capítulos",
-		 * temos um "Switch" dentro que leva para o capítulo escolhido, ou o cliente
+		 * temos um "Switch" dentro que leva para o capítulo escolhido, ou o Usuário
 		 * pode selecionar a opção "voltar" para retornar ao menu.
 		 */
 
@@ -49,6 +49,7 @@ public class ATorreDeGnosis {
 				System.out.println("O jogo é baseado em escolhas.");
 				System.out.println("Você terá que informar ou '1' ou '2' ou '3' ou '4' ou '5' de acordo com as opções.");
 				System.out.println("Também haverá momentos em que você deverá informar ou 'a' ou 'b' ou 'c' ou 'd' ou 'e' de acordo com as opções.");
+				System.out.println("Também haverá momentos que terá a opção para digitar 'X' para 'voltar'.");
 				System.out.println();
 				break;
 			case "3":
@@ -236,7 +237,7 @@ public class ATorreDeGnosis {
 			System.out.println("====================                ====================");
 
 			System.out.println("Escolha seu ataque");
-			System.out.println("1 - Ataque Cortante ⚔️ ");
+			System.out.println("1 - Ataque Cortante \u2694\uFE0F ");
 			
 			alternativa = entrada.next();
 
@@ -302,7 +303,7 @@ public class ATorreDeGnosis {
 			System.out.println();
 			System.out.println("====================                ====================");
 			System.out.println("Escolha seu ataque");
-			System.out.println("1 - Ataque Cortante ⚔️ ");
+			System.out.println("1 - Ataque Cortante \u2694\uFE0F ");
 			alternativa = entrada.next();
 			switch (alternativa) {
 			case "1":
@@ -407,7 +408,7 @@ public class ATorreDeGnosis {
 			System.out.println("====================                ====================");
 
 			System.out.println("Escolha seu ataque");
-			System.out.println("1 - Ataque Cortante ⚔️ ");
+			System.out.println("1 - Ataque Cortante \u2694\uFE0F ");
 			
 			alternativa = entrada.next();
 
@@ -470,15 +471,15 @@ public class ATorreDeGnosis {
 		System.out.println("Capítulo 2: O Monge");
 		Digita("	Os próximos dias se provaram mais arrastados do que Asulf esperava.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Antes de vocês conseguirem invadir a cidade, os soldados que estavam nela organizaram boa parte da nobreza,\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("população e guerreiros restantes e os levaram ao castelo principal da região.	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("população e guerreiros restantes e os levaram ao castelo principal da região.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Analisando o local, você percebe como ele foi pensado para ser uma verdadeira fortaleza, começando por\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("sua localização: ele fica na colina mais alta da região.	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("sua localização: ele fica na colina mais alta da região.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Tentar chegar até os portões do lugar, só irá deixá-los expostos a troncos, flechas, óleo fervente e\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("qualquer outra coisa que os refugiados puderem arremessar em sua direção. De longe é possível avistar arqueiros preparados	\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("para atirar em qualquer um que tentar subir.	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("para atirar em qualquer um que tentar subir.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	A estrutura do castelo é de pedra maciça, construída do mesmo material que os muros que defendiam a cidade.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Asulf já havia ouvido falar desta categoria de defesa, muito provavelmente o castelo está abastecido com\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("suprimentos para durar semanas, até mesmo meses.	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("suprimentos para durar semanas, até mesmo meses.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	A invasão havia sido planejada para retomar a cidade a seu antigo território.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Asulf envia um mensageiro à Volstalir para avisar sobre a invasão bem sucedida e pedir suprimentos para um cerco que\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("pode durar alguns meses, até que os refugiados no castelo fiquem sem mantimentos e não vejam escolha além de se renderem.	\n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -1286,7 +1287,7 @@ public class ATorreDeGnosis {
 		System.out.println();
 		
 		boolean vitoria = false; 		//Utilizado quando o Usuário vence do 'Computador' e sai do loop.         
-		int hpMonstro = 500;
+		int hpMonstro = 500; //Vida do Monge Corrompido
 		Random ataqueForca = new Random(); // Força do ataque dado por uma aleatoriedade.
 		int dano = 0; //dano causado pelo ataque.
 		int valor; //Valor gerado pela 'aleatoriedade'.
@@ -1361,7 +1362,11 @@ public class ATorreDeGnosis {
 					}
 				}
 				if (hpUsuario <= 0) {
-					System.err.println("Fim de Jogo. ");
+					System.out.println();
+					Digita("Até mesmo o Primeiro Andar é demais para você...", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Derrotado pelo Monge Corrompido... Ele utiliza o seu corpo morto para corromper os Portões de Fogo...", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Asulf torna-se uma marionete morta...", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Fim de jogo. ", TimeUnit.MILLISECONDS, temp_dialog);
 
 					System.exit(0);
 				}
@@ -1419,7 +1424,11 @@ public class ATorreDeGnosis {
 				}
 				
 				if (hpUsuario <= 0) {
-					System.err.println("Fim de Jogo. ");
+					System.out.println();
+					Digita("Até mesmo o Primeiro Andar é demais para você...", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Derrotado pelo Monge Corrompido... Ele utiliza o seu corpo morto para corromper os Portões de Fogo...", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Asulf torna-se uma marionete morta...", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Fim de jogo. ", TimeUnit.MILLISECONDS, temp_dialog);
 
 					System.exit(0);
 				}
@@ -2110,7 +2119,7 @@ public class ATorreDeGnosis {
 		
 		boolean vitoria = false; 		//Utilizado quando o Usuário vence do 'Computador' e sai do loop.         
 		int hpValquiria01 = 1000;
-		int hpValquiria01Max = 1000; //Vida Máxima da Valquíria 01 (usado p/ quando ela se curar e não ficar acima da vida máxima)
+		int hpValquiria01Max = 1000; //Vida Máxima da Valquíria 01 (usado p/ quando ela se curar e sua vida não ficar acima da vida máxima)
 		int aumentaVida200 = 200; //variável utilizada para aumentar a vida da valquíria01 - Sigrun
 		int hpValquiria02 = 300;
 		int hpValquiria03 = 300;
@@ -2149,6 +2158,7 @@ public class ATorreDeGnosis {
 			System.out.println("Escolha seu ataque");
 			System.out.println("1 - Ataque Cortante \u2694\uFE0F      3 - Elixir da vida  \u2764\uFE0F");
 			System.out.println("2 - Chamas Negras \uD83D\uDD25        4 - Sabedoria de Odin \u26A1");
+			System.out.println("X - Voltar");
 			alternativa = entrada.next();
 
 			switch (escolha) {
