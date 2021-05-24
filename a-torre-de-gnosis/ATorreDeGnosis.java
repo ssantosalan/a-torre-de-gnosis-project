@@ -7,11 +7,62 @@ import java.util.concurrent.TimeUnit;
 
 public class ATorreDeGnosis {
 	static Scanner entrada = new Scanner(System.in); //variável global de entrada
-	static int hpUsuario = 110, chamasNegras = 5, elixirDaVida = 15, sabedoriaDeOdin = 10; //vida global do protagonista e habilidades
-	static int temp_dialog = 0, temp_questions = 15, temp_dialogSlow = 200, temp_dialogFast = 80, temp_dialogFaster = 30, ultra_Speed = 10,  temp_dotsSlow = 400, temp_dots = 200;
+	static int hpUsuario = 100, chamasNegras = 10, elixirDaVida = 15, sabedoriaDeOdin = 5; //vida global do protagonista e habilidades
+	static int temp_dialog = 0, temp_questions = 0, temp_dialogSlow = 0, temp_dialogFast = 0, temp_dialogFaster = 0, ultra_Speed = 0,  temp_dotsSlow = 0, temp_dots = 0;
 	//Para não ter delay no jogo, coloque 0 em todas as variáveis acima.
 	//Valor das variáveis caso vc queira zerar em cima e rodar sem delay, mas posteriormente colocando o valor certo:
 	//temp_dialog = 50, temp_questions = 15, temp_dialogSlow = 200, temp_dialogFast = 80, temp_dialogFaster = 30, ultra_Speed = 10,  temp_dotsSlow = 400, temp_dots = 200;
+	
+	static boolean chamasNegrasStatus = false, elixirDaVidaStatus = false, sabedoriaDeOdinStatus = false; //Status que aparecerão no 'imprimirMenuStatus'
+	static void imprimirMenuStatus(boolean chamasNegrasStatus, boolean elixirDaVidaStatus, boolean sabedoriaDeOdinStatus) throws InterruptedException {
+		System.out.println();
+		System.out.println("====================");
+		System.out.println("Asulf   STATUS");
+		Digita(hpUsuario + " \uD83D\uDC99", TimeUnit.MILLISECONDS, temp_dialogSlow);
+		System.out.println();
+		System.out.println("       ESPECIAIS                     ");
+		System.out.println();
+		if (chamasNegrasStatus == true) {
+			System.out.println("* Chamas Negras: " + chamasNegras + "/10");
+		}
+		if (elixirDaVidaStatus == true) {
+			System.out.println("* Elixir da Vida: " + elixirDaVida + "/15");
+		}
+		if (sabedoriaDeOdinStatus == true) {
+			System.out.println("* Sabedoria de Odin: " + sabedoriaDeOdin + "/5");
+		}
+		System.out.println("====================");
+		System.out.println();
+	}
+	
+	static void descricaoDosAtaquesStatus(boolean ChamasNegrasStatus, boolean elixirDaVidaStatus, boolean sabedoriaDeOdinStatus) throws InterruptedException {
+		System.out.println();
+		System.out.println("	Ataque Cortante \u2694\uFE0F ");
+		System.out.println("Utilizando uma espada de lâmina afiada, Asulf aproxima-se do oponente e desfere um ataque de Dano Físico.");
+		System.out.println("A eficácia do Ataque Cortante varia conforme a força do inimigo.");
+		System.out.println("Ao aproxima-se do inimigo, Asulf fica mais propenso a tomar dano.");
+		System.out.println();
+		if (chamasNegrasStatus == true) {
+			System.out.println("	Chamas Negras \uD83D\uDD25 ");
+			System.out.println("Conjurando as Chamas Negras, Asulf lança poderosas chamas que irão perseguir o inimigo até atingi-lo. ");
+			System.out.println("Chamas Negras causa 100 de Dano Mágico e também contém altíssimas chances de causar Dano Crítico.");
+			System.out.println();
+		}
+		if (elixirDaVidaStatus == true) {
+			System.out.println("	Elixir da vida \u2764\uFE0F");
+			System.out.println("Ao aprender a manipular a Alquimia, Asulf cria uma poção do Elixir da vida.");
+			System.out.println("Essa poção sempre cura 75 de vida.");
+			System.out.println();
+		}
+		if (sabedoriaDeOdinStatus == true) {
+			System.out.println("	Sabedoria de Odin \u26A1");
+			System.out.println("Ao ler escritos antigos, Asulf aprende a utilizar uma Sabedoria Divina.");
+			System.out.println("Sabedoria de Odin possui 100% de precisão e o deixa invunerável a ataques de inimigos.");
+			System.out.println("Sabedoria de Odin causa 100 de Dano Mágico e também possui uma altíssima chance de causar Dano Crítico.");
+		}
+			
+		
+	}
 	
 	public static void main(String[] args) throws Exception{
 		String opcao;
@@ -443,7 +494,7 @@ public class ATorreDeGnosis {
 		} while (vitoria == false);
 		vitoria = false;
 		//LUTA SIEGFRIED TERMINA AQUI
-		
+		System.out.println();
 		Digita("	— Merda, Siegfried! Você deveria ter aceitado a maldita proposta! — Você diz segurando o seu companheiro de batalha. \n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Siegfried ri. Seu olhar parece estar longe, como se ele estivesse olhando para algo muito distante dali. \n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	— Tudo bem, Asulf... nós dois tínhamos uma missão. Pelo menos eu morri lutando e não envenenado ou esfaqueado pelas costa. — Ele diz. \n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -462,6 +513,46 @@ public class ATorreDeGnosis {
 		Digita("	Você se vira em direção da batalha. \n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	— Vamos tomar essa cidade!! \n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	 \n", TimeUnit.MILLISECONDS, temp_dialog);
+		
+		boolean alternativaCerta = false;
+		boolean alternativaVoltar = false; //criada para 'voltar' o menu.
+		
+		do {
+			imprimirMenuStatus(chamasNegrasStatus, elixirDaVidaStatus, sabedoriaDeOdinStatus); //vai imprimir o Status contendo HP e Especiais
+			
+			System.out.println("1 - Continuar para o Capítulo 2: O Monge");
+			System.out.println("2 - Descrição dos Ataques");
+			alternativa = entrada.next();
+			System.out.println();
+			switch (alternativa) {
+			case "1":				
+				alternativaCerta = true;
+				break;	
+			case "2": 
+				
+				do {
+					descricaoDosAtaquesStatus(chamasNegrasStatus, elixirDaVidaStatus, sabedoriaDeOdinStatus);
+					System.out.println();
+					System.out.println("X - Voltar");
+					alternativa = entrada.next();				
+					switch (alternativa.toLowerCase()) {
+					case "x":
+						alternativaVoltar = true; //utilizado para 'Voltar' o menu.
+						break;
+					default:
+						break;
+					}
+				} while (alternativaVoltar == false);
+				
+				break;
+			default:
+				System.out.println("Tenha confiança.");
+				System.out.println("");
+				break;
+			}
+			
+		} while (alternativaCerta != true);
+		alternativaCerta = false;	
 		
 		capitulo2();
 	}
@@ -759,15 +850,19 @@ public class ATorreDeGnosis {
 		Digita("espada e a levanta, te puxando junto com ela. Asulf larga a espada, saca uma faca\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("que guarda em seu cinto e tenta mais uma vez acertar o homem porém a faca ao\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("encostar no estômago dele, simplesmente rasga a sua roupa. A sensação é que Asulf\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("tentou esfaquear uma parede de pedras maciças.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("tentou esfaquear uma parede de pedras maciças. Dano 0\n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
 		Digita("	Agora um dos generais berra para que seus guerreiros avancem contra o\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("homem e seus servos e ao fazer isso um dos homens vestidos de vermelho que\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("segurava um livro, começa a se contorcer, como se houvesse algo em sua barriga.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("Assim que os soldados sacam as suas armas, o monge abre a boca e baratas\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("voadoras saem dela em direção dos soldados, instaurando pânico nos seus\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("companheiros.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
 		Digita("	No meio do caos o sacerdote acerta um chute em seu peito, tirando por\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("completo seu fôlego e arremessando-o para trás com uma força estarrecedora.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("completo seu fôlego e arremessando-o para trás com uma força estarrecedora. Dano 20\n", TimeUnit.MILLISECONDS, temp_dialog);
+		hpUsuario = hpUsuario - 20;
+		System.out.println();
 		Digita("Mesmo com a armadura te protegendo, seu peito dói muito, ele acertou-te tão forte\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("que parece que está prestes a ter um infarto. Quando foi arremessado não atingiu\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("nada que pudesse causar mais danos do que o homem já lhe causou. Quando\n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -831,6 +926,7 @@ public class ATorreDeGnosis {
 		Digita("da casa onde provavelmente esta família usava para criar porcos. O que vê através do\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("buraco é seu filho coberto de lama e esterco, se arrastando para tentar fugir do\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("homem de branco que empunha seu chicote.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
 		Digita("	Enquanto o padre está apenas com a barra da batina suja pelo chão imundo,\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("seu filho está gravemente ferido, com o corpo cheio de cortes causados pelo chicote,\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("com o lado esquerdo do rosto inchado pelo que provavelmente foi um soco fraco\n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -849,7 +945,7 @@ public class ATorreDeGnosis {
 		Digita("sobressai: o cheiro de sangue… sangue do seu filho!\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("O sangue de Asulf fervilha em suas veias, sua visão se avermelha e ele berra\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("一 Sua luta é comigo, monstro! Não encoste no meu filho!\n", TimeUnit.MILLISECONDS, temp_dialog);
-	
+		int contador = 0;
 		do {
 			
 			System.out.println();
@@ -869,17 +965,93 @@ public class ATorreDeGnosis {
 			System.out.println();
 			switch (alternativa) {
 			case "1":
-								
-				Digita("	Asulf não espera que o homem se vire para enfrentá-lo frente a frente e corre \n", TimeUnit.MILLISECONDS, temp_dialog);
-				Digita("em direção ao padre, desferindo um golpe com sua nova espada. A lâmina atravessa\n", TimeUnit.MILLISECONDS, temp_dialog);
-				Digita("as roupas da criatura e atinge o homem de raspão, abrindo um corte em sua cintura! Dano ???\n", TimeUnit.MILLISECONDS, temp_dialog);
-				System.out.println(); //parei aqui
-				alternativaCerta = true;
+				
+				if (contador == 0) {
+					Digita("	Asulf não espera que o homem se vire para enfrentá-lo frente a frente e corre \n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("em direção ao padre, desferindo um golpe com sua nova espada. A lâmina atravessa\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("as roupas da criatura e atinge o homem de raspão, abrindo um corte em sua cintura! Dano ???\n", TimeUnit.MILLISECONDS, temp_dialog);
+					System.out.println();
+					Digita("	O corte abre, incendeia-se e cauteriza-se logo em seguida. Uma consequência\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("da mágica embutida na espada. Após o corte ela queima o ferimento, causando uma\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("dor agoniante de queimadura à vítima. Em situações normais muitos homens\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("estariam berrando devido à queimadura mágica, mas esta magia parece trazer apena\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("irritação ao padre, que fecha seu semblante ao ver que o “pequeno guerreiro”\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("conseguiu lhe causar um dano.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	一 Parece que o meu pequeno soldado aprende com os próprios erros 一 Ele\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("fala em um tom sarcástico, evidentemente tentando esconder o ódio. \n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	一 Onde conseguiu esta lâmina? Pegou emprestada de um de seus\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("soldadinhos? Ou do cadáver deles? Acredito que meus apóstatas mataram\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("alguns já 一 Ele sorri esperando uma resposta mas não a recebe.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					System.out.println(); 
+					
+				} else if (contador == 1) {
+					Digita("	Asulf avança desferindo um golpe vertical direto no peito do monstro e\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("com uma velocidade sobre-humana! O padre move seu corpo para a sua direita e esquiva do ataque! Dano 0\n", TimeUnit.MILLISECONDS, temp_dialog);
+					System.out.println();
+					Digita("	Aproveitando o seu momento de fraqueza devido ao movimento do golpe, \n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("o padre acerta um soco em seu rosto! Dano 20\n", TimeUnit.MILLISECONDS, temp_dialog);
+					hpUsuario = hpUsuario - 20;
+					System.out.println();
+					Digita("	Claramente ele não usou toda a força. Caso fizesse isso, teria arremessado-o\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("novamente para longe da batalha e muito provavelmente quebraria o pescoço no processo.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Em vez disso, Asulf cai no chão com a força, o lado direito de seu rosto se\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("incha na hora e perde a visão de seu olho direito.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Agora, Asuf está próximo ao seu filho, quase na mesma situação dele.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	一 Pai! 一 ele se arrasta em sua direção 一 Você tem que sair daqui! Levanta e foge!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	一 Cala a boca, moleque! 一 diz, tentando manter a consciência 一 Eu sou\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("velho e você tem toda uma vida pela frente 一 fala cuspindo sangue.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	一 Foge logo! É uma ordem!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	一 Pai… por favor 一 Anton diz com lágrimas nos olhos.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	一 É uma ordem! 一 berra.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	Com os olhos cheios de lágrimas, seu filho começa a se arrastar, tentando\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("fugir da luta e começa a gritar por socorro. Asulf une todas as suas forças para se\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("manter em pé, sua arma não está mais em suas mãos e se encontra no chão devido\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("ao golpe. Ele é muito forte, pensa.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	O soco em sua cabeça foi muito potente, parece que seu cérebro dançou\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("dentro do crânio e acertou todas as paredes gerando uma dor de cabeça excruciante\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("e o impedindo de pensar direito.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	“Consiga tempo..”, o homem anda calmamente em sua direção.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	“Levante os punhos” , entra em guarda.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	O homem olha para seu filho que se arrasta tentando aproveitar o tempo que\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("seu pai lhe deu.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	“Chame a atenção”\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	一 Você não é nada! Eu vou te matar com as minhas próprias mãos! 一 grita\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("tentando manter-se de pé, devido a uma súbita vertigem que acossou-te após fazer o\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("simples ato de se levantar.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	一 Que lindo! 一 O padre diz ao se aproximar 一 Um pai defendendo seu filho\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("com as suas últimas forças. Entendeu, meu pequeno general, você superou a dor em\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("prol do seu objetivo 一 Ele coloca as duas mãos em seu rosto.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	一 Hoje meu pequeno soldado, conseguiu evoluir um pouco mais 一 ele te\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("agarra pela armadura, o suspende no ar e aproxima sua boca de seu ouvido.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	一 Se um pai, velho e ferido já é assim, mal posso esperar para ver no que o filho vai\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("se tornar.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					System.out.println();
+					Digita("	Ele afasta o rosto e com as mãos livres arranca a sua armadura.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	一 Vamos tirar isto daqui, é isso que está te protegendo tanto, né? Vamos ver\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("agora se aguenta outro dos meus arremessos!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	Asulf é arremessado no ar e passa por cima da casa destruída, por cima da rua\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("e após voar por mais dois metros finalmente começa a desacelerar, caindo em\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("direção ao telhado de madeira de uma das casas do vilarejo.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	Seu único pensamento é em colocar seus braços na frente do rosto para\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("protegê-lo e a gravidade começa a puxar Asulf, o telhado se aproximando cada vez\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("mais.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					System.out.println();
+					Digita("	CRACK\n", TimeUnit.MILLISECONDS, temp_dialog);
+					System.out.println();
+					Digita("	Dano 35\n", TimeUnit.MILLISECONDS, temp_dialog);
+					hpUsuario = hpUsuario - 35;
+					System.out.println("====================");
+					System.out.println("Asulf Status");
+					Digita(hpUsuario + " \uD83D\uDC99", TimeUnit.MILLISECONDS, temp_dialogSlow);
+					System.out.println();
+					
+				}
+				contador++;
 				break;	
 			default:
 			}
 			
-		} while (alternativaCerta == false);
+		} while (contador < 2);
 		alternativaCerta = false;
 		
 		
@@ -1266,11 +1438,11 @@ public class ATorreDeGnosis {
 		if (alternativaCerta) {
 			Digita("Você está aprendendo a linguagem dos Iluminados! Isso te fortalecerá para o desafio final.\n",TimeUnit.MILLISECONDS, temp_dialog);
 		} else {
-			System.out.println("Resposta incorreta nas 3 tentativas... ");
-			System.out.println("Toda sua emoção começa a consumi-lo... Você tenta lembrar de seu filho... Mas não consegue...");
-			System.out.println("... Você se tornou Vazio...");
-			System.err.println("Derrotado pelas próprias emoções... Deplorável...");
-			System.err.println("Fim de jogo.");
+			Digita("Toda sua emoção começa a consumi-lo... Você tenta lembrar de seu filho... Mas não consegue...\n",TimeUnit.MILLISECONDS, temp_dialog);
+			Digita("... Você se tornou Vazio...\n",TimeUnit.MILLISECONDS, temp_dialog);
+			Digita("Derrotado pelas próprias emoções... Deplorável...\n",TimeUnit.MILLISECONDS, temp_dialog);
+			Digita("Fim de jogo.\n",TimeUnit.MILLISECONDS, temp_dialog);
+			
 			System.exit(0);
 		}
 			alternativaCerta = false;
@@ -1346,11 +1518,11 @@ public class ATorreDeGnosis {
 		if (alternativaCerta) {
 			Digita("Você respira 11 vezes consecutivamente e consegue se acalmar...\n",TimeUnit.MILLISECONDS, temp_dialog);
 		} else {
-			System.out.println("Você não encontra a respiração ideal... ");
-			System.out.println("O teu corpo sente-se fraco...");
-			System.out.println("As chamas... as chamas... estão tomando a sua consciência...");
-			System.err.println("Até caminhar sobre esse andar é muito para você... Deplorável...");
-			System.err.println("Fim de jogo.");
+			Digita("Você não encontra a respiração ideal...\n",TimeUnit.MILLISECONDS, temp_dialog);
+			Digita("O teu corpo sente-se fraco...\n",TimeUnit.MILLISECONDS, temp_dialog);
+			Digita("As chamas... as chamas... estão tomando a sua consciência...\n",TimeUnit.MILLISECONDS, temp_dialog);
+			Digita("Até caminhar sobre esse andar é muito para você... Deplorável...\n",TimeUnit.MILLISECONDS, temp_dialog);
+			Digita("Fim de jogo.\n",TimeUnit.MILLISECONDS, temp_dialog);
 			System.exit(0);
 		}
 		
@@ -1471,7 +1643,8 @@ public class ATorreDeGnosis {
 		Digita("-----------------| Chamas Negras APRENDIDA  |-----------------\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("=================|                          |=================\n", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println();
-		
+		chamasNegrasStatus = true; //Chamas Negras aparecerá no status
+
 		Digita("Ao continuar o caminho pelo prado, você avista de longe os Portões de Fogo.\n",TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("E também, próximo aos Portões de Fogo, uma quantidade imensa de Hollows —— pessoas que não conseguiram passar pelos Portões.\n",TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("E lá estava ele, o Monge que o pequenos seres de chamas te avisaram que estava corrompendo o lugar.\n",TimeUnit.MILLISECONDS, temp_dialog);
@@ -1492,7 +1665,7 @@ public class ATorreDeGnosis {
 			System.out.print("                                   ");
 			Digita(" " + hpMonstro + " \uD83D\uDDA4\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
 			System.out.println("       ESPECIAIS                     ");
-			System.out.println("* Chamas Negras: " + chamasNegras);
+			System.out.println("* Chamas Negras: " + chamasNegras + "/10");
 			System.out.println("====================                ====================");
 
 			System.out.println("Escolha seu ataque");
@@ -1556,10 +1729,10 @@ public class ATorreDeGnosis {
 				}
 				if (hpUsuario <= 0) {
 					System.out.println();
-					Digita("Até mesmo o Primeiro Andar é demais para você...", TimeUnit.MILLISECONDS, temp_dialog);
-					Digita("Derrotado pelo Monge Corrompido... Ele utiliza o seu corpo morto para corromper os Portões de Fogo...", TimeUnit.MILLISECONDS, temp_dialog);
-					Digita("Asulf torna-se uma marionete morta...", TimeUnit.MILLISECONDS, temp_dialog);
-					Digita("Fim de jogo. ", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Até mesmo o Primeiro Andar é demais para você...\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Derrotado pelo Monge Corrompido... Ele utiliza o seu corpo morto para corromper os Portões de Fogo...\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Asulf torna-se uma marionete morta...\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Fim de jogo. \n", TimeUnit.MILLISECONDS, temp_dialog);
 
 					System.exit(0);
 				}
@@ -1618,10 +1791,10 @@ public class ATorreDeGnosis {
 				
 				if (hpUsuario <= 0) {
 					System.out.println();
-					Digita("Até mesmo o Primeiro Andar é demais para você...", TimeUnit.MILLISECONDS, temp_dialog);
-					Digita("Derrotado pelo Monge Corrompido... Ele utiliza o seu corpo morto para corromper os Portões de Fogo...", TimeUnit.MILLISECONDS, temp_dialog);
-					Digita("Asulf torna-se uma marionete morta...", TimeUnit.MILLISECONDS, temp_dialog);
-					Digita("Fim de jogo. ", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Até mesmo o Primeiro Andar é demais para você...\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Derrotado pelo Monge Corrompido... Ele utiliza o seu corpo morto para corromper os Portões de Fogo...\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Asulf torna-se uma marionete morta...\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Fim de jogo. \n", TimeUnit.MILLISECONDS, temp_dialog);
 
 					System.exit(0);
 				}
@@ -1748,8 +1921,9 @@ public class ATorreDeGnosis {
 				Digita("...",TimeUnit.MILLISECONDS, temp_dotsSlow);
 				Digita(" Meu filho",TimeUnit.MILLISECONDS, temp_dialogSlow);
 				Digita("...\n",TimeUnit.MILLISECONDS, temp_dotsSlow);
-				System.err.println("Você fugiu de suas lutas... Lamentável");
-				System.err.println("-- Fim de jogo --");
+				Digita("Você fugiu de suas lutas... Lamentável\n", TimeUnit.MILLISECONDS, temp_dialog);
+				Digita("Você fugiu de suas lutas... Lamentável\n", TimeUnit.MILLISECONDS, temp_dialog);
+				Digita("Fim de jogo.\n", TimeUnit.MILLISECONDS, temp_dialog);
 				System.exit(0);
 				break;
 			default:
@@ -2099,15 +2273,35 @@ public class ATorreDeGnosis {
 		Digita("...",TimeUnit.MILLISECONDS, temp_dots);
 		Digita(" produzimos uma grande força em combate.\n",TimeUnit.MILLISECONDS, temp_dialog);
 
-		
-		
+		boolean alternativaVoltar = false; //criada para 'voltar' o menu.
 		
 		do {
-			System.out.println("1 - Continuar no próximo andar.");
+			imprimirMenuStatus(chamasNegrasStatus, elixirDaVidaStatus, sabedoriaDeOdinStatus); //vai imprimir o Status contendo HP e Especiais
+			
+			System.out.println("1 - Continuar para o Capítulo 5: 2º Andar - A Cura e o Leviatã");
+			System.out.println("2 - Descrição dos Ataques");
 			alternativa = entrada.next();
+			System.out.println();
 			switch (alternativa) {
-			case "1":
+			case "1":				
 				alternativaCerta = true;
+				break;	
+			case "2": 
+				
+				do {
+					descricaoDosAtaquesStatus(chamasNegrasStatus, elixirDaVidaStatus, sabedoriaDeOdinStatus);
+					System.out.println();
+					System.out.println("X - Voltar");
+					alternativa = entrada.next();				
+					switch (alternativa.toLowerCase()) {
+					case "x":
+						alternativaVoltar = true; //utilizado para 'Voltar' o menu.
+						break;
+					default:
+						break;
+					}
+				} while (alternativaVoltar == false);
+				
 				break;
 			default:
 				System.out.println("Tenha confiança.");
@@ -2289,8 +2483,9 @@ public class ATorreDeGnosis {
 		Digita("-----------------| Sabedoria de Odin OBTIDA |-----------------\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("=================|                          |=================\n", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println();
-		System.out.println();
-
+		System.out.println();	
+		sabedoriaDeOdinStatus = true; //Sabedoria De Odin aparecerá no Status
+		
 		do {
 			System.out.println("1 - Seguir pelo novo caminho");
 			alternativa = entrada.next();
@@ -2336,9 +2531,9 @@ public class ATorreDeGnosis {
 			System.out.print("                                          ");
 			Digita("" + hpValquiria03 + "" + " \uD83D\uDDA4\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
 			System.out.println("       ESPECIAIS                     ");
-			System.out.println("* Chamas Negras: " + chamasNegras + "/5");
+			System.out.println("* Chamas Negras: " + chamasNegras + "/10");
 			System.out.println("* Elixir da Vida: " + elixirDaVida + "/15");
-			System.out.println("* Sabedoria de Odin: " + sabedoriaDeOdin + "/10");
+			System.out.println("* Sabedoria de Odin: " + sabedoriaDeOdin + "/5");
 			System.out.println("====================                ====================");
 			
 			
@@ -3452,6 +3647,46 @@ public class ATorreDeGnosis {
 		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	TO BE CONTINUED...\n", TimeUnit.MILLISECONDS, temp_dialog);
+		
+		
+		boolean alternativaVoltar = false; //criada para 'voltar' o menu.
+		
+		do {
+			imprimirMenuStatus(chamasNegrasStatus, elixirDaVidaStatus, sabedoriaDeOdinStatus); //vai imprimir o Status contendo HP e Especiais
+			
+			System.out.println("1 - Continuar para o Capítulo 7: 4º Andar - BOSS FIGHT - Would you kill your son?");
+			System.out.println("2 - Descrição dos Ataques");
+			alternativa = entrada.next();
+			System.out.println();
+			switch (alternativa) {
+			case "1":				
+				alternativaCerta = true;
+				break;	
+			case "2": 
+				
+				do {
+					descricaoDosAtaquesStatus(chamasNegrasStatus, elixirDaVidaStatus, sabedoriaDeOdinStatus);
+					System.out.println();
+					System.out.println("X - Voltar");
+					alternativa = entrada.next();				
+					switch (alternativa.toLowerCase()) {
+					case "x":
+						alternativaVoltar = true; //utilizado para 'Voltar' o menu.
+						break;
+					default:
+						break;
+					}
+				} while (alternativaVoltar == false);
+				
+				break;
+			default:
+				System.out.println("Tenha confiança.");
+				System.out.println("");
+				break;
+			}
+			
+		} while (alternativaCerta != true);
+		alternativaCerta = false;	
 		
 		capitulo7();
 		
