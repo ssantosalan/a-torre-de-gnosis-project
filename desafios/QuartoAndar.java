@@ -32,8 +32,18 @@ public class QuartoAndar {
         int respostaPorta = 0;
         int dado;
 
-        System.out.printf("Para conseguir abrir a porta de uma só vez, você precisa mostrar que sabe desarivar a magia da porta\n"
-                + "para isso, acerte a combinação.");
+        
+        Digita("Você se cansa disso, seus novos poderes não são inatos e para acessá-los precisa ");
+        Digita("querer “ativar” eles. E se lembra que junto com a sua força e magia, também adquiriu forma de desativar magias.");       
+        
+        
+        
+        
+        
+        
+        // if(condição do vini){    condição                                                
+        System.out.printf("Para conseguir abrir a porta de uma só vez, você precisa mostrar que sabe desativar a magia da porta\n"
+                + "para isso, acerte a combinação.\n");
 
        
 
@@ -97,9 +107,18 @@ public class QuartoAndar {
                         System.out.println("Voce errou demais.");
                     }
                 } while (!respostaTrue || cc == 3);
+                    //}else if (outra condicao){
+        
+                    //}   parenteses do else if
                 if (respostaTrue) {
                     System.out.println("Você desativou a magia perfeitamente.");
                 }
+                Digita("Asulf se concentra e busca em seu âmago toda força que seu pacto lhe conferiu e");
+                Digita("puxou a porta de uma só vez, ele destrói a porta e a água  começa a jorrar no");
+                Digita("ambiente. O  resto de oxigênio abandona a sala e corre em direção à superfície, a ");
+                Digita("água rapidamente inunda a sala e você logo se encontra submerso.");
+                
+                
         }
 
     }
