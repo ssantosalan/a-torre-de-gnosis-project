@@ -8,7 +8,8 @@ Projeto Integrador da Faculdade de <strong>Análise e Desenvolvimento de Sistema
 <strong>Objetivo:</strong>
 <br>
 <br>
-Ser um jogo introdutório à linguagem binário aos estudantes de Tecnologia de todo o Brasil. <br>
+Ser um jogo introdutório à linguagem binária aos estudantes de Tecnologia de todo o Brasil. <br>
+<br>
 Ao adentrar em uma faculdade de tecnologia, sabemos que muitos estudantes têm seu primeiro contato com tal linguagem nela.
 Observando isso, criamos um jogo que entretenha o estudante e, ao mesmo tempo, faça ele ter interesse em aprofundar-se em tal conteúdo.
 </p>
