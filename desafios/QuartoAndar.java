@@ -27,6 +27,7 @@ public class QuartoAndar {
         String porta1, porta2;
         String porta3;
         String opcaoPorta;
+        int contadorPorta = 0;
         int urna2, cc = 0;
         boolean respostaTrue = false, portaTrue = false;
         String respostaPorta;
@@ -53,6 +54,8 @@ public class QuartoAndar {
 
             System.out.println("Escolha uma das 3 portas e digite a senha correta.");  // escolher porta
             opcaoPorta = input.next();
+            
+            
 
             
                 switch (opcaoPorta) {
@@ -66,12 +69,15 @@ public class QuartoAndar {
                         portaTrue = true;
                         break;
                     default:
+                        System.out.println("Escolha portas de 1 até 3. ");
+                        contadorPorta++;
                         break;
                 }
             
 
-        } while (portaTrue == false);
-        System.out.println("Passou");
+        } while (portaTrue == false && contadorPorta <3);
+        
+        if(portaTrue == true){
         do {
             System.out.println("Você escolheu a porta " + opcaoPorta); // porta escolhida
             System.out.println("" + urna.get(dado));
@@ -117,10 +123,13 @@ public class QuartoAndar {
             }
         } while (!respostaTrue || cc == 3);
         //}else if (outra condicao){
-
+        
         //}   parenteses do else if
         if (respostaTrue) {
             System.out.println("Você desativou a magia perfeitamente.");
+        }
+        }else{
+            System.out.println("Você não aprendeu o suficiente para desativar a magia. :( ");
         }
         //Digita("Asulf se concentra e busca em seu âmago toda força que seu pacto lhe conferiu e");
         //Digita("puxou a porta de uma só vez, ele destrói a porta e a água  começa a jorrar no");
