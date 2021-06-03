@@ -4473,7 +4473,7 @@ public class ATorreDeGnosis {
 		
 		System.out.println();
 		Digita("	Derrotando a trindade das valquírias, Asulf segue seu pelo caminho que tinha se\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("aberto. Asulf avista uma uma ponte de concreto à sua frente. A ponte é impecável, sem\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("aberto. Asulf avista uma ponte de concreto à sua frente. A ponte é impecável, sem\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("nenhum defeito. Embaixo da ponte, um abismo que não se enxergava nada. Do outro lado\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("da ponte, um portão enorme de concreto. À frente do portão, totens de madeira.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Há gravuras nesses totens. Encontre o único totem diferente e coloque-o na posição\n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -4558,9 +4558,10 @@ public class ATorreDeGnosis {
 		} 
 		
 		//fim do desafio do totem
-	
-		Digita("	TO BE CONTINUED...\n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
 		
+		Digita("	Ao ativar o mecanismo, a enorme porta começa a se abrir. Asulf sente uma palpitação em seu coração. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
 		
 		boolean alternativaVoltar = false; //criada para 'voltar' o menu.
 		alternativaCerta = false;
@@ -4568,7 +4569,7 @@ public class ATorreDeGnosis {
 		do {
 			imprimirMenuStatus(chamasNegrasStatus, elixirDaVidaStatus, sabedoriaDeOdinStatus); //vai imprimir o Status contendo HP e Especiais
 			
-			System.out.println("1 - Continuar para o Capítulo 7: 4º Andar - BOSS FIGHT - Would you kill your son?");
+			System.out.println("1 - Continuar para o Capítulo 7: 4º Andar — O Monge, o Deus e o Santo");
 			System.out.println("2 - Descrição dos Ataques");
 			alternativa = entrada.next();
 			System.out.println();
