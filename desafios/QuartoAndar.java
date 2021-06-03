@@ -21,7 +21,7 @@ public class QuartoAndar {
      * 62631 decimal == 172247 octal//F4A7 hexadecimal == 62631 decimal
      * 0111100101000111100 == 745074 octal
      */
- 	public static void main(String[] args) {
+	public static void main(String[] args) {
 		Scanner entrada = new Scanner(System.in);
 
 		Random aleatorio = new Random();
@@ -34,15 +34,13 @@ public class QuartoAndar {
 		String respostaPorta;
 		int dado;
 
-
 		System.out.println();
 		System.out.println(
 				"Para conseguir abrir a porta de uma só vez, você precisa mostrar que sabe desativar a magia da porta.");
 		System.out.println("Para isso, acerte a combinação.");
 		System.out.println();
 
-		List<String> urna = Arrays.asList(
-				"62631 é a senha em decimal. Digite a mesma em octal para desativar a magia.",
+		List<String> urna = Arrays.asList("62631 é a senha em decimal. Digite a mesma em octal para desativar a magia.",
 				"F4A7 é a senha em hexadecimal. Digite a mesma em decimal para desativar a magia.",
 				"0111100101000111100 é a senha em binário. Digite a mesma em octal para desativar a magia.");
 
@@ -76,13 +74,13 @@ public class QuartoAndar {
 			}
 
 		} while (portaTrue == false && contadorPorta < 3);
-		
+
 		System.out.println();
 		if (portaTrue == false) {
 			System.out.println("Indeciso... Até mesmo escolher uma porta é difícil para você... ");
 			System.out.println("Fim de jogo.");
 			System.exit(0);
-		} 
+		}
 
 		do {
 			System.out.println("Você escolheu a porta " + opcaoPorta); // porta escolhida
