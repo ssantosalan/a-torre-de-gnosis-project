@@ -21,8 +21,8 @@ public class QuartoAndar {
      * 62631 decimal == 172247 octal//F4A7 hexadecimal == 62631 decimal
      * 0111100101000111100 == 745074 octal
      */
-    public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
+ 	public static void main(String[] args) {
+		Scanner entrada = new Scanner(System.in);
 
 		Random aleatorio = new Random();
 		String porta1, porta2;
@@ -42,9 +42,9 @@ public class QuartoAndar {
 		System.out.println();
 
 		List<String> urna = Arrays.asList(
-				"62631 essa é a senha em decimal. Digite a mesma em octal para desativar a magia.",
-				"F4A7 essa é a senha em hexadecimal. Digite a mesma em decimal para desativar a magia.",
-				"0111100101000111100 essa é a senha em binario. Digite a mesma em octal para desativar a magia.");
+				"62631 é a senha em decimal. Digite a mesma em octal para desativar a magia.",
+				"F4A7 é a senha em hexadecimal. Digite a mesma em decimal para desativar a magia.",
+				"0111100101000111100 é a senha em binário. Digite a mesma em octal para desativar a magia.");
 
 		porta1 = urna.get(0);
 		porta2 = urna.get(1);
@@ -54,7 +54,7 @@ public class QuartoAndar {
 			Collections.shuffle(urna);
 			dado = aleatorio.nextInt(2);
 			System.out.printf("Porta 1 - \nPorta 2 - \nPorta 3 - \n"); // mostrar opções de porta
-
+			System.out.println();
 			System.out.print("Escolha uma das 3 portas e digite a senha correta: "); // escolher porta
 			opcaoPorta = entrada.next();
 
@@ -69,7 +69,8 @@ public class QuartoAndar {
 				portaTrue = true;
 				break;
 			default:
-				System.out.println("Escolha portas de 1 até 3. ");
+				System.out.println("A indecisão pode te custar caro... Escolha ou 1 ou 2 ou 3. ");
+				System.out.println();
 				contadorPorta++;
 				break;
 			}
@@ -88,7 +89,7 @@ public class QuartoAndar {
 			System.out.println("" + urna.get(dado));
 			System.out.println("Informe a senha para abrir a porta: "); // pedir senha da porta escolhida
 			respostaPorta = entrada.next();
-
+			System.out.println();
 			switch (respostaPorta) {
 			case "172247":
 				if (urna.get(dado).equals(porta1)) {
@@ -102,21 +103,21 @@ public class QuartoAndar {
 				break;
 			case "62631":
 				if (urna.get(dado).equals(porta2)) {
-					System.out.println("Certo!");
+					System.out.println("Resposta certa!");
 					respostaTrue = true;
 
 				} else {
-					System.out.println("Errado!");
+					System.out.println("Resposta errada!");
 					cc++;
 				}
 				break;
 			case "745074":
 				if (urna.get(dado).equals(porta3)) {
-					System.out.println("Certa!");
+					System.out.println("Resposta certa!");
 					respostaTrue = true;
 
 				} else {
-					System.out.println("Errada!");
+					System.out.println("Resposta errada!");
 					cc++;
 				}
 				break;
@@ -126,6 +127,7 @@ public class QuartoAndar {
 			}
 			if (cc == 3) {
 				System.out.println("Você errou demais!");
+				System.out.println("Fim de jogo!");
 				System.exit(0);
 			}
 		} while (!respostaTrue || cc == 3);
