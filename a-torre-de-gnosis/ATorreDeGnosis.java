@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class ATorreDeGnosis {
 	static Scanner entrada = new Scanner(System.in); //variável global de entrada
 	static int hpUsuario = 100, chamasNegras = 10, elixirDaVida = 15, sabedoriaDeOdin = 5; //vida global do protagonista e habilidades
-	static int temp_dialog = 0, temp_questions = 0, temp_dialogSlow = 0, temp_dialogFast = 0, temp_dialogFaster = 30, ultra_Speed = 0,  temp_dotsSlow = 0, temp_dots = 0;
+	static int temp_dialog = 0, temp_questions = 0, temp_dialogSlow = 0, temp_dialogFast = 0, temp_dialogFaster = 0, ultra_Speed = 0,  temp_dotsSlow = 0, temp_dots = 0;
 	
 	//Para não ter delay no jogo, coloque 0 em todas as variáveis acima.
 	//Valor das variáveis caso vc queira zerar em cima e rodar sem delay, mas posteriormente colocando o valor certo:
@@ -183,6 +183,38 @@ public class ATorreDeGnosis {
 		System.out.println();
 		System.out.println("Capítulo 1: Pai e Filho");
 		System.out.println();
+		
+		//A Profecia
+		Digita("			A criança do lobo corre pelos mundos,\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+		Digita("			Sofrendo e aprendendo junto aos homens imundos\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+		Digita("			Evoluindo a cada passo ela caminha\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+		Digita("			Em direção aos deuses ela definha\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+		Digita("			Clamando seu espaço no panteão\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+		Digita("			Ela coloca o mundo em suas mãos\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+		System.out.println();
+		System.out.println();
+		String alternativa;			//Alternativa do switch
+		boolean alternativaContinuar = false; //alternativa p/ sair do loop
+		
+		do {
+			System.out.println();
+			System.out.println("1 - Continuar.");
+			alternativa = entrada.next();
+			System.out.println();
+			switch (alternativa) {
+			case "1":				
+				alternativaContinuar = true;
+				break;			
+			default:
+				System.out.println("Tenha confiança.");
+				System.out.println("");
+				break;
+			}
+			
+		} while (alternativaContinuar != true);
+		alternativaContinuar = false;	
+		
+		
 		Digita("	Corra! \n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Encontre ele! \n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Vá depressa! \n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -210,7 +242,7 @@ public class ATorreDeGnosis {
 		//Primeira luta começa aqui
 		boolean vitoria = false; 		//Utilizado quando o Usuário vence do 'Computador' e sai do loop.   
 		int hpMonstro01 = 100;		//Vida do inimigo
-		String alternativa;			//Alternativa do switch
+	
 		Random ataqueForca = new Random(); // Força do ataque dado por uma aleatoriedade.
 		int dano = 0; //dano causado pelo ataque.
 		int valor; //Valor gerado pela 'aleatoriedade'.
@@ -2369,88 +2401,117 @@ public class ATorreDeGnosis {
         Random aleatorio = new Random();
         String porta1, porta2;
         String porta3;
-        int opcaoPorta = 0;
+        String opcaoPorta;
+        int contadorPorta = 0;
         int cc = 0;
-        boolean respostaTrue = false;
-        int respostaPorta = 0;
+        boolean respostaTrue = false, portaTrue = false;
+        String respostaPorta;
         int dado;
 
         
         Digita("Você se cansa disso, seus novos poderes não são inatos e para acessá-los você precisa \n", TimeUnit.MILLISECONDS, temp_dialog);
-        Digita("querer “ativar” eles. Lembre-se que junto com a sua força, você também adquiriu forma de desativar magias.\n", TimeUnit.MILLISECONDS, temp_dialog);       
+        Digita("querer “ativar” eles. Lembre-se que junto com a sua força, você também adquiriu forma de desativar magias.\n", TimeUnit.MILLISECONDS, temp_dialog);     
         
-                
+        
         System.out.println();
         System.out.println("Para conseguir abrir a porta de uma só vez, você precisa mostrar que sabe desativar a magia da porta.");
         System.out.println("Para isso, acerte a combinação.");
         System.out.println();
 
-          
-                List<String> urna = Arrays.asList("62631 essa é a senha em decimal. Digite a mesma em octal para desativar a magia.",
-                        "F4A7 essa é a senha em hexadecimal. Digite a mesma em decimal para desativar a magia.",
-                        "0111100101000111100 essa é a senha em binario. Digite a mesma em octal para desativar a magia.");
+        List<String> urna = Arrays.asList(
+				"62631 essa é a senha em decimal. Digite a mesma em octal para desativar a magia.",
+				"F4A7 essa é a senha em hexadecimal. Digite a mesma em decimal para desativar a magia.",
+				"0111100101000111100 essa é a senha em binario. Digite a mesma em octal para desativar a magia.");
 
-                porta1 = urna.get(0);
-                porta2 = urna.get(1);
-                porta3 = urna.get(2);
-                
-                do {
-                    Collections.shuffle(urna);
-                    dado = aleatorio.nextInt(2);
-                    System.out.printf("Porta 1 - \nPorta 2 - \nPorta 3 - \n"); // mostrar opções de porta
-                    System.out.println();
-                    System.out.print("Escolha uma das 3 portas e digite a senha correta: ");  // escolher porta
-                    opcaoPorta = entrada.nextInt();
-                    System.out.println();
-                    System.out.println("Você escolheu a porta " + opcaoPorta); // porta escolhida
-                    System.out.println();
-                    System.out.println("" + urna.get(dado));
-                    System.out.println();
-                    System.out.println("Informe a senha para abrir a porta: "); // pedir senha da porta escolhida
-                    respostaPorta = entrada.nextInt();
-                    System.out.println();
-                    switch (respostaPorta) {
-                        case 172247:
-                            if (urna.get(dado).equals(porta1)) {
-                                System.out.println("Resposta certa!");
-                                respostaTrue = true;
+		porta1 = urna.get(0);
+		porta2 = urna.get(1);
+		porta3 = urna.get(2);
 
-                            } else {
-                                System.out.println("Resposta errada!");
-                                cc++;
-                            }
-                            break;
-                        case 62631:
-                            if (urna.get(dado).equals(porta2)) {
-                                System.out.println("Certo!");
-                                respostaTrue = true;
+		do {
+			Collections.shuffle(urna);
+			dado = aleatorio.nextInt(2);
+			System.out.printf("Porta 1 - \nPorta 2 - \nPorta 3 - \n"); // mostrar opções de porta
+			System.out.println();
+			System.out.print("Escolha uma das 3 portas e digite a senha correta: "); // escolher porta
+			opcaoPorta = entrada.next();
 
-                            } else {
-                                System.out.println("Errado!");
-                                cc++;
-                            }
-                            break;
-                        case 745074:
-                            if (urna.get(dado).equals(porta3)) {
-                                System.out.println("Certa!");
-                                respostaTrue = true;
+			switch (opcaoPorta) {
+			case "1":
+				portaTrue = true;
+				break;
+			case "2":
+				portaTrue = true;
+				break;
+			case "3":
+				portaTrue = true;
+				break;
+			default:
+				System.out.println("A indecisão pode te custar caro... Escolha ou 1 ou 2 ou 3. ");
+				System.out.println();
+				contadorPorta++;
+				break;
+			}
 
-                            } else {
-                                System.out.println("Errada!");
-                                cc++;
-                            }
-                            break;
-                        default:
-                            System.out.println("Resposta errada!");
-                    }
-                    if (cc == 3) {
-                        System.out.println("Você errou demais!");
-                    }
-                } while (!respostaTrue || cc == 3);
-                             
-                if (respostaTrue) {
-                    System.out.println("Você desativou a magia perfeitamente!");
-                }
+		} while (portaTrue == false && contadorPorta < 3);
+
+		System.out.println();
+		if (portaTrue == false) {
+			System.out.println("Indeciso... Até mesmo escolher uma porta é difícil para você... ");
+			System.out.println("Fim de jogo.");
+			System.exit(0);
+		}
+
+		do {
+			System.out.println("Você escolheu a porta " + opcaoPorta); // porta escolhida
+			System.out.println("" + urna.get(dado));
+			System.out.println("Informe a senha para abrir a porta: "); // pedir senha da porta escolhida
+			respostaPorta = entrada.next();
+			System.out.println();
+			switch (respostaPorta) {
+			case "172247":
+				if (urna.get(dado).equals(porta1)) {
+					System.out.println("Resposta certa!");
+					respostaTrue = true;
+
+				} else {
+					System.out.println("Resposta errada!");
+					cc++;
+				}
+				break;
+			case "62631":
+				if (urna.get(dado).equals(porta2)) {
+					System.out.println("Resposta certa!");
+					respostaTrue = true;
+
+				} else {
+					System.out.println("Resposta errada!");
+					cc++;
+				}
+				break;
+			case "745074":
+				if (urna.get(dado).equals(porta3)) {
+					System.out.println("Resposta certa!");
+					respostaTrue = true;
+
+				} else {
+					System.out.println("Resposta errada!");
+					cc++;
+				}
+				break;
+			default:
+				System.out.println("Resposta errada!");
+				cc++;
+			}
+			if (cc == 3) {
+				System.out.println("Você errou demais!");
+				System.out.println("Fim de jogo!");
+				System.exit(0);
+			}
+		} while (!respostaTrue || cc == 3);
+
+		if (respostaTrue) {
+			System.out.println("Você desativou a magia perfeitamente!");
+		}
                 System.out.println();
                 Digita("	Asulf se concentra e busca em seu âmago toda força que seu pacto lhe conferiu e \n", TimeUnit.MILLISECONDS, temp_dialog);
                 Digita("puxou a porta de uma só vez. Assim, destruindo a porta. A água começa a jorrar no \n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -2462,7 +2523,7 @@ public class ATorreDeGnosis {
 		
 		Digita("\n", TimeUnit.MILLISECONDS, temp_dialog);
 
-		//A parte a seguir ficará dentro da função do Jorge (ainda será mais modificado)
+		//FIM PARTE JORGE
 		
 		
 		
@@ -3013,6 +3074,7 @@ public class ATorreDeGnosis {
 		Digita("-----------------| Elixir da Vida APRENDIDA |-----------------\n", TimeUnit.MILLISECONDS, ultra_Speed);
 		Digita("=================|                          |=================\n", TimeUnit.MILLISECONDS, ultra_Speed);
 		System.out.println();
+		chamasNegrasStatus = true; //Chamas Negras aparecerá no status
 		elixirDaVidaStatus = true; //Elixir da Vida aparecerá no status
 
 		//Após o Desafio
@@ -3285,6 +3347,8 @@ public class ATorreDeGnosis {
 		Digita("=================|                          |=================\n", TimeUnit.MILLISECONDS, ultra_Speed);
 		System.out.println();
 		System.out.println();	
+		chamasNegrasStatus = true; //Chamas Negras aparecerá no status
+		elixirDaVidaStatus = true; //Elixir da Vida aparecerá no status
 		sabedoriaDeOdinStatus = true; //Sabedoria De Odin aparecerá no Status
 		
 		do {
@@ -3562,7 +3626,7 @@ public class ATorreDeGnosis {
 								hpUsuario = hpUsuario - dano;
 								Digita("|Eir| te acerta com seu escudo! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
 							} else {
-								Digita("Asulf desvia do ataque de Olrun!", TimeUnit.MILLISECONDS, temp_dialog);
+								Digita("Asulf desvia do ataque de Eir!", TimeUnit.MILLISECONDS, temp_dialog);
 							}
 						}
 						System.out.println();
@@ -3906,7 +3970,7 @@ public class ATorreDeGnosis {
 								hpUsuario = hpUsuario - dano;
 								Digita("|Eir| te acerta com seu escudo! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
 							} else {
-								Digita("Asulf desvia do ataque de Olrun!", TimeUnit.MILLISECONDS, temp_dialog);
+								Digita("Asulf desvia do ataque de Eir!", TimeUnit.MILLISECONDS, temp_dialog);
 							}
 						}
 						System.out.println();
@@ -4255,7 +4319,7 @@ public class ATorreDeGnosis {
 								hpUsuario = hpUsuario - dano;
 								Digita("|Eir| te acerta com seu escudo! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);
 							} else {
-								Digita("Asulf desvia do ataque de Olrun!", TimeUnit.MILLISECONDS, temp_dialog);
+								Digita("Asulf desvia do ataque de Eir!", TimeUnit.MILLISECONDS, temp_dialog);
 							}
 						}
 						System.out.println();
