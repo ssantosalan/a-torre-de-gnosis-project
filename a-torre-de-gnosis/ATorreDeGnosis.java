@@ -3208,6 +3208,19 @@ public class ATorreDeGnosis {
 		
 		//CONEXÃO DO ANDAR ANTERIOR
 		
+		Digita("	Asulf cai cada vez mais rápido em direção a escuridão da caverna, o vento\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("zombe em seus ouvidos e seus olhos lacrimejam pelo contato com o vento da queda.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Aos poucos, uma luz azul e roxa começa a se formar ao seu redor. Seu corpo começa\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("a ficar cada vez mais dormente, até que a escuridão cessa.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Cego pelas luzes azuis arroxeadas, você é mais uma vez arremessado. Este\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("portal, acessado por uma queda, sai em um plano horizontal, impedindo-te de acertar\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("o chão diretamente, fazendo você rolar pelo chão de pedras.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Ao se levantar o guerreiro olha ao redor. O ambiente consiste em uma caverna\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("com um corredor extremamente amplo, composto por pedras ametistas. O único\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("caminho possível é para frente.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Quase lá Anton, eu estou chegando!\n", TimeUnit.MILLISECONDS, temp_dialog);
+		
+		
 		System.out.println();
 		System.out
 				.printf("        ____\r\n" + "       /    /\\____/ \\    /\\\r\n" + "      /\\   /   \\/    \\  / /\r\n"
@@ -3255,17 +3268,47 @@ public class ATorreDeGnosis {
 		alternativaCerta = false;
 		System.out.println();
 		
-		Digita("	Ao continuar o caminho estreito da caverna, Asulf vê uma luz roxa brilhante mais à\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("frente e pensa:	\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("	— “Talvez seja a saída”.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		
+		
+		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+	
+		Digita("	Após alguns metros de caminhada você olha para trás e percebe que não há\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("mais a entrada em que passou. Ao continuar o caminho estreito da caverna, Asulf vê\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("uma luz roxa brilhante mais à frente.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— “Talvez seja a saída — ele pensa.”.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Entrando onde essa luz roxa brilhava, ele se depara com o que parece ser uma sala\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("oval, formada por rochas e ametistas roxas. Ao centro dessa sala, parecia haver um painel	\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("com pedras ametistas em uma coluna de um metro e meio. A sala possuía três estátuas de\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("valquírias — deidades femininas que serviam Odin. Uma, de acordo com a  gravura na\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("estátua, chama-se Eir e segurava um escudo enorme. Outra chama-se Olrun e possuía\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("oval, formada por uma mistura de pedras ametistas e mármore lapidado. Este ambiente não\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("é mais apenas uma caverna. Ele é uma estrutura arquitetônica feita pelas mãos de algum\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("homem ou deus. À sua volta é possível ver oito colunas, dispostas uniformemente nos\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("cantos da sala oval. As colunas seguem por cinco metros até o seu teto abobadado. Não\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("existem outras portas ou saídas.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Tá, e agora?  — o soldado indaga.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	A sala possui corpos espalhados pelo chão, os mantos dos homens feridos\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("denunciam quem eles eram. Os seguidores do monge mais uma vez foram usados\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("como oferenda. Este monstro abre caminho entre as dimensões simplesmente\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("sacrificando os seus homens, se eles não fossem parte da Ordem da Sabedoria do\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Sofrimento Sagrado, você sentiria raiva por suas mortes.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	É possível notar quatro cadáveres espalhados pela sala, analisando o\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("ambiente você percebe algo que te chama a atenção. Um pequeno animal encontra-se\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("jogado no chão, sua penugem está coberta de sangue e suas asas foram arrancadas.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("A coruja do monge!!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Asulf olha para o animal, suas penas estão em frangalhos e você nota\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("sofrimento nos olhos do pequeno ser. Ele respira pesadamente e solta pequenos\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("grasnidos de dor.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Calma pequenino, calma — Asulf coloca o animal ferido em suas mãos, e utiliza\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("seu poder de cura na criatura.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Gradualmente os grasnidos de dor da criatura se acalmam e ela pega no sono,\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("é possível notar um alívio em sua alma. O general encosta a criatura em um dos\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("cantos da sala e escaneia o espaço.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Ao centro dessa sala, há um painel com pedras ametistas em uma coluna de um metro e\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("meio, a sala possui três estátuas de mármore. As estátuas representam uma trindade de\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("valquírias lendárias — deidades femininas que serviam aos deuses. Elas estão\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("posicionadas em formato triangular ao redor do painel. Uma, de acordo com a gravura na\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("estátua, chama-se Eir e segura um escudo gigantesco. Outra chama-se Olrun e possui\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("armadura leve e asas notáveis. A mais notável entre elas, era Sigrun. De acordo com as\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("gravuras, ela era a Rainha das Valquírias. Elas estavam segurando espadas longas que\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("apontavam para o chão ao redor do painel.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("gravuras, ela era a Rainha das Valquírias. Elas seguram espadas longas que apontavam\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("para o chão ao redor do painel.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		
 		Digita("	Observando o ambiente, Asulf percebe que não há mais por onde passar e\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("aproxima-se do painel.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println();
@@ -3323,10 +3366,12 @@ public class ATorreDeGnosis {
 
 		} while (!resp1v);
 		System.out.println();
-		Digita("	Após recitar e decifrar o enigma, a caverna começa a se mover. Um novo caminho se abre.\n",
-				TimeUnit.MICROSECONDS, temp_dialog);
-		Digita("Asulf nota que há um pergaminho na boca de umas das valquírias. Ele aproxima-se.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		
+		Digita("	Ao resolver o enigma, as mãos de pedra de Sigrun se movem até o seu manto,\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("que continha um pequeno pergaminho, e estendem as mãos à frente do seu corpo.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Como se o oferecessem para você.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println();
+		
 		do {
 			System.out.println("1 - Pegar pergaminho");
 			alternativa = entrada.next();
@@ -3342,6 +3387,11 @@ public class ATorreDeGnosis {
 		} while (alternativaCerta != true);
 		alternativaCerta = false;
 		System.out.println();
+		
+		Digita("	Uma magia transpassa seu corpo, você sente uma corrente elétrica passar o\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("seu corpo.\n", TimeUnit.MILLISECONDS, temp_dialog);
+	
+		System.out.println();
 		Digita("=================|                          |=================\n", TimeUnit.MILLISECONDS, ultra_Speed);
 		Digita("-----------------| Sabedoria de Odin OBTIDA |-----------------\n", TimeUnit.MILLISECONDS, ultra_Speed);
 		Digita("=================|                          |=================\n", TimeUnit.MILLISECONDS, ultra_Speed);
@@ -3351,8 +3401,18 @@ public class ATorreDeGnosis {
 		elixirDaVidaStatus = true; //Elixir da Vida aparecerá no status
 		sabedoriaDeOdinStatus = true; //Sabedoria De Odin aparecerá no Status
 		
+		Digita("	Assim que a sensação passa, Sigrun recolhe os braços e rapidamente tenta\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("acertar um soco em seu peito!\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Seus reflexos o protegem, o guerreiro coloca as mãos na frente do soco, mas\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("a força é muito grande, mesmo você não se machucando, o soco te empurra até o\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("centro da sala.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Olhando ao redor você percebe que as outras valquírias também começam a\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("se mexer.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Ótimo, vamos aquecer.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		
+		
 		do {
-			System.out.println("1 - Seguir pelo novo caminho");
+			System.out.println("1 - Continuar");
 			alternativa = entrada.next();
 			switch (alternativa) {
 			case "1":
@@ -3367,8 +3427,7 @@ public class ATorreDeGnosis {
 		alternativaCerta = false;
 		System.out.println();
 		
-		Digita("	Ao passar pelo caminho que se abriu, Asulf ouve um barulho vindo de trás. As\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("valquírias estão vivas e estão vindo atrás de você. Derrote-as!!!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+		
 		System.out.println();
 		
 		boolean vitoria = false; 		//Utilizado quando o Usuário vence do 'Computador' e sai do loop.         
@@ -4472,10 +4531,21 @@ public class ATorreDeGnosis {
 		vitoria = false;
 		
 		System.out.println();
-		Digita("	Derrotando a trindade das valquírias, Asulf segue seu pelo caminho que tinha se\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("aberto. Asulf avista uma ponte de concreto à sua frente. A ponte é impecável, sem\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("nenhum defeito. Embaixo da ponte, um abismo que não se enxergava nada. Do outro lado\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("da ponte, um portão enorme de concreto. À frente do portão, totens de madeira.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Derrotando a trindade das valquírias, Asulf se apoia em seus joelhos para\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("recuperar o fôlego, as guerreiras implacáveis agora não passam de estátuas de\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("mármore quebradas.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Após a luta, uma das paredes da sala se move e abre um caminho para você\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("seguir. Antes de seguir em frente, Asulf olha para trás e nota a pequena coruja,\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("mesmo dormindo ela respira pesadamente. Mesmo que a coruja tenha sido o estopim\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("para tudo isso, o guerreiro sente pena do pobre bichinho. Você rasga pedaços das\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("túnicas dos seguidores do monge, e com seus trapos, monta uma mochila\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("improvisada e coloca a coruja em suas costas.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Uma companhia pode me fazer bem no final das contas.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Você segue pelo corredor de mármore por quinze minutos, até avistar uma\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("ponte à sua frente. A ponte é feita de um mármore impecável. Embaixo da ponte, um\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("abismo que não se enxergava nada. Do outro lado da ponte, um portão enorme de\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("concreto. À frente do portão, totens de madeira.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
 		Digita("	Há gravuras nesses totens. Encontre o único totem diferente e coloque-o na posição\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("correta.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println();
@@ -4560,7 +4630,13 @@ public class ATorreDeGnosis {
 		//fim do desafio do totem
 		System.out.println();
 		
-		Digita("	Ao ativar o mecanismo, a enorme porta começa a se abrir. Asulf sente uma palpitação em seu coração. \n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Encaixando o totem em seu devido lugar, eles começam a reluzir uma luz\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("azulada, aos poucos os portões se abrem. Dentro deles você enxerga um vale.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("Uma simples com grama verde cortado por um rio cristalino. Muito à frente é possível\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("avistar um castelo. Do topo da fortificação um raio de luz branca vai em direção até\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("as estrelas.\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	Você está mais próximo do que nunca de acabar com isso de uma vez por todas.\n", TimeUnit.MILLISECONDS, temp_dialog);
+
 		System.out.println();
 		
 		boolean alternativaVoltar = false; //criada para 'voltar' o menu.
