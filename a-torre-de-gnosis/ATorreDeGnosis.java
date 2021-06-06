@@ -1167,6 +1167,7 @@ public class ATorreDeGnosis {
 		System.out.println("Capítulo 3: O Pacto");
 		System.out.println();
 
+		Digita("	Não é a primeira vez que o velho general se encontra à beira da morte, as\n", TimeUnit.MILLISECONDS, temp_dialog);
 		
 		
 		capitulo4();
