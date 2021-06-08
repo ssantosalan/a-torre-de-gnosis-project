@@ -5,6 +5,9 @@ Projeto Integrador da Faculdade de <strong>Análise e Desenvolvimento de Sistema
 <strong>A Torre de Gnosis.</strong>
 </p>
 <p>
+<strong>Lines of Codes (LOC):</strong> 6271
+</p>
+<p>
 <strong>Objetivo:</strong>
 <br>
 <br>
