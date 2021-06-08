@@ -181,8 +181,9 @@ public class ATorreDeGnosis {
 	
 	public static void main(String[] args) throws Exception{
 		String opcao;
-		Boolean tacerto = false;
-
+		boolean tacerto = false;
+		
+		
 		/*
 		 * Explicação dos próximos comandos:
 		 * 
@@ -210,65 +211,97 @@ public class ATorreDeGnosis {
 				tacerto = true;
 				break;
 			case "2":
-				System.out.println("Instruções");
-				System.out.println();
-				System.out.println("O jogo é baseado em escolhas.");
-				System.out.println("Você terá que informar ou '1' ou '2' ou '3' ou '4' ou '5' de acordo com as opções.");
-				System.out.println("Também haverá momentos em que você deverá informar ou 'a' ou 'b' ou 'c' ou 'd' ou 'e' de acordo com as opções.");
-				System.out.println("Também haverá momentos que terá a opção para digitar 'X' para 'voltar'.");
-				System.out.println();
+				
+				boolean instrucaoCerto = false; //variável p/ qnd o Usuário escolher uma opção válida e sair do loop.
+				
+				do {
+					System.out.println("Instruções");
+					System.out.println();
+					System.out.println("O jogo é baseado em escolhas.");
+					System.out.println("Você terá que informar ou '1' ou '2' ou '3' ou '4' ou '5' de acordo com as opções.");
+					System.out.println("Também haverá momentos em que você deverá informar ou 'a' ou 'b' ou 'c' ou 'd' ou 'e' ou 'w' de acordo com as opções.");
+					System.out.println("Também haverá momentos que terá a opção para digitar 'X' para 'voltar'.");
+					System.out.println();
+					System.out.println("X - Voltar");
+					opcao = entrada.next();
+					
+					switch (opcao.toLowerCase()) {
+					
+					case "x": 
+						instrucaoCerto = true;
+						break;
+						
+					default:
+						System.out.println();
+						System.out.println("Informe 'x' para voltar.");
+						System.out.println();
+						break;
+					}
+					
+				} while (!instrucaoCerto);
+				
 				break;
 			case "3":
 				creditos();
 				break;
 
 			case "4":
-				System.out.println("1 - Capítulo 1: Pai e Filho");
-				System.out.println("2 - Capítulo 2: O Monge");
-				System.out.println("3 - Capítulo 3: O Pacto");
-				System.out.println("4 - Capítulo 4: 1º Andar — Portões de Fogo");
-				System.out.println("5 - Capítulo 5: 2º Andar — Compaixão na Cidade dos Leviatãs");
-				System.out.println("6 - Capítulo 6: 3º Andar — Anjos Caídos");
-				System.out.println("7 - Capítulo 7: 4º Andar — O Monge, o Deus e o Santo");
-				System.out.println("X - Voltar ");
-				System.out.print("Digite o capítulo desejado: ");
-				opcao = entrada.next();
-
-				switch (opcao.toLowerCase()) {
-				case "1":
-					capitulo1();
-					tacerto = true;
-					break;
-				case "2":
-					capitulo2();
-					tacerto = true;
-					break;
-				case "3":
-					capitulo3();
-					tacerto = true;
-					break;
-				case "4":
-					capitulo4();
-					tacerto = true;
-					break;
-				case "5":
-					capitulo5();
-					tacerto = true;
-					break;
-				case "6":
-					capitulo6();
-					tacerto = true;
-					break;
-				case "7":
-					capitulo7();
-					tacerto = true;
-					break;
-				case "x":
-					break;
-				default:
-					System.out.println("Entenda que você tem que digitar 1 ou 2 ou 3 ou 4 ou 5 ou 6 ou 7 ou 'x'.");
-					break;
-				}
+				
+				boolean capituloCerto = false; //variável quando selecionar uma opção válida em 'capítulos'.
+				
+				do {
+					System.out.println();
+					System.out.println("1 - Capítulo 1: Pai e Filho");
+					System.out.println("2 - Capítulo 2: O Monge");
+					System.out.println("3 - Capítulo 3: O Pacto");
+					System.out.println("4 - Capítulo 4: 1º Andar — Portões de Fogo");
+					System.out.println("5 - Capítulo 5: 2º Andar — Compaixão na Cidade dos Leviatãs");
+					System.out.println("6 - Capítulo 6: 3º Andar — Anjos Caídos");
+					System.out.println("7 - Capítulo 7: 4º Andar — O Monge, o Deus e o Santo");
+					System.out.println("X - Voltar ");
+					System.out.print("Digite o capítulo desejado: ");
+					opcao = entrada.next();
+	
+					switch (opcao.toLowerCase()) {
+					case "1":
+						capitulo1();
+						capituloCerto = true;
+						break;
+					case "2":
+						capitulo2();
+						capituloCerto = true;
+						break;
+					case "3":
+						capitulo3();
+						capituloCerto = true;
+						break;
+					case "4":
+						capitulo4();
+						capituloCerto = true;
+						break;
+					case "5":
+						capitulo5();
+						capituloCerto = true;
+						break;
+					case "6":
+						capitulo6();
+						capituloCerto = true;
+						break;
+					case "7":
+						capitulo7();
+						capituloCerto = true;
+						break;
+					case "x":
+						capituloCerto = true;
+						break;
+					default:
+						System.out.println();
+						System.out.println("Entenda que você tem que digitar 1 ou 2 ou 3 ou 4 ou 5 ou 6 ou 7 ou 'x'.");
+						break;
+					}
+					
+				} while (!capituloCerto);
+				
 				break;
 
 			case "5":
@@ -276,7 +309,9 @@ public class ATorreDeGnosis {
 				System.exit(0);
 				break;
 			default:
+				System.out.println();
 				System.out.println("Entenda que tem que digitar 1 ou 2 ou 3 ou 4 ou 5.");
+				System.out.println();
 				break;
 			}
 
