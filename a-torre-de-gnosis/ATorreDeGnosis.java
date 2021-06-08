@@ -5379,15 +5379,22 @@ public class ATorreDeGnosis {
 		String alternativa;
 		boolean alternativaCerta = false;
 		
+		System.out.println();
 		do {
 			System.out.println();
-			System.out.println("1 - Subir.");
+			System.out.println("1 - Subir para o próximo andar.");
+			System.out.println("2 - Não subir.");
 			alternativa = entrada.next();
 			System.out.println();
 			switch (alternativa) {
 			case "1":				
 				alternativaCerta = true;
 				break;			
+			case "2":
+				Digita("	Você pensa em não subir, mas após tudo que passou, agora é um\n", TimeUnit.MILLISECONDS, temp_dialog);
+				Digita("caminho sem volta, e só lhe resta um destino.\n", TimeUnit.MILLISECONDS, temp_dialog);
+				alternativaCerta = true;
+				break;
 			default:
 				System.out.println("Tenha confiança.");
 				System.out.println("");
@@ -5396,6 +5403,7 @@ public class ATorreDeGnosis {
 			
 		} while (alternativaCerta != true);
 		alternativaCerta = false;	
+		System.out.println();
 		
 		
 		Digita("	Asulf percorre as escadas em direção ao local em que a energia mágica é mais\n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -5460,6 +5468,34 @@ public class ATorreDeGnosis {
 		Digita("soco certeiro no rosto do homem, que não tenta reagir.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Ele é arremessado contra a parede e começa a gargalhar. O guerreiro corre em\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("direção do homem, agarra-o pela perna e arremessa ele em direção ao hall principal.\n", TimeUnit.MILLISECONDS, temp_dialog);
+			
+		System.out.println();
+		do {
+			System.out.println();
+			System.out.println("1 - Conter sua fúria.");
+			System.out.println("2 - Atacar o monge.");
+			alternativa = entrada.next();
+			System.out.println();
+			switch (alternativa) {
+			case "1":		
+				Digita("	Você tenta conter sua fúria, mas o ódio em seus olhos ao ver o monge é\n", TimeUnit.MILLISECONDS, temp_dialog);
+				Digita("maior que sua consciência.\n", TimeUnit.MILLISECONDS, temp_dialog);
+				alternativaCerta = true;
+				break;			
+			case "2":
+				
+				alternativaCerta = true;
+				break;
+			default:
+				System.out.println("Tenha confiança.");
+				System.out.println("");
+				break;
+			}
+			
+		} while (alternativaCerta != true);
+		alternativaCerta = false;	
+		System.out.println();	
+		
 		Digita("	Vocês estão no quarto andar, quando o sacerdote cai no chão, você sobe em cima\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("dele e começa a socá-lo no rosto.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println();
