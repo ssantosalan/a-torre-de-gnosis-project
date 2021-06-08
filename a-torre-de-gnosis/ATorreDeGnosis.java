@@ -95,7 +95,7 @@ public class ATorreDeGnosis {
 				Digita("Anton voa para o céu e, com uma velocidade extrema, atinge-o diretamente! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);	
 			} else if (valor == 10) {
 				System.out.println();
-				dano = ataqueForca.nextInt(10) + 30;
+				dano = ataqueForca.nextInt(20) + 35;
 				hpUsuario = hpUsuario - dano;
 				Digita("Anton: MORRA, PAI!!!!!!!!!!!!!!!!!!!!! \u2734\uFE0F Dano " + dano, TimeUnit.MILLISECONDS,
 						temp_dialog);	
@@ -5030,6 +5030,7 @@ public class ATorreDeGnosis {
 		int hpAntonBossFight = 3000; 
 		int contador = 0;	//Variável utilizada para poder mudar os textos no loop, no Ataque Cortante.
 		int contadorChamasNegras = 0; //Variável utilizada para poder mudar os textos no ataque de Chamas Negras.
+		int contadorElixirDaVida = 0; //Variável utilizada para poder mudar os textos no Elixir da Vida.
 		int contadorSabedoriaDeOdin = 0; //Variável utilizada para poder mudar os textos no ataque de Sabedoria De Odin.
 		boolean vitoria = false;
 		Random ataqueForca = new Random(); // Força do ataque dado por uma aleatoriedade.
@@ -5139,13 +5140,13 @@ public class ATorreDeGnosis {
 					dano = 40;
 					hpUsuario = hpUsuario - dano;
 					System.out.println();
-					Digita("Anton sofreu " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Asulf sofreu " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
 				} else {
 					
 					if (valor == 0) {
 						Digita("Anton desvia do ataque! Dano 0\n", TimeUnit.MILLISECONDS, temp_dialog);		
 						
-					} else if (valor == 1 || valor == 2 || valor == 4 || valor == 5) {
+					} else if (valor == 1 || valor == 2 || valor == 3 || valor == 4 || valor == 5) {
 						dano = ataqueForca.nextInt(20) + 80;
 						hpAntonBossFight = hpAntonBossFight - dano;
 						Digita("O seu ataque não foi tão eficaz! Dano " + dano + ".\n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -5180,7 +5181,7 @@ public class ATorreDeGnosis {
 						hpAntonBossFight = hpAntonBossFight - dano;
 						Digita("Cobrindo todo o seu corpo com a energias das Chamas! \n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Asulf lança em si mesmo as Chamas Negras!\n", TimeUnit.MILLISECONDS, temp_dialog);
-						Digita("Cobrindo todo o seu corpo com a energias das Chamas, ele avança em direção Anton! \n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Tendo as Chamas Negras como um manto quente, ele avança em direção Anton! \n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("O impacto é tão grande que nem a áurea de luz branca de Anton é capaz de resistir! Dano " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
 						dano = 20;
 						hpUsuario = hpUsuario - dano;
@@ -5244,15 +5245,55 @@ public class ATorreDeGnosis {
 				
 				break;
 			case "3": //Usando o elixir da vida
+				
+
+				System.out.println();
 				if (elixirDaVida > 0) {
-					Digita("Asulf recupera vida! Vida + 75\n", TimeUnit.MILLISECONDS, temp_dialog);
 					hpUsuario = hpUsuario + 75;
 					elixirDaVida--;
 					if (hpUsuario > 100) {
 						hpUsuario = 100;
 					}
+					
+					if (contadorElixirDaVida == 0) {
+									
+						Digita("Filho... Vida + 75\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+						
+					} else if (contadorElixirDaVida == 2 ) {
+						
+						Digita("Eu vou te salvar... Vida + 75\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+					
+					} else if (contadorElixirDaVida == 4) {
+						
+						Digita("Anton... Vida + 75\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+						
+					} else if (contadorElixirDaVida == 6) {
+						Digita("O que eles fizeram contigo, Anton... Vida + 75\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+					
+					} else if (contadorElixirDaVida == 8) {
+						Digita("Nunca irei perdoá-los... Vida + 75\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+						
+					} else if (contadorElixirDaVida == 10) {
+						Digita("MALDITOS!!! Vida + 75\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+						
+					} else if (contadorElixirDaVida == 12) {
+						Digita("ANTON! Vida + 75\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+						
+					} else {
+						
+						Digita("Asulf recupera vida! Vida + 75\n", TimeUnit.MILLISECONDS, temp_dialog);
+						
+						System.out.println();
+						ataqueDeAntonDeus(hpAntonBossFight); //Ataque do Anton Deus
+						
+					}
+				
+				} else {
+					hpUsuario = hpUsuario - 5;
+					Digita("Ao tentar curar-se sem o Elixir da Vida, Asulf é atacado! Dano 5",
+							TimeUnit.MILLISECONDS, temp_dialog);
 				}
-				System.out.println();
+				contadorElixirDaVida++; //Aumenta o contador para ir trocando de falas.
 				
 				
 				break;
@@ -5334,7 +5375,14 @@ public class ATorreDeGnosis {
 				break;
 			}
 			
-			//ataqueDeAntonDeus(hpAntonBossFight);
+			if (hpUsuario <= 0) {
+				Digita("Morto pelo próprio filho...\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+				Digita("Uma trágedia predestinada pelo destino...\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+				Digita("Ou decidida pela sua própria fraqueza...?\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+				System.out.println();
+				Digita("Fim de Jogo.\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+				System.exit(0);
+			}
 			
 			if (hpAntonBossFight <= 300) {
 				vitoria = true;
