@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class ATorreDeGnosis {
 	static Scanner entrada = new Scanner(System.in); //variável global de entrada
 	static int hpUsuario = 100, chamasNegras = 10, elixirDaVida = 15, sabedoriaDeOdin = 5; //vida global do protagonista e habilidades
-	static int temp_dialog = 0, temp_questions = 0, temp_dialogSlow = 0, temp_dialogFast = 0, temp_dialogFaster = 0, ultra_Speed = 0,  temp_dotsSlow = 0, temp_dots = 0;
+	static int temp_dialog = 0, temp_questions = 0, temp_dialogSlow = 0, temp_dialogFast = 0, temp_dialogFaster = 0, ultra_Speed = 10,  temp_dotsSlow = 0, temp_dots = 0;
 	
 	//Para não ter delay no jogo, coloque 0 em todas as variáveis acima.
 	//Valor das variáveis caso vc queira zerar em cima e rodar sem delay, mas posteriormente colocando o valor certo:
@@ -62,6 +62,47 @@ public class ATorreDeGnosis {
 			System.out.println("Sabedoria de Odin causa 100 de Dano Mágico e também possui uma altíssima chance de causar Dano Crítico.");
 		}
 			
+		
+	}
+	
+	static void ataqueDeAntonDeus(int hpAntonBossFight) throws InterruptedException {
+		
+		
+		Random ataqueForca = new Random(); // Força do ataque dado por uma aleatoriedade.
+		int dano = 0; //dano causado pelo ataque.
+		int valor; //Valor gerado pela 'aleatoriedade'.
+		
+		if (hpAntonBossFight > 0) { 
+			valor = ataqueForca.nextInt(10) + 1;
+			if (valor == 1 || valor == 2) {
+				System.out.println();
+				Digita("Asulf desvia do ataque de Anton!", TimeUnit.MILLISECONDS, temp_dialog);
+			} else if (valor == 3 || valor == 4 || valor == 5 || valor == 6) {
+				System.out.println();
+				dano = ataqueForca.nextInt(5) + 8;
+				hpUsuario = hpUsuario - dano;	
+				Digita("Anton atira esferas enérgicas de luz! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);						
+			} else if (valor == 7|| valor == 8) {
+				System.out.println();
+				dano = ataqueForca.nextInt(5) + 20;
+				hpUsuario = hpUsuario - dano;								
+				Digita("Anton teleporta-se multiplas vezes, socando-o diversas vezes! Dano " + dano, TimeUnit.MILLISECONDS,
+						temp_dialog);	
+			} else if (valor == 9) {
+				System.out.println();
+				dano = ataqueForca.nextInt(10) + 20;
+				hpUsuario = hpUsuario - dano;
+				Digita("Anton voa para o céu e, com uma velocidade extrema, atinge-o diretamente! Dano " + dano, TimeUnit.MILLISECONDS, temp_dialog);	
+			} else if (valor == 10) {
+				System.out.println();
+				dano = ataqueForca.nextInt(10) + 30;
+				hpUsuario = hpUsuario - dano;
+				Digita("Anton: MORRA, PAI!!!!!!!!!!!!!!!!!!!!! \u2734\uFE0F Dano " + dano, TimeUnit.MILLISECONDS,
+						temp_dialog);	
+			} 
+			System.out.println();
+			System.out.println();
+		}
 		
 	}
 	
@@ -185,7 +226,7 @@ public class ATorreDeGnosis {
 		System.out.println();
 		
 		//A Profecia
-		Digita("			A criança do lobo corre pelos mundos,\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+		Digita("			A criança do lobo corre pelos mundos\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
 		Digita("			Sofrendo e aprendendo junto aos homens imundos\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
 		Digita("			Evoluindo a cada passo ela caminha\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
 		Digita("			Em direção aos deuses ela definha\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
@@ -4137,7 +4178,7 @@ public class ATorreDeGnosis {
 					System.out.println();
 	
 					break;
-				case "4":
+				case "4": //Usando Sabedoria de Odin
 					
 					if (hpValquiria02 > 0) {
 					
@@ -4974,12 +5015,229 @@ public class ATorreDeGnosis {
 		System.out.println();
 		Digita("	— Você será o primeiro, pai! Juntos nós vamos garantir que a humanidade chegue\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("ao próximo nível!\n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
+		Digita("	Asulf está sem palavras. Seu menino que antes se preocupava com as pessoas,\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("agora fala de assassinato em massa e da criação de uma nova raça. Mesmo morto, o\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("monge consegue causar mal a sua família, ele enfeitiçou seu filho, você precisa trazê-lo de\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("volta!\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Não se preocupe, Anton, seu pai vai te consertar!\n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
+		//
 		
-		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+		System.out.println();
+		//Última luta, Anton - BOSS FIGHT, começa aqui
+		
+		int hpAntonBossFight = 3000; 
+		int contador = 0;	//Variável utilizada para poder mudar os textos no loop.
+		boolean vitoria = false;
+		Random ataqueForca = new Random(); // Força do ataque dado por uma aleatoriedade.
+		int dano = 0; //dano causado pelo ataque.
+		int valor; //Valor gerado pela 'aleatoriedade'.
+		
+		
+		do {
+			
+			System.out.println();
+			System.out.println();
+			Digita("\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39",TimeUnit.MILLISECONDS, ultra_Speed);
+			Digita("\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\n",TimeUnit.MILLISECONDS, ultra_Speed);
+			Digita("\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39",TimeUnit.MILLISECONDS, ultra_Speed);
+			Digita("\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39\uD83C\uDF39",TimeUnit.MILLISECONDS, ultra_Speed);
+			System.out.println();
+			System.out.println("====================                ====================");
+			System.out.println("Asulf   STATUS                           Deus Anton");
+			Digita(hpUsuario + " \uD83D\uDC99", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			System.out.print("                                    ");
+			Digita(hpAntonBossFight + " \uD83E\uDEC0\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+			System.out.println("       ESPECIAIS                     ");
+			System.out.println("* Chamas Negras: " + chamasNegras + "/10");
+			System.out.println("* Elixir da Vida: " + elixirDaVida + "/15");
+			System.out.println("* Sabedoria de Odin: " + sabedoriaDeOdin + "/5");
+			System.out.println("====================                ====================");
+
+			System.out.println("Escolha seu ataque");
+			System.out.println("1 - Ataque Cortante \u2694\uFE0F      3 - Elixir da vida  \u2764\uFE0F");
+			System.out.println("2 - Chamas Negras \uD83D\uDD25        4 - Sabedoria de Odin \u26A1");
+			System.out.println("X - Voltar");
+			
+			alternativa = entrada.next();
+
+			switch (alternativa) {
+			case "1":
+				
+				System.out.println();
+				valor = ataqueForca.nextInt(10);//ataque do Protagonista
+				
+				if (contador == 0) {
+					dano = 200;
+					hpAntonBossFight = hpAntonBossFight - dano;
+					Digita("\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Asulf imbui sua espada com as Chamas Negras e ataca ferozmente Anton! Dano " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
+					dano = 20;
+					hpUsuario = hpUsuario - dano;
+					System.out.println();
+					Digita("Anton, com sua mão brilhando com uma luz extremamente forte, teleporta-se atrás de Asulf e o soca com força!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Asulf tenta defender! Mas o impacto do golpe é tão forte que o joga contra a parede, quebrando-a e  \n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("fazendo-o cair fora do castelo, junto às flores do andar! Dano " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
+				} else if (contador == 5 ) {
+					dano = 200;
+					hpAntonBossFight = hpAntonBossFight - dano;
+					Digita("Asulf corre com uma velocidade tremenda em direção a Anton, com sua espada em mãos e\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("lança dois golpes na diagonal, marcando um 'x' no peito de Anton! Dano " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
+					dano = 25;
+					hpUsuario = hpUsuario - dano;
+					System.out.println();
+					Digita("Anton voa para o alto e com as duas mãos, começa a lançar centenas de esferas enérgicas em Asulf!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Asulf corre em zig-zag no prado floriado, escapando das esferas enérgicas!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Mas Anton teleporta-se para o franco de Asulf, transferindo um soco em sua costela! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+				} else if (contador == 10) {
+					dano = 200;
+					hpAntonBossFight = hpAntonBossFight - dano;
+					Digita("Asulf, utilizando a Sabedoria de Odin, imbui sua arma novamente!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Agora seus ataques estão mais velozes! Asulf em passos largos aproxima-se de Anton! \n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Anton teleporta-se para trás de Asulf! \n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Mas Asulf parece saber examente a posição que Anton teleportaria! \n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Asulf rapidamente vira para trás e, com sua arma imbuída, golpea Anton 5 vezes! \n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("E todos os golpes miravam exatamente no símbolo que controlava Anton! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+					dano = 30;
+					hpUsuario = hpUsuario - dano;
+					System.out.println();
+					Digita("Anton enfurece-se!!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Ele não recua após os golpes e, parecendo imitar o pai, soca Asulf 5 vezes!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("três golpes no estômago e dois golpes na cabeça de Asulf! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+				} else if (contador == 12) {
+					dano = 200;
+					hpAntonBossFight = hpAntonBossFight - dano;
+					Digita("AHHHHHHHHHHHHHHHHHHHHG!!!!! — Asulf grita. \n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("— UM DEUS!!!!???? VOCÊ AINDA TEM MUITO QUE APRENDER, MOLEQUE!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					System.out.println();
+					Digita("Anton sai de sua posição celestial e cai em terra igual um meteoro!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Causando um terromoto por todo o andar!!!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Com o choque, o chão emite ondas em direção de Asulf!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Asulf aproveita as ondas em direção dele para pegar impulso!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Com três impulsos, Asulf incurta uma distância de 50 metros entre ele e Anton!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Com a velocidade, Asulf espeta Anton nos ombros! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+					dano = 35;
+					hpUsuario = hpUsuario - dano;
+					System.out.println();
+					Digita("Anton força a musculatura de seu corpo, prendendo-o a espada de Asulf em seu ombro!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Abrindo sua boca, como se fosse gritar, seus olhos e sua boca começam a emiter uma luz branca!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Anton ataca Asulf com essa energia! \n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Por pouco, Asulf escapa, porém seu braço esquerdo está destruído! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+				} else if (contador == 14) {
+					dano = 200;
+					hpAntonBossFight = hpAntonBossFight - dano;
+					
+					Digita("— ANTON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					System.out.println();
+					Digita("— PAI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					System.out.println();
+					Digita("\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Anton sofreu " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
+					dano = 40;
+					hpUsuario = hpUsuario - dano;
+					System.out.println();
+					Digita("Anton sofreu " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
+				} else {
+					
+					if (valor == 0) {
+						Digita("Anton desvia do ataque! Dano 0\n", TimeUnit.MILLISECONDS, temp_dialog);		
+						
+					} else if (valor == 1 || valor == 2 || valor == 4 || valor == 5) {
+						dano = ataqueForca.nextInt(20) + 80;
+						hpAntonBossFight = hpAntonBossFight - dano;
+						Digita("O seu ataque não foi tão eficaz! Dano " + dano + ".\n", TimeUnit.MILLISECONDS, temp_dialog);
+					} else if (valor == 6 || valor == 7 || valor == 8) {
+						dano = ataqueForca.nextInt(60) + 100;
+						hpAntonBossFight = hpAntonBossFight - dano;
+						Digita("O seu ataque foi eficaz! Dano " + dano + ".\n", TimeUnit.MILLISECONDS, temp_dialog);
+					} else if (valor == 9) {
+						dano = ataqueForca.nextInt(60) + 120;
+						hpAntonBossFight = hpAntonBossFight - dano;
+						Digita("O seu ataque foi eficaz! Dano " + dano + ".\n", TimeUnit.MILLISECONDS, temp_dialog);
+					}
+					
+					ataqueDeAntonDeus(hpAntonBossFight); //Ataque do Anton Deus
+				}
+				
+
+		
+				contador++; //Aumenta o contador para ir trocando de falas.
+				
+				System.out.println();
+				break;	
+			case "2": //ataque das Chamas Negras
+				
+				valor = ataqueForca.nextInt(2);
+				if (chamasNegras > 0) {
+					chamasNegras--;
+					if (valor == 0) {
+						hpAntonBossFight = hpAntonBossFight - 100;
+						Digita("CHAMAS NEGRAS! Dano 100", TimeUnit.MILLISECONDS, temp_dialog);
+					} else {
+						hpAntonBossFight = hpAntonBossFight - 200;
+						Digita("CHAMAS NEGRAS! Dano CRÍTICO! 200", TimeUnit.MILLISECONDS, temp_dialog);
+					}
+				} else {
+					hpUsuario = hpUsuario - 5;
+					Digita("Ao tentar invocar as Chamas Negras sem energia, Asulf é atacado! Dano 5",
+							TimeUnit.MILLISECONDS, temp_dialog);
+				}
+				
+				break;
+			case "3": //Usando o elixir da vida
+				if (elixirDaVida > 0) {
+					Digita("Asulf recupera vida! Vida + 75\n", TimeUnit.MILLISECONDS, temp_dialog);
+					hpUsuario = hpUsuario + 75;
+					elixirDaVida--;
+					if (hpUsuario > 100) {
+						hpUsuario = 100;
+					}
+				}
+				System.out.println();
+				
+				
+				break;
+			case "4": //Usando Sabedoria de Odin
+				
+				valor = ataqueForca.nextInt(2);
+				if (sabedoriaDeOdin > 0) {
+					sabedoriaDeOdin--;
+					if (valor == 0) {
+						hpAntonBossFight = hpAntonBossFight - 100;
+						Digita("ODIN!!!! Dano 100", TimeUnit.MILLISECONDS, temp_dialog);
+					} else {
+						hpAntonBossFight = hpAntonBossFight - 200;
+						Digita("ODIN!!!! Dano CRÍTICO! 200", TimeUnit.MILLISECONDS, temp_dialog);
+					}
+				} else {
+					hpUsuario = hpUsuario - 5;
+					Digita("Ao tentar invocar a Sabedoria de Odin sem energia, Asulf é atacado! Dano 5",
+							TimeUnit.MILLISECONDS, temp_dialog);
+				}
+				
+				
+				break;
+			default:
+				break;
+			}
+			
+			//ataqueDeAntonDeus(hpAntonBossFight);
+			
+			if (hpAntonBossFight <= 300) {
+				vitoria = true;
+				break;
+			}
+
+		} while (vitoria == false);
+		vitoria = false;
+		//LUTA ANTON - BOSS FIGHT, TERMINA AQUI.
+		System.out.println();
+		
+		
+		
+		
+		//
 		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
