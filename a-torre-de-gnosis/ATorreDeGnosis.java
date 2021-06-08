@@ -5258,22 +5258,76 @@ public class ATorreDeGnosis {
 				break;
 			case "4": //Usando Sabedoria de Odin
 				
-				valor = ataqueForca.nextInt(2);
+				System.out.println();
 				if (sabedoriaDeOdin > 0) {
 					sabedoriaDeOdin--;
-					if (valor == 0) {
-						hpAntonBossFight = hpAntonBossFight - 100;
-						Digita("ODIN!!!! Dano 100", TimeUnit.MILLISECONDS, temp_dialog);
+					
+					if (contadorSabedoriaDeOdin == 0) {
+						
+						dano = 200;
+						hpAntonBossFight = hpAntonBossFight - dano;
+						Digita("Respirando fundo, uma áurea elétrica percorre Asulf! \n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Asulf em um piscar de olho aparece no flanco de Anton!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Anton olha à direita, mas Asulf já está à esquerda! \n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Anton vira novamente, mas Asulf já está em suas costas! \n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Um... dois... três ataques rápidos! Mirando exatamento no símbolo que controla Anton! Dano " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
+						dano = 0;
+						hpUsuario = hpUsuario - dano;
+						System.out.println();
+						Digita("Anton, tenta acertar Asulf, mas sua velocidade é divina! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+						
+					} else if (contadorSabedoriaDeOdin == 1 ) {
+						dano = 200;
+						hpAntonBossFight = hpAntonBossFight - dano;
+						Digita("Asulf vai em direção a Anton que está à frente do castelo!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Anton tenta acertá-lo, mas Asulf desvia!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Socando-o para os céus!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Ainda voando com a potência do golpe, Asulf aparece acima de Anton!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Com sua espada apontada aos céus, Asulf materializa um raio!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("O raio atinge Anton em cheio, fazendo um estrondo que podia-se ouvir por toda A Torre de Gnosis! Dano " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
+						dano = 6;
+						hpUsuario = hpUsuario - dano;
+						System.out.println();
+						Digita("Anton parece não se abalar!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Anton tenta segurar Asulf com as mãos!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Mas Asulf escapa!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Porém esse aperto causado no braço, é o suficiente para causar dano à Asulf e sua armadura! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+					} else if (contadorSabedoriaDeOdin == 2) {
+						dano = 200;
+						hpAntonBossFight = hpAntonBossFight - dano;
+						Digita("Asulf, utilizando sua velocidade, voa em direção a Anton!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Anton, no topo do castelo, joga esferas enérgicas em Asulf!  \n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Asulf desvia com destreza! \n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Aproximandos-e de tanto e socando-o para o chão! \n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Asulf acerta 50 golpes em sequência!!!!!! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+						dano = 7;
+						hpUsuario = hpUsuario - dano;
+						System.out.println();
+						Digita("Dos 50 golpes dados por Asulf!!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Anton consegue somente reagir acertando um golpe de raspão! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
 					} else {
-						hpAntonBossFight = hpAntonBossFight - 200;
-						Digita("ODIN!!!! Dano CRÍTICO! 200", TimeUnit.MILLISECONDS, temp_dialog);
+						
+						valor = ataqueForca.nextInt(2);
+						
+						if (valor == 0) {
+							hpAntonBossFight = hpAntonBossFight - 100;
+							Digita("ODIN!!!! Dano 100", TimeUnit.MILLISECONDS, temp_dialog);
+						} else {
+							hpAntonBossFight = hpAntonBossFight - 200;
+							Digita("ODIN!!!! Dano CRÍTICO! 200", TimeUnit.MILLISECONDS, temp_dialog);
+						}
+						
+						System.out.println();
+						ataqueDeAntonDeus(hpAntonBossFight); //Ataque do Anton Deus
+						
 					}
+				
 				} else {
 					hpUsuario = hpUsuario - 5;
 					Digita("Ao tentar invocar a Sabedoria de Odin sem energia, Asulf é atacado! Dano 5",
 							TimeUnit.MILLISECONDS, temp_dialog);
 				}
-				
+				contadorSabedoriaDeOdin++; //Aumenta o contador para ir trocando de falas no ataque de chamas negras.
 				
 				break;
 			default:
