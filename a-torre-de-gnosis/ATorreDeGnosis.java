@@ -76,7 +76,7 @@ public class ATorreDeGnosis {
 			valor = ataqueForca.nextInt(10) + 1;
 			if (valor == 1 || valor == 2) {
 				System.out.println();
-				Digita("Asulf desvia do ataque de Anton!", TimeUnit.MILLISECONDS, temp_dialog);
+				Digita("Asulf desvia do ataque de Anton! Dano 0", TimeUnit.MILLISECONDS, temp_dialog);
 			} else if (valor == 3 || valor == 4 || valor == 5 || valor == 6) {
 				System.out.println();
 				dano = ataqueForca.nextInt(5) + 8;
@@ -5028,7 +5028,9 @@ public class ATorreDeGnosis {
 		//Última luta, Anton - BOSS FIGHT, começa aqui
 		
 		int hpAntonBossFight = 3000; 
-		int contador = 0;	//Variável utilizada para poder mudar os textos no loop.
+		int contador = 0;	//Variável utilizada para poder mudar os textos no loop, no Ataque Cortante.
+		int contadorChamasNegras = 0; //Variável utilizada para poder mudar os textos no ataque de Chamas Negras.
+		int contadorSabedoriaDeOdin = 0; //Variável utilizada para poder mudar os textos no ataque de Sabedoria De Odin.
 		boolean vitoria = false;
 		Random ataqueForca = new Random(); // Força do ataque dado por uma aleatoriedade.
 		int dano = 0; //dano causado pelo ataque.
@@ -5088,7 +5090,7 @@ public class ATorreDeGnosis {
 					hpUsuario = hpUsuario - dano;
 					System.out.println();
 					Digita("Anton voa para o alto e com as duas mãos, começa a lançar centenas de esferas enérgicas em Asulf!\n", TimeUnit.MILLISECONDS, temp_dialog);
-					Digita("Asulf corre em zig-zag no prado floriado, escapando das esferas enérgicas!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Asulf corre em zig-zag no prado florido, escapando das esferas enérgicas!\n", TimeUnit.MILLISECONDS, temp_dialog);
 					Digita("Mas Anton teleporta-se para o franco de Asulf, transferindo um soco em sua costela! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
 				} else if (contador == 10) {
 					dano = 200;
@@ -5168,21 +5170,77 @@ public class ATorreDeGnosis {
 				break;	
 			case "2": //ataque das Chamas Negras
 				
-				valor = ataqueForca.nextInt(2);
+				System.out.println();
 				if (chamasNegras > 0) {
 					chamasNegras--;
-					if (valor == 0) {
-						hpAntonBossFight = hpAntonBossFight - 100;
-						Digita("CHAMAS NEGRAS! Dano 100", TimeUnit.MILLISECONDS, temp_dialog);
+					
+					if (contadorChamasNegras == 0) {
+						
+						dano = 200;
+						hpAntonBossFight = hpAntonBossFight - dano;
+						Digita("Cobrindo todo o seu corpo com a energias das Chamas! \n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Asulf lança em si mesmo as Chamas Negras!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Cobrindo todo o seu corpo com a energias das Chamas, ele avança em direção Anton! \n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("O impacto é tão grande que nem a áurea de luz branca de Anton é capaz de resistir! Dano " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
+						dano = 20;
+						hpUsuario = hpUsuario - dano;
+						System.out.println();
+						Digita("Anton, parecendo copiar Asulf, cobre-se inteiro de energia branca divina!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Anton avança em direção a Asulf!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("O impacto é tanto que a própria torre de Gnosis treme! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+					} else if (contadorChamasNegras == 2 ) {
+						dano = 200;
+						hpAntonBossFight = hpAntonBossFight - dano;
+						Digita("Asulf levanta as duas mãos para o alto, invocando dois monstros!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Dois Dragões Negros saem da magia de Asulf!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Os dois vão em direção a Anton, um atacando-o por cima, outro por baixo e Asulf pelo meio!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Os dois Dragões atingem Anton, causando uma explosão de Chamas Negras! Dano " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
+						dano = 25;
+						hpUsuario = hpUsuario - dano;
+						System.out.println();
+						Digita("Anton voa para o alto e com as duas mãos, invoca dois demônios!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Os demônios vão em direção a Asulf!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Asulf desvia do monstro!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Mas Anton teleporta-se acima de Asulf, transferindo uma cotovelada em suas costas! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+					} else if (contadorChamasNegras == 4) {
+						dano = 200;
+						hpAntonBossFight = hpAntonBossFight - dano;
+						Digita("Asulf, utilizando as Chamas Negras, voa em direção a Anton!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Jogando a energia no chão, assim pegando impulso!  \n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Asulf aproximando-se de Anton no céu, gira! \n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Lançando as Chamas Negras em aspiral em direção de Anton! \n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("UM FURACÃO DE CHAMAS!!!!!! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+						dano = 30;
+						hpUsuario = hpUsuario - dano;
+						System.out.println();
+						Digita("Anton é pego pelas chamas!!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Entretando, não recua após o golpe direto!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Ele gira em direção a Asulf, lançando-o um contra-golpe!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("UM ASPIRAL DIVINO!!!!!! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
 					} else {
-						hpAntonBossFight = hpAntonBossFight - 200;
-						Digita("CHAMAS NEGRAS! Dano CRÍTICO! 200", TimeUnit.MILLISECONDS, temp_dialog);
+						
+						valor = ataqueForca.nextInt(2);
+						
+						if (valor == 0) {
+							hpAntonBossFight = hpAntonBossFight - 100;
+							Digita("CHAMAS NEGRAS! Dano 100", TimeUnit.MILLISECONDS, temp_dialog);
+						} else {
+							hpAntonBossFight = hpAntonBossFight - 200;
+							Digita("CHAMAS NEGRAS! Dano CRÍTICO! 200", TimeUnit.MILLISECONDS, temp_dialog);
+						}
+						
+						System.out.println();
+						ataqueDeAntonDeus(hpAntonBossFight); //Ataque do Anton Deus
+						
 					}
+				
 				} else {
 					hpUsuario = hpUsuario - 5;
 					Digita("Ao tentar invocar as Chamas Negras sem energia, Asulf é atacado! Dano 5",
 							TimeUnit.MILLISECONDS, temp_dialog);
 				}
+				contadorChamasNegras++; //Aumenta o contador para ir trocando de falas no ataque de chamas negras.
+				
 				
 				break;
 			case "3": //Usando o elixir da vida
