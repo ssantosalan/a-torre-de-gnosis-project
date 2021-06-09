@@ -4159,6 +4159,7 @@ public class ATorreDeGnosis {
 		int dano = 0; //dano causado pelo ataque.
 		int valor; //Valor gerado pela 'aleatoriedade'.
 		
+		
 		do {
 			System.out.println("====================                ====================");
 			System.out.println("Asulf   STATUS                           Sigrun, a Rainha das Valquírias");
@@ -4187,15 +4188,18 @@ public class ATorreDeGnosis {
 			System.out.println();
 			System.out.print("Sua escolha: ");
 			String escolha = entrada.next(); //escolha da valquíria
-			System.out.println("Escolha seu ataque");
-			System.out.println("1 - Ataque Cortante \u2694\uFE0F      3 - Elixir da vida  \u2764\uFE0F");
-			System.out.println("2 - Chamas Negras \uD83D\uDD25        4 - Sabedoria de Odin \u26A1");
-			System.out.println("X - Voltar");
-			alternativa = entrada.next();
-
+		
+			
 			switch (escolha) {
 			case "1": //Atacando a valquiria01 SIGRUN
-		
+				
+				System.out.println("Escolha seu ataque");
+				System.out.println("1 - Ataque Cortante \u2694\uFE0F      3 - Elixir da vida  \u2764\uFE0F");
+				System.out.println("2 - Chamas Negras \uD83D\uDD25        4 - Sabedoria de Odin \u26A1");
+				System.out.println("X - Voltar");
+				alternativa = entrada.next();
+				
+				
 				switch (alternativa) {
 				case "1": //Ataque Cortante
 					
@@ -4545,10 +4549,20 @@ public class ATorreDeGnosis {
 						break;
 					}
 					Digita("Ao utilizar a Sabedoria de Odin, Asulf fica mais rápido que um raio. Nenhum inimigo o atingirá!\n", TimeUnit.MILLISECONDS, temp_dialog);
+					break;
+					
 				default:
+					//System.out.println("TESTE AZUL");
 				}
+				
 				break;
 			case "2": //Atacando a valquiria02 OLRUN
+				
+				System.out.println("Escolha seu ataque");
+				System.out.println("1 - Ataque Cortante \u2694\uFE0F      3 - Elixir da vida  \u2764\uFE0F");
+				System.out.println("2 - Chamas Negras \uD83D\uDD25        4 - Sabedoria de Odin \u26A1");
+				System.out.println("X - Voltar");
+				alternativa = entrada.next();
 				
 				switch (alternativa) {
 				case "1": //Ataque Cortante
@@ -4898,6 +4912,12 @@ public class ATorreDeGnosis {
 
 			case "3": //Atacando a valquiria03 EIR
 				
+				System.out.println("Escolha seu ataque");
+				System.out.println("1 - Ataque Cortante \u2694\uFE0F      3 - Elixir da vida  \u2764\uFE0F");
+				System.out.println("2 - Chamas Negras \uD83D\uDD25        4 - Sabedoria de Odin \u26A1");
+				System.out.println("X - Voltar");
+				alternativa = entrada.next();
+				
 				switch (alternativa) {
 				case "1": //Ataque Cortante
 					
@@ -5242,9 +5262,13 @@ public class ATorreDeGnosis {
 					Digita("Ao utilizar a Sabedoria de Odin, Asulf fica mais rápido que um raio. Nenhum inimigo o atingirá!\n", TimeUnit.MILLISECONDS, temp_dialog);
 				default:
 				}
+				
 				break;
 				
-			default:		
+			default:
+				System.out.println();
+				System.out.println("Escolha '1' para atacar Sigrun, '2' para atacar Olrun, ou '3' para atacar Eir.");
+				System.out.println();
 			}	
 		} while (vitoria == false);
 		vitoria = false;
