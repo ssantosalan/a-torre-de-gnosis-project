@@ -5358,7 +5358,6 @@ public class ATorreDeGnosis {
 
 		System.out.println();
 		
-		boolean alternativaVoltar = false; //criada para 'voltar' o menu.
 		alternativaCerta = false;
 		
 		do {
@@ -5374,6 +5373,7 @@ public class ATorreDeGnosis {
 				break;	
 			case "2": 
 				
+				boolean alternativaVoltar = false; //criada para 'voltar' o menu.
 				do {
 					descricaoDosAtaquesStatus(chamasNegrasStatus, elixirDaVidaStatus, sabedoriaDeOdinStatus);
 					System.out.println();
@@ -5774,7 +5774,6 @@ public class ATorreDeGnosis {
 			System.out.println("Escolha seu ataque");
 			System.out.println("1 - Ataque Cortante \u2694\uFE0F      3 - Elixir da vida  \u2764\uFE0F");
 			System.out.println("2 - Chamas Negras \uD83D\uDD25        4 - Sabedoria de Odin \u26A1");
-			System.out.println("X - Voltar");
 			
 			alternativa = entrada.next();
 
