@@ -693,7 +693,7 @@ public class ATorreDeGnosis {
 		Digita("	 \n", TimeUnit.MILLISECONDS, temp_dialog);
 		
 		boolean alternativaCerta = false;
-		boolean alternativaVoltar = false; //criada para 'voltar' o menu.
+		//boolean alternativaVoltar = false; //criada para 'voltar' o menu.
 		
 		do {
 			imprimirMenuStatus(chamasNegrasStatus, elixirDaVidaStatus, sabedoriaDeOdinStatus); //vai imprimir o Status contendo HP e Especiais
@@ -707,7 +707,7 @@ public class ATorreDeGnosis {
 				alternativaCerta = true;
 				break;	
 			case "2": 
-				
+				boolean alternativaVoltar = false; //criada para 'voltar' o menu.
 				do {
 					descricaoDosAtaquesStatus(chamasNegrasStatus, elixirDaVidaStatus, sabedoriaDeOdinStatus);
 					System.out.println();
@@ -991,7 +991,7 @@ public class ATorreDeGnosis {
 		Digita("querendo enfiar a lâmina no estômago no homem.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		
 		//Luta 05 Contra o Monge começa aqui
-		String hpMonstro05 = "?????";
+		int hpMonstro05 = 2000;
 		do {
 			
 			System.out.println();
@@ -1147,7 +1147,8 @@ public class ATorreDeGnosis {
 				if (contador == 0) {
 					Digita("	Asulf não espera que o homem se vire para enfrentá-lo frente a frente e corre \n", TimeUnit.MILLISECONDS, temp_dialog);
 					Digita("em direção ao padre, desferindo um golpe com sua nova espada. A lâmina atravessa\n", TimeUnit.MILLISECONDS, temp_dialog);
-					Digita("as roupas da criatura e atinge o homem de raspão, abrindo um corte em sua cintura! Dano ???\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("as roupas da criatura e atinge o homem de raspão, abrindo um corte em sua cintura! Dano 35\n", TimeUnit.MILLISECONDS, temp_dialog);
+					hpMonstro05 = hpMonstro05 - 35;
 					System.out.println();
 					Digita("	O corte abre, incendeia-se e cauteriza-se logo em seguida. Uma consequência\n", TimeUnit.MILLISECONDS, temp_dialog);
 					Digita("da mágica embutida na espada. Após o corte ela queima o ferimento, causando uma\n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -1214,14 +1215,19 @@ public class ATorreDeGnosis {
 					Digita("protegê-lo e a gravidade começa a puxar Asulf, o telhado se aproximando cada vez\n", TimeUnit.MILLISECONDS, temp_dialog);
 					Digita("mais.\n", TimeUnit.MILLISECONDS, temp_dialog);
 					System.out.println();
-					Digita("	CRACK\n", TimeUnit.MILLISECONDS, temp_dialog);
 					System.out.println();
-					Digita("	Dano 35\n", TimeUnit.MILLISECONDS, temp_dialog);
-					hpUsuario = hpUsuario - 35;
-					System.out.println("====================");
-					System.out.println("Asulf Status");
-					Digita(hpUsuario + " \uD83D\uDC99", TimeUnit.MILLISECONDS, temp_dialogSlow);
 					System.out.println();
+					System.out.println();
+					Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	CRACK!		Dano 35\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+					Digita("	\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
+					Digita("	\n", TimeUnit.MILLISECONDS, temp_dialogSlow); //Pausa dramática
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					
+					
 					
 				}
 				contador++;
@@ -1236,15 +1242,9 @@ public class ATorreDeGnosis {
 		
 		
 		//Quinta luta termina aqui - O Sacerdote 
-		System.out.println();
-		
-		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("	CRACK!\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
-		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialogSlow);
-		Digita("	\n", TimeUnit.MILLISECONDS, temp_dialogSlow); //Pausa dramática
+	
 			
-		boolean alternativaVoltar = false; //criada para 'voltar' o menu.
+		
 		
 		//Menu Descrição dos Ataques
 		do {
@@ -1260,6 +1260,8 @@ public class ATorreDeGnosis {
 				break;	
 			case "2": 
 				
+				boolean alternativaVoltar = false; //criada para 'voltar' o menu.
+				
 				do {
 					descricaoDosAtaquesStatus(chamasNegrasStatus, elixirDaVidaStatus, sabedoriaDeOdinStatus);
 					System.out.println();
@@ -1270,6 +1272,9 @@ public class ATorreDeGnosis {
 						alternativaVoltar = true; //utilizado para 'Voltar' o menu.
 						break;
 					default:
+						System.out.println();
+						System.out.println("Acredite em você!");
+						System.out.println();
 						break;
 					}
 				} while (alternativaVoltar == false);
@@ -1831,7 +1836,7 @@ public class ATorreDeGnosis {
 		
 		System.out.println();
 		
-		boolean alternativaVoltar = false; //criada para 'voltar' o menu.
+		
 		//Menu Descrição dos Ataques
 		do {
 			imprimirMenuStatus(chamasNegrasStatus, elixirDaVidaStatus, sabedoriaDeOdinStatus); //vai imprimir o Status contendo HP e Especiais
@@ -1845,6 +1850,8 @@ public class ATorreDeGnosis {
 				alternativaCerta = true;
 				break;	
 			case "2": 
+				
+				boolean alternativaVoltar = false; //criada para 'voltar' o menu.
 				
 				do {
 					descricaoDosAtaquesStatus(chamasNegrasStatus, elixirDaVidaStatus, sabedoriaDeOdinStatus);
@@ -1905,27 +1912,29 @@ public class ATorreDeGnosis {
 		Digita("Passando por uma floresta de folhas envoltas em chamas da cor vermelha, mas que não importava quanto tempo se passava, não extinguiam-se.\n",TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("Você encontra um rio —— mas não era um rio ordinário —— e sim um rio com água em chamas azuis, composto por peixes em chamas vermelhas nadando em sincronia.\n",TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("Você decide se ajoelhar à beiro do rio e pegar punhado em suas mãos dessa água em chamas. Ela não te queima.\n",TimeUnit.MILLISECONDS, temp_dialog);
-		System.out.println("Bebê-la?");
-		System.out.println("1 - Sim");
-		System.out.println("2 - Não");
-				
+						
 				
 		do {	
-				alternativa = entrada.next();
-				switch (alternativa) {
-				case "1": 
-					Digita("Você a toma em uma sequência de três goles. Essa água encheo-o de energia.\n",TimeUnit.MILLISECONDS, temp_dialog);
-					alternativaCerta = true;
-					break;
-				case "2":
-					Digita("Você está receoso com o ambiente desconhecido e prefere a precaução e observar mais a situação.\n",TimeUnit.MILLISECONDS, temp_dialog);
-					alternativaCerta = true;
-					break;
-				default:
-					Digita("Lembre-se: 1 ou 2.\n",TimeUnit.MILLISECONDS, temp_dialog);
-					break;
-				}
-				
+			
+			System.out.println();
+			System.out.println("Bebê-la?");
+			System.out.println("1 - Sim");
+			System.out.println("2 - Não");
+			alternativa = entrada.next();
+			switch (alternativa) {
+			case "1": 
+				Digita("Você a toma em uma sequência de três goles. Essa água encheo-o de energia.\n",TimeUnit.MILLISECONDS, temp_dialog);
+				alternativaCerta = true;
+				break;
+			case "2":
+				Digita("Você está receoso com o ambiente desconhecido e prefere a precaução e observar mais a situação.\n",TimeUnit.MILLISECONDS, temp_dialog);
+				alternativaCerta = true;
+				break;
+			default:
+				Digita("Lembre-se: 1 ou 2.\n",TimeUnit.MILLISECONDS, temp_dialog);
+				break;
+			}
+			
 				
 		} while (alternativaCerta != true);	
 		alternativaCerta = false;
@@ -1966,9 +1975,10 @@ public class ATorreDeGnosis {
 		Digita("Velho: Espere!\n",TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("Velho: Aqui... pegue esse livro, ele te ajudará a entender a linguagem dos Iluminados.\n",TimeUnit.MILLISECONDS, temp_dialog);
 		
-		System.out.println("1 - Pegar");
 		
 		do {
+			System.out.println();
+			System.out.println("1 - Pegar");
 			alternativa = entrada.next();
 			switch (alternativa) {
 			case "1":
@@ -1988,12 +1998,12 @@ public class ATorreDeGnosis {
 		Digita("Velho: Algumas pessoas ao se aprofundarem tanto nessa lógica, acabaram por verem tudo dessa maneira...\n",TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("Velho: Começaram a tratar, observar as pessoas como se elas não tivessem alma, fossem apenas um amontoado de uns (1) e zeros (0).\n",TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("Velho: Novamente... Tenha prudência.\n",TimeUnit.MILLISECONDS, temp_dialog);
-		
-		System.out.println("Pedir ajuda para entender a base do conceito da linguagem de Binários?");
-		System.out.println("1 - Sim");
-		System.out.println("2 - Não");
-		
+	
 		do {
+			System.out.println();
+			System.out.println("Pedir ajuda para entender a base do conceito da linguagem de Binários?");
+			System.out.println("1 - Sim");
+			System.out.println("2 - Não");
 			alternativa = entrada.next();
 			switch (alternativa) {
 			case "1":
@@ -2266,9 +2276,10 @@ public class ATorreDeGnosis {
 		
 		alternativaCerta = false;
 		contador = 0;	
-		
-		System.out.println("1 - Caminhar mantendo a sua respiração.");
+	
 		do {
+			System.out.println();
+			System.out.println("1 - Caminhar mantendo a sua respiração.");
 			alternativa = entrada.next();
 			switch (alternativa) {
 			case "1":
@@ -2286,8 +2297,8 @@ public class ATorreDeGnosis {
 		Digita("Você pensa: 'Até mesmo andar por aqui não é para os fracos de coração...'\n",TimeUnit.MILLISECONDS, temp_dialog);
 		
 		
-		System.out.println("1 - Eu consigo...");
 		do {
+			System.out.println("1 - Eu consigo...");
 			alternativa = entrada.next();
 			switch (alternativa) {
 			case "1":
@@ -2686,6 +2697,7 @@ public class ATorreDeGnosis {
 		Random aleatoriedade = new Random(); //Utilizado para escolha aleatória do 'Computador' no começo do jogo.
 		
 		do {
+					
 			int a = 0;  //vai ser o valor escolhido pelo 'computador', ou seja, 1 ou 2.
 			String opcao = entrada.next();
 			
@@ -2941,6 +2953,8 @@ public class ATorreDeGnosis {
 			default: 
 				System.out.println("Ainda não entendeu como funciona? Talvez você não esteja pronto para esse desafio...");
 				System.out.println("Mais uma vez: escolha 1 ou 2.");
+				System.out.println("1 - Sim");
+				System.out.println("2 - Não");
 				break;
 			}	
 
@@ -3945,6 +3959,7 @@ public class ATorreDeGnosis {
 				break;
 			default:
 				Digita("Lembre-se... Lembre-se do seu filho...	\n", TimeUnit.MILLISECONDS, temp_dialog);
+				System.out.println("1 - Entrar");
 				break;
 			}
 
@@ -4084,7 +4099,7 @@ public class ATorreDeGnosis {
 				alternativaCerta = true;
 				break;
 			default:
-				Digita("não pare!\n", TimeUnit.MILLISECONDS, temp_dialog);
+				Digita("Não pare!\n", TimeUnit.MILLISECONDS, temp_dialog);
 				break;
 			}
 
