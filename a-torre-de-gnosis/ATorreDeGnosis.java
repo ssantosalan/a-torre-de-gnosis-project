@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class ATorreDeGnosis {
 	static Scanner entrada = new Scanner(System.in); //variável global de entrada
 	static int hpUsuario = 100, chamasNegras = 10, elixirDaVida = 15, sabedoriaDeOdin = 5; //vida global do protagonista e habilidades
-	static int temp_dialog = 0, temp_questions = 0, temp_dialogSlow = 0, temp_dialogFast = 0, temp_dialogFaster = 0, ultra_Speed = 0,  temp_dotsSlow = 0, temp_dots = 0;
+	static int temp_dialog = 50, temp_questions = 0, temp_dialogSlow = 200, temp_dialogFast = 80, temp_dialogFaster = 30, ultra_Speed = 10,  temp_dotsSlow = 0, temp_dots = 0;
 	
 	//Para não ter delay no jogo, coloque 0 em todas as variáveis acima.
 	//Valor das variáveis caso vc queira zerar em cima e rodar sem delay, mas posteriormente colocando o valor certo:
@@ -5828,7 +5828,7 @@ public class ATorreDeGnosis {
 					System.out.println();
 					Digita("Anton voa para o alto e com as duas mãos, começa a lançar centenas de esferas enérgicas em Asulf!\n", TimeUnit.MILLISECONDS, temp_dialog);
 					Digita("Asulf corre em zig-zag no prado florido, escapando das esferas enérgicas!\n", TimeUnit.MILLISECONDS, temp_dialog);
-					Digita("Mas Anton teleporta-se para o franco de Asulf, transferindo um soco em sua costela! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Mas Anton teleporta-se para o flanco de Asulf, transferindo um soco em sua costela! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
 				} else if (contador == 10) {
 					dano = 200;
 					hpAntonBossFight = hpAntonBossFight - dano;
@@ -5918,18 +5918,18 @@ public class ATorreDeGnosis {
 						Digita("Cobrindo todo o seu corpo com a energias das Chamas! \n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Asulf lança em si mesmo as Chamas Negras!\n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Tendo as Chamas Negras como um manto quente, ele avança em direção Anton! \n", TimeUnit.MILLISECONDS, temp_dialog);
-						Digita("O impacto é tão grande que nem a áurea de luz branca de Anton é capaz de resistir! Dano " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("O impacto é tão grande que nem a áurea de luz branca de Anton é capaz de resistir à escuridão do guerreiro de Ereshkigal! Dano " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
 						dano = 20;
 						hpUsuario = hpUsuario - dano;
 						System.out.println();
 						Digita("Anton, parecendo copiar Asulf, cobre-se inteiro de energia branca divina!\n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Anton avança em direção a Asulf!\n", TimeUnit.MILLISECONDS, temp_dialog);
-						Digita("O impacto é tanto que a própria torre de Gnosis treme! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("O impacto é tanto que a própria realidade estremece! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
 					} else if (contadorChamasNegras == 2 ) {
 						dano = 200;
 						hpAntonBossFight = hpAntonBossFight - dano;
 						Digita("Asulf levanta as duas mãos para o alto, invocando dois monstros!\n", TimeUnit.MILLISECONDS, temp_dialog);
-						Digita("Dois Dragões Negros saem da magia de Asulf!!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Dois Dragões de Chamas Negras saem da magia de Asulf!!\n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Os dois vão em direção a Anton, um atacando-o por cima, outro por baixo e Asulf pelo meio!\n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Os dois Dragões atingem Anton, causando uma explosão de Chamas Negras! Dano " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
 						dano = 25;
@@ -5937,8 +5937,11 @@ public class ATorreDeGnosis {
 						System.out.println();
 						Digita("Anton voa para o alto e com as duas mãos, invoca dois demônios!\n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Os demônios vão em direção a Asulf!\n", TimeUnit.MILLISECONDS, temp_dialog);
-						Digita("Asulf desvia do monstro!\n", TimeUnit.MILLISECONDS, temp_dialog);
-						Digita("Mas Anton teleporta-se acima de Asulf, transferindo uma cotovelada em suas costas! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Asulf desvia do primeiro monstro e crava sua espada no crânio do segundo!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("O primeiro demônio vira-se em sua direção para atacá-lo!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Mas com um estelar de dedos, o guerreiro lança suas Chamas Negras no monstro!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Que uiva de dor enquanto sua pele derrete!\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("Anton teleporta-se acima de Asulf, transferindo uma cotovelada em suas costas! Dano " + dano + "\n", TimeUnit.MILLISECONDS, temp_dialog);
 					} else if (contadorChamasNegras == 4) {
 						dano = 200;
 						hpAntonBossFight = hpAntonBossFight - dano;
@@ -6061,7 +6064,7 @@ public class ATorreDeGnosis {
 						Digita("Socando-o para os céus!!\n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Ainda voando com a potência do golpe, Asulf aparece acima de Anton!\n", TimeUnit.MILLISECONDS, temp_dialog);
 						Digita("Com sua espada apontada aos céus, Asulf materializa um raio!!\n", TimeUnit.MILLISECONDS, temp_dialog);
-						Digita("O raio atinge Anton em cheio, fazendo um estrondo que podia-se ouvir por toda A Torre de Gnosis! Dano " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
+						Digita("O raio atinge Anton em cheio, fazendo um estrondo que podia ser ouvido por todos os mundos! Dano " + dano +"\n", TimeUnit.MILLISECONDS, temp_dialog);
 						dano = 6;
 						hpUsuario = hpUsuario - dano;
 						System.out.println();
@@ -6215,16 +6218,16 @@ public class ATorreDeGnosis {
 				} else if (contadorW == 2) {
 					
 					Digita("	Chegando cada vez mais perto, o menino se encontra paralisado com o avanço de\n", TimeUnit.MILLISECONDS, temp_dialog);
-					Digita("seu pai, que resiste ao poder dos seres ancestrais, ele só consegue mandar rajadas mais\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("seu pai, que resiste ao poder do próprio Senhor da Criação, ele só consegue mandar rajadas mais\n", TimeUnit.MILLISECONDS, temp_dialog);
 					Digita("fortes.\n", TimeUnit.MILLISECONDS, temp_dialog);
 					System.out.println();
 					contadorW++;
 					
 				} else if (contadorW == 3) {
 					
-					Digita("	Sua mão começa a derreter em contato com o poder de seu filho, Asulf se aproxima\n", TimeUnit.MILLISECONDS, temp_dialog);
-					Digita("cada vez mais e, quando está a meio metro do jovem, pula em sua direção e afasta sua\n", TimeUnit.MILLISECONDS, temp_dialog);
-					Digita("mão direita, que liberava a rajada.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("	Sua mão começa a derreter em contato com o poder de seu filho, deixando os ossos aparentes.\n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("Asulf se aproxima cada vez mais e, quando está a meio metro do jovem, pula em sua direção e \n", TimeUnit.MILLISECONDS, temp_dialog);
+					Digita("afasta sua mão direita, que liberava a rajada.\n", TimeUnit.MILLISECONDS, temp_dialog);
 					System.out.println();
 					Digita("	— VELHO MALDITO, morre logo! — Anton berra, e com sua esquerda, acerta um\n", TimeUnit.MILLISECONDS, temp_dialog);
 					Digita("golpe em cheio no peito de seu pai.\n", TimeUnit.MILLISECONDS, temp_dialog);
@@ -6277,17 +6280,16 @@ public class ATorreDeGnosis {
 		Digita("	— O mundo não é justo, Anton, eu vi tanta morte, tanto sangue... agora você tem \n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("esse poder — Asulf cospe mais sangue — use-o... use-o, Anton, para tornar esse mundo\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("um lugar um pouquinho melhor.\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("	— Eu prometo, pai! Eu prometo! — Anton tenta enxugar as lágrimas do próprio\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Eu prometo! Eu prometo! — Anton tenta enxugar as lágrimas do próprio\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("rosto, mas novas sempre entram em seu lugar — por favor, continue comigo!\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("	— Sem você e sem a mamãe... eu não sei o que eu vou fazer!\n", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println();
 		Digita("	Quando a morte se aproxima, aquilo que é verdadeiramente importante fica claro.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("Asulf não sente mais seu corpo, o frio toma conta de seus sentidos e sua mente está\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("enevoada. Ele tenta se focar no que é mais importante, seu filho, que finalmente está com\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("você de novo, mas Ereshkigal chama por sua alma.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println();
-		Digita("	— Você tem tanto potencial, filho...\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("	— Pai, por favor, eu posso curá-lo!\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Você tem tanto potencial...\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Digita("	— Por favor... eu posso curá-lo!\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	— Desculpa, Anton, eu preciso ir... eu acho que consigo ouvir ela, Anton... sua\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("mãe…\n", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println();
@@ -6305,7 +6307,6 @@ public class ATorreDeGnosis {
 		Digita("	Asulf coloca as mãos no rosto de Anton.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println();
 		Digita("	— Tudo bem, filho…\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Digita("	— Sua mãe e eu vamos estar sempre com você…\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("	Um fraco sorriso se abre no rosto de Asulf. O primeiro sorriso que ele esboça em\n", TimeUnit.MILLISECONDS, temp_dialog);
 		Digita("anos, talvez o sorriso mais feliz da sua vida.\n", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println();
