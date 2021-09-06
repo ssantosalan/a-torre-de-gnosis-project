@@ -37,7 +37,7 @@ https://user-images.githubusercontent.com/79291946/132235572-640f8d6b-94cb-47aa-
 
 </div>
 
-##
+## Status e Habilidades
 
 <div> 
 
@@ -45,7 +45,7 @@ https://user-images.githubusercontent.com/79291946/132235940-80eb01ab-a08b-4028-
 
 </div>
 
-##
+## Anjos Caídos: Luta contra as Valquirías
 
 <div>
 
@@ -53,7 +53,7 @@ https://user-images.githubusercontent.com/79291946/132237293-2f325051-787e-4f3f-
 
 </div>
 
-##
+## O Monge, o Deus e o Santo
 
 <div>  
 
