@@ -36,3 +36,9 @@ Observando isso, criamos um jogo que entretenha o estudante e, ao mesmo tempo, f
 https://user-images.githubusercontent.com/79291946/132235572-640f8d6b-94cb-47aa-ae46-5791315b4e5f.mp4
 
 </div>
+
+<div> 
+
+https://user-images.githubusercontent.com/79291946/132235940-80eb01ab-a08b-4028-9594-d3845ccf1460.mp4
+
+</div>
