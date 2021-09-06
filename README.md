@@ -29,6 +29,14 @@ Observando isso, criamos um jogo que entretenha o estudante e, ao mesmo tempo, f
 
 </p>
 
+## Capitulos
+
+<div>
+
+https://user-images.githubusercontent.com/79291946/132240308-0bec8e5f-b24b-4720-8b0a-f231532b4e33.mp4
+
+</div>
+
 ## Portões de Fogo
 
 <div>
